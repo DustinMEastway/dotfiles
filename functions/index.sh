@@ -3,16 +3,21 @@
 # Loads all scripts in this directory
 
 function loadFunctions() {
-	# list of files to load
-	local sourceFiles=(logging.sh)
 	local fileName="index.sh"
-	# length is the path length minus the file name length
-	local pathLength=$(( ${#BASH_SOURCE} - ${#fileName} - 1 ))
-	local basePath="$(pwd -P)/${BASH_SOURCE:0:$pathLength}"
+	# script path length is the path length minus the file name length
+	local scriptPathLength=$(( ${#BASH_SOURCE} - ${#fileName} - 1 ))
+	local scriptPath="$(pwd -P)/${BASH_SOURCE:0:$scriptPathLength}"
 
-	for sourceFile in ${sourceFiles[*]}
+	# list files in this directory
+	for sourceFile in $(ls $scriptPath)
 	do
-		source "$basePath/$sourceFile"
+		local sourcePath="$scriptPath/$sourceFile"
+
+		# load paths that are a file, but not this file
+		if [ -f $sourcePath ] && [ $sourceFile != $fileName ]
+		then
+			source $sourcePath
+		fi
 	done
 }
 
