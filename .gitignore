@@ -1,0 +1,2 @@
+# the example gitconfig gets checked in, this one gets linked
+git/gitconfig.symlink
