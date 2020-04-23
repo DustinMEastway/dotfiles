@@ -21,7 +21,7 @@ sourceRelative variable-access.sh
 # Creates a link from a source to a destination so the same file can be accessed in multiple places
 # $1 source path
 # $2 destination path
-# $3 name of the global variable to get/set conflict resolution mode (optional)
+# $3 conflict resolution mode (set by variable name, not value; optional)
 #	Valid modes:
 #		"backup" - rename the destination, then create the link
 #		"overwrite" - remove the destination, then create the link
@@ -31,18 +31,17 @@ function linkFile() {
 	local destination=$2
 	# check if a value was provided for conflictMode
 	local conflictMode=$(getValue $3)
-
-	local backup="false" && [[ "$conflictMode" == "backup" ]] && backup="true"
-	local overwrite="false" && [[ "$conflictMode" == "overwrite" ]] && overwrite="true"
-	local skip="false" && [[ "$conflictMode" == "skip" ]] && skip="true"
-
-	echo "destination: $destination"
-	echo "source: $source"
+	local backup= overwrite= skip=
 
 	# check if destination already exists
 	if [ -f "$destination" -o -d "$destination" -o -L "$destination" ]
 	then
-		# check if a conflict mode was set to handle conflicts
+		# set local variables to defaults based on conflictMode
+		backup="false" && [[ "$conflictMode" == "backup" ]] && backup="true"
+		overwrite="false" && [[ "$conflictMode" == "overwrite" ]] && overwrite="true"
+		skip="false" && [[ "$conflictMode" == "skip" ]] && skip="true"
+
+		# make sure that a conflict resolution option is set
 		while [[ "$backup" == "false" && "$overwrite" == "false" && "$skip" == "false" ]]
 		do
 			local currentSrc="$(readlink $destination)"
@@ -50,7 +49,6 @@ function linkFile() {
 			# check if the destination already points to source
 			if [ "$currentSrc" == "$source" ]
 			then
-				echo "destination matches source"
 				skip=true;
 			else
 				# ask the user how to handle the link since the destination exists
@@ -86,21 +84,21 @@ function linkFile() {
 		if [ "$backup" == "true" ]
 		then
 			mv "$destination" "${destination}.backup"
-			logSuccess "moved $destination to ${destination}.backup"
+			logSuccess "moved '$destination' to '${destination}.backup'"
 		elif [ "$overwrite" == "true" ]
 		then
 			rm -rf "$destination"
-			logSuccess "removed $destination"
+			logSuccess "removed '$destination'"
 		elif [ "$skip" == "true" ]
 		then
-			logSuccess "skipped $src"
+			logSuccess "skipped linking '$source' to '$destination'"
 		fi
 	fi
 
 	# link destination to source if skip is not set
 	if [ "$skip" != "true" ]
 	then
-		ln -s "$1" "$2"
-		logSuccess "linked $1 to $2"
+		ln -s "$source" "$destination"
+		logSuccess "linked '$source' to '$destination'"
 	fi
 }
