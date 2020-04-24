@@ -2,14 +2,10 @@
 
 # used to source files relative to the current path
 function sourceRelative() {
-	local fileName="link-file.sh"
-	# script path length is the path length minus the file name length
-	local scriptPathLength=$(( ${#BASH_SOURCE} - ${#fileName} - 1 ))
-	local scriptPath="$(pwd -P)/${BASH_SOURCE:0:$scriptPathLength}"
-	local sourcePath="$scriptPath/$1"
+	local sourcePath="$(dirname "$BASH_SOURCE")/$1"
 
-	# load paths that are a file, but not this file
-	if [ -f $sourcePath ] && [ $sourceFile != $fileName ]
+	# load path if it is a file, but not this file
+	if [ -f "$sourcePath" ] && ! [ "$sourcePath" -ef "$BASH_SOURCE" ]
 	then
 		source $sourcePath
 	fi
