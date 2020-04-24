@@ -80,14 +80,14 @@ function linkFile() {
 		if [ "$backup" == "true" ]
 		then
 			mv "$destination" "${destination}.backup"
-			logSuccess "moved '$destination' to '${destination}.backup'"
+			logSuccess "Moved '$destination' to '${destination}.backup'"
 		elif [ "$overwrite" == "true" ]
 		then
 			rm -rf "$destination"
-			logSuccess "removed '$destination'"
+			logSuccess "Removed '$destination'"
 		elif [ "$skip" == "true" ]
 		then
-			logSuccess "skipped linking '$source' to '$destination'"
+			logSuccess "Skipped linking '$source' to '$destination'"
 		fi
 	fi
 
@@ -95,6 +95,6 @@ function linkFile() {
 	if [ "$skip" != "true" ]
 	then
 		ln -s "$source" "$destination"
-		logSuccess "linked '$source' to '$destination'"
+		logSuccess "Linked '$source' to '$destination'"
 	fi
 }
