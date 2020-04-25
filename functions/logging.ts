@@ -46,6 +46,23 @@ export const logStyles = {
 	lightBackgroundWhite: '\x1b[107m'
 };
 
+export function input(message?: string): Promise<string> {
+	if (message) {
+		logQuestion(message);
+	}
+
+	const stdin = process.stdin;
+	stdin.resume();
+	return new Promise(resolve => {
+		const dataListener = data => {
+			resolve(data.toString().trim());
+			stdin.pause();
+		};
+
+		stdin.once('data', dataListener);
+	});
+}
+
 export function logFail(message: string) {
 	logMessage(message, 'FAIL', `${logStyles.darkTextRed}${logStyles.blink}`);
 	process.exit(1);
