@@ -1,0 +1,24 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "Files used to set a system up with my preferred applications and configuration",
+  "scripts": {
+    "bootstrap": "ts-node ./scripts/bootstrap.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DustinMEastway/dotfiles.git"
+  },
+  "keywords": [
+    "dotfiles"
+  ],
+  "author": "Dustin M. Eastway",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DustinMEastway/dotfiles/issues"
+  },
+  "homepage": "https://github.com/DustinMEastway/dotfiles",
+  "devDependencies": {
+    "@types/node": "^13.13.2"
+  }
+}

@@ -16,11 +16,26 @@ function sourceRelative() {
 	fi
 }
 
-# install Node.js
+sourceRelative ../functions/index.sh
 sourceRelative ../node/install.sh
 
-# install ts-node & typescript
-npm i -g ts-node typescript
+# Install ts-node if it does not exist
+if [ ! $(which ts-node) ]
+then
+	logInfo "Installing ts-node"
 
-# cd into the scripts directory
-ts-node "$(dirname "$BASH_SOURCE")/bootstrap.ts"
+	# perform the install of [ts-node](https://github.com/TypeStrong/ts-node)
+	npm i -g ts-node typescript
+
+	logSuccess "ts-node installation complete"
+else
+	logSuccess "Skipped ts-node installation"
+fi
+
+# cd into the dotfiles directory
+cd "$(dirname "$BASH_SOURCE")/.."
+
+# let node take it from here
+logInfo "Running Node.js bootstraper"
+npm run bootstrap
+logSuccess "Node.js bootstraper complete"

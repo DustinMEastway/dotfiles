@@ -3,19 +3,19 @@
 # Logging functions to display messages to the user
 
 function logFail() {
-	printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+	printf "\r  [\033[31m\033[05mFAIL\033[00m] $1\n"
 	echo ''
 	exit
 }
 
 function logInfo() {
-	printf "\r  [ \033[00;34m..\033[0m ] $1\n"
+	printf "\r  [ \033[34m..\033[00m ] $1\n"
 }
 
 function logQuestion() {
-	printf "\r  [ \033[0;33m??\033[0m ] $1\n"
+	printf "\r  [ \033[33m??\033[00m ] $1\n"
 }
 
 function logSuccess() {
-	printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+	printf "\r  [ \033[32mOK\033[00m ] $1\n"
 }

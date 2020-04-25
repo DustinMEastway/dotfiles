@@ -1,2 +1,5 @@
-# the example gitconfig gets checked in, this one gets linked
+# the teplate gitconfig gets checked in, this one gets linked
 git/gitconfig.symlink
+
+# npm dependencies
+node_modules/

@@ -8,9 +8,9 @@ function loadSources() {
 	# list files in this directory
 	for sourceFile in $(ls "$scriptDirectory")
 	do
-		# load paths that are a file, but not this file
+		# load paths that are bash files, but not this file
 		sourceFile="$scriptDirectory/$sourceFile"
-		if [ -f "$sourceFile" ] && ! [ "$sourceFile" -ef "$BASH_SOURCE" ]
+		if [[ "$sourceFile" == *.sh ]] && [ -f "$sourceFile" ] && ! [ "$sourceFile" -ef "$BASH_SOURCE" ]
 		then
 			source $sourceFile
 		fi
