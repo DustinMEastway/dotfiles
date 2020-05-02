@@ -32,48 +32,48 @@ function linkFile() {
 	# check if destination already exists
 	if [ -f "$destination" -o -d "$destination" -o -L "$destination" ]
 	then
-		# set local variables to defaults based on conflictMode
-		backup="false" && [[ "$conflictMode" == "backup" ]] && backup="true"
-		overwrite="false" && [[ "$conflictMode" == "overwrite" ]] && overwrite="true"
-		skip="false" && [[ "$conflictMode" == "skip" ]] && skip="true"
+		local currentSrc="$(readlink $destination)"
+
+		# check if the destination already points to source
+		if [ "$currentSrc" == "$source" ]
+		then
+			skip=true;
+		else
+			# set local variables to defaults based on conflictMode
+			backup="false" && [[ "$conflictMode" == "backup" ]] && backup="true"
+			overwrite="false" && [[ "$conflictMode" == "overwrite" ]] && overwrite="true"
+			skip="false" && [[ "$conflictMode" == "skip" ]] && skip="true"
+		fi
 
 		# make sure that a conflict resolution option is set
 		while [[ "$backup" == "false" && "$overwrite" == "false" && "$skip" == "false" ]]
 		do
-			local currentSrc="$(readlink $destination)"
+			# ask the user how to handle the link since the destination exists
+			logQuestion "File already exists: $destination ($(basename "$source")), what do you want to do?\n\
+				[s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
 
-			# check if the destination already points to source
-			if [ "$currentSrc" == "$source" ]
-			then
-				skip=true;
-			else
-				# ask the user how to handle the link since the destination exists
-				logQuestion "File already exists: $destination ($(basename "$source")), what do you want to do?\n\
-					[s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-
-				local action=
-				read -n 1 action
-				echo ""
-				case "$action" in
-					B )
-						backup=true
-						setValue $3 "backup";;
-					b )
-						backup=true;;
-					O )
-						overwrite=true
-						setValue $3 "overwrite";;
-					o )
-						overwrite=true;;
-					S )
-						skip=true
-						setValue $3 "skip";;
-					s )
-						skip=true;;
-					* )
-						;;
-				esac
-			fi
+			local action=
+			read -n 1 action
+			echo ""
+			case "$action" in
+				B )
+					backup=true
+					setValue $3 "backup";;
+				b )
+					backup=true;;
+				O )
+					overwrite=true
+					setValue $3 "overwrite";;
+				o )
+					overwrite=true;;
+				S )
+					skip=true
+					setValue $3 "skip";;
+				s )
+					skip=true;;
+				* )
+					;;
+			esac
 		done
 
 		# perform action due to destination existing
