@@ -14,7 +14,7 @@ function sourceRelative() {
 sourceRelative logging.sh
 sourceRelative variable-access.sh
 
-# Creates a link from a source to a destination so the same file can be accessed in multiple places
+# Create a symlink from the source path to the destination path (works for files and directories)
 # $1 source path
 # $2 destination path
 # $3 conflict resolution mode (set by variable name, not value; optional)
