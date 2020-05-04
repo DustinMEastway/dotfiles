@@ -1,5 +1,20 @@
-/** a promise or direct value of type T */
-export type PromiseOrValue<T> = T | Promise<T>;
+import { PromiseOrValue } from './types';
+
+/** filter that awaits items prior to calling lambda and awaits async lambdas */
+export function asyncFilter<T>(
+	items: T[],
+	lambda: (item: T, index: number) => PromiseOrValue<boolean>
+): Promise<T[]> {
+	const aggrigator = async (items: T[], item: T, index: number) => {
+		if (await lambda(item, index)) {
+			items.push(item);
+		}
+
+		return items;
+	};
+
+	return asyncReduce(items, aggrigator, [] as T[]);
+}
 
 /** forEach that awaits items prior to calling lambda and awaits async lambdas */
 export function asyncForEach<T>(
@@ -57,7 +72,7 @@ async function asyncReduceInner<T, R>(
 	items = items || [];
 
 	for (let i = 0; i < items.length; ++i) {
-		const item = await items[i];
+		const item = items[i];
 
 		if (!initialValueProvided && i === 0) {
 			initialValue = item as any;

@@ -8,6 +8,7 @@ import {
 	realpath as fsRealpath,
 	rename as fsRename,
 	rmdir,
+	readdir as fsReaddir,
 	symlink as fsSymlink,
 	unlink,
 	PathLike,
@@ -15,6 +16,9 @@ import {
 } from 'fs';
 import { homedir } from 'os';
 import { resolve } from 'path';
+
+import { asyncFilter, asyncForEach, asyncMap } from './array';
+import { PromiseOrValue } from './types';
 
 /** converts the provided path into an absolute path (start with '~' to access the home directory) */
 export function absolutePath(path: string): string {
@@ -30,7 +34,7 @@ export function absolutePath(path: string): string {
 
 /**
  * tests a user's permissions for the file specified by path (fails if path does not exist @see canAccess returns false instead)
- * @param path to a file or directory
+ * @param path to a directory or file
  */
 export function access(path: PathLike, mode: number): Promise<void> {
 	return new Promise((resolve, reject) => {
@@ -46,7 +50,7 @@ export function access(path: PathLike, mode: number): Promise<void> {
 
 /**
  * tests if the file specified by path exists and can be accessed
- * @param path to a file or directory
+ * @param path to a directory or file
  * @param mode to check for (e.g. read, write, execute) (default: @see constants R_OK)
  */
 export async function canAccess(path: PathLike, mode: number = constants.R_OK): Promise<boolean> {
@@ -78,7 +82,7 @@ export function exec(command: string): Promise<string> {
 
 /**
  * tests if the file specified by path exists
- * @param path to a file or directory
+ * @param path to a directory or file
  */
 export function exists(path: PathLike): Promise<any> {
 	return new Promise(resolve => {
@@ -86,9 +90,85 @@ export function exists(path: PathLike): Promise<any> {
 	});
 }
 
+/** configuration to change the behavior of @see searchDirectory */
+export interface SearchDirectoryConfig {
+	/** @property directoryFilter to determine which directories to get items from */
+	directoryFilter?: DirectoryItemFilter;
+	/** @property filter to determine which directory items to keep (directories & files) */
+	itemFilter?: DirectoryItemFilter;
+}
+
+/** can be used to filter out a directory item */
+export type DirectoryItemFilter = RegExp | ((item: DirectoryItem) => PromiseOrValue<boolean>);
+
+/** information describing an item (directory or file) in a directory */
+export interface DirectoryItem {
+	directoryPath: string;
+	path: string;
+	stats: Stats;
+}
+
+/** search a directory for items it contains */
+export async function searchDirectory(directoryPath: string, config?: SearchDirectoryConfig): Promise<DirectoryItem[]> {
+	if (!(await isDirectory(directoryPath))) {
+		// return if no directory is found
+		return [];
+	}
+
+	const { itemFilter, directoryFilter } = config || {};
+	const filterItem = async (item: DirectoryItem, filter: DirectoryItemFilter) => {
+		return (typeof filter === 'function') ? await filter(item) : filter == null || filter.test(item.path);
+	};
+
+	// create items for everything in the directory
+	let directoryItems: DirectoryItem[] = await asyncMap(await readdir(directoryPath), async itemPath => {
+		const path = `${directoryPath}/${itemPath}`.replace(/\/+/g, '/');
+
+		return { directoryPath, path, stats: await lstat(path) };
+	});
+
+	// filter out items that are not wanted
+	const filteredItems = await asyncFilter(directoryItems, async item => await filterItem(item, itemFilter));
+
+	// get sub directory items (which are already filtered)
+	let subItems: DirectoryItem[] = [];
+	await asyncForEach(directoryItems, async item => {
+		const { path, stats } = item;
+		if (stats.isDirectory() && (await filterItem(item, directoryFilter))) {
+			subItems = subItems.concat(await searchDirectory(path, config));
+		}
+	});
+
+	return filteredItems.concat(subItems);
+}
+
 /**
- * tests if the file specified by path can be accessed and is a file opposed to a directory
- * @param path to a file or directory
+ * read a directory to get the names of all the items within
+ * @param path to a directory to read (if a URL is provided, it must use the `file:` protocol)
+ */
+export function readdir(path: PathLike): Promise<string[]> {
+	return new Promise((resolve, reject) => {
+		fsReaddir(path, (error, files) => {
+			if (error) {
+				reject(error);
+			} else {
+				resolve(files);
+			}
+		});
+	});
+}
+
+/**
+ * tests if the specified path can be accessed and is a directory opposed to a file
+ * @param path to a directory or file
+ */
+export async function isDirectory(path: PathLike): Promise<boolean> {
+	return (await canAccess(path)) && (await lstat(path)).isDirectory();
+}
+
+/**
+ * tests if the specified path can be accessed and is a file opposed to a directory
+ * @param path to a directory or file
  */
 export async function isFile(path: PathLike): Promise<boolean> {
 	return (await canAccess(path)) && (await lstat(path)).isFile();
@@ -156,7 +236,7 @@ export function realpath(path: PathLike): Promise<string> {
 }
 
 /**
- * change the name or location of a file or directory
+ * change the name or location of a directory or file
  * @param source path to the file that should be renamed (if a URL is provided, it must use the `file:` protocol)
  * @param destination path where the source should be moved to (if a URL is provided, it must use the `file:` protocol)
  *
