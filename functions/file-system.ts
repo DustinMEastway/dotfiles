@@ -5,10 +5,11 @@ import {
 	exists as fsExists,
 	link as fsLink,
 	lstat as fsLstat,
+	readFile as fsReadFile,
 	realpath as fsRealpath,
 	rename as fsRename,
-	rmdir,
-	readdir as fsReaddir,
+	rmdir as rmDirectory,
+	readdir as fsReadDirectory,
 	symlink as fsSymlink,
 	unlink,
 	PathLike,
@@ -121,7 +122,7 @@ export async function searchDirectory(directoryPath: string, config?: SearchDire
 	};
 
 	// create items for everything in the directory
-	let directoryItems: DirectoryItem[] = await asyncMap(await readdir(directoryPath), async itemPath => {
+	let directoryItems: DirectoryItem[] = await asyncMap(await readDirectory(directoryPath), async itemPath => {
 		const path = `${directoryPath}/${itemPath}`.replace(/\/+/g, '/');
 
 		return { directoryPath, path, stats: await lstat(path) };
@@ -146,9 +147,9 @@ export async function searchDirectory(directoryPath: string, config?: SearchDire
  * read a directory to get the names of all the items within
  * @param path to a directory to read (if a URL is provided, it must use the `file:` protocol)
  */
-export function readdir(path: PathLike): Promise<string[]> {
+export function readDirectory(path: PathLike): Promise<string[]> {
 	return new Promise((resolve, reject) => {
-		fsReaddir(path, (error, files) => {
+		fsReadDirectory(path, (error, files) => {
 			if (error) {
 				reject(error);
 			} else {
@@ -218,6 +219,26 @@ export function lstat(path: PathLike): Promise<Stats> {
 }
 
 /**
+ * reads the entire contents of a file
+ * @param path to a file to read (if a URL is provided, it must use the `file:` protocol)
+ *
+ * @notes
+ * - URL support is experimental for the path argument
+ * - If a file descriptor is provided, the underlying file will not be closed automatically
+ */
+export function readFile(path: PathLike): Promise<string> {
+	return new Promise((resolve, reject) => {
+		fsReadFile(path, 'utf8', (error, data) => {
+			if (error) {
+				reject(error);
+			} else {
+				resolve(data);
+			}
+		});
+	});
+}
+
+/**
  * return the canonicalized absolute pathname
  * @param path to a file (if a URL is provided, it must use the `file:` protocol)
  */
@@ -272,7 +293,7 @@ export async function remove(path: PathLike): Promise<void> {
 				}
 			});
 		} else {
-			rmdir(path, error => {
+			rmDirectory(path, error => {
 				if (error) {
 					reject(error);
 				} else {

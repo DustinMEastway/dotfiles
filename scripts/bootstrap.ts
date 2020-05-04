@@ -1,5 +1,17 @@
-import { exec, input, isFile, isMacOs, logInfo, logSuccess } from '../functions/index';
+import {
+	asyncForEach,
+	exec,
+	input,
+	isFile,
+	isMacOs,
+	linkFiles,
+	logInfo,
+	logSuccess,
+	readFile,
+	searchDirectory
+} from '../functions/index';
 
+/** ask for git author information to fill out the gitconfig file */
 async function setupGitconfig(): Promise<void> {
 	const gitconfigPath = 'git/gitconfig.symlink';
 	const gitconfigTemplatePath = 'git/gitconfig.symlink.template';
@@ -26,4 +38,22 @@ async function setupGitconfig(): Promise<void> {
 	}
 }
 
-setupGitconfig();
+/** set up symlinks specified by the symlink.json files in this directory */
+async function setupSymlinks(): Promise<void> {
+	const symlinkConfigs = await searchDirectory(
+		'.',
+		{ directoryFilter: /^(?!.*\/\.git$)/, itemFilter: /^.*\/symlink\.json$/ }
+	);
+
+	await asyncForEach(symlinkConfigs, async ({ directoryPath, path }) => {
+		const symlinkConfigs = JSON.parse(await readFile(path)) as { file: string; link: string; }[];
+		linkFiles(symlinkConfigs.map(({ file, link }) => ({ destination: link, source: `${directoryPath}/${file}` })));
+	});
+}
+
+async function main(): Promise<void> {
+	await setupGitconfig();
+	await setupSymlinks();
+}
+
+main();
