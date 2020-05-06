@@ -21,7 +21,12 @@ import { resolve } from 'path';
 import { asyncFilter, asyncForEach, asyncMap } from './array';
 import { PromiseOrValue } from './types';
 
-/** converts the provided path into an absolute path (start with '~' to access the home directory) */
+/**
+ * converts the provided path into an absolute path (start with '~' to access the home directory)
+ *
+ * @notes
+ * - use @see realpath if you need to resolve symlinks
+ */
 export function absolutePath(path: string): string {
 	path = path.trim();
 
@@ -93,7 +98,7 @@ export function exists(path: PathLike): Promise<any> {
 
 /** configuration to change the behavior of @see searchDirectory */
 export interface SearchDirectoryConfig {
-	/** @property directoryFilter to determine which directories to get items from */
+	/** @property directoryFilter to determine which sub-directories to get items from */
 	directoryFilter?: DirectoryItemFilter;
 	/** @property filter to determine which directory items to keep (directories & files) */
 	itemFilter?: DirectoryItemFilter;
@@ -239,8 +244,12 @@ export function readFile(path: PathLike): Promise<string> {
 }
 
 /**
- * return the canonicalized absolute pathname
+ * return the canonicalized absolute pathname (resolves symlinks)
  * @param path to a file (if a URL is provided, it must use the `file:` protocol)
+ *
+ * @notes
+ * - Start with '~' in a string path to access the home directory
+ * - Use @see absolutePath if you do not want symlinks resolved
  */
 export function realpath(path: PathLike): Promise<string> {
 	return new Promise((resolve, reject) => {

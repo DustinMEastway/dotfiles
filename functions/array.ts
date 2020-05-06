@@ -1,6 +1,6 @@
 import { PromiseOrValue } from './types';
 
-/** filter that awaits items prior to calling lambda and awaits async lambdas */
+/** filter that awaits async lambdas for async filtering */
 export function asyncFilter<T>(
 	items: T[],
 	lambda: (item: T, index: number) => PromiseOrValue<boolean>
@@ -16,7 +16,7 @@ export function asyncFilter<T>(
 	return asyncReduce(items, aggrigator, [] as T[]);
 }
 
-/** forEach that awaits items prior to calling lambda and awaits async lambdas */
+/** forEach that awaits async lambdas */
 export function asyncForEach<T>(
 	items: T[],
 	lambda: (item: T, index: number) => void
@@ -30,7 +30,7 @@ export function asyncForEach<T>(
 	return asyncReduce(items, aggrigator, [] as T[]);
 }
 
-/** map that awaits items prior to calling lambda and awaits async lambdas */
+/** map that awaits async lambdas */
 export function asyncMap<T, R>(
 	items: T[],
 	lambda: (item: T, index: number) => PromiseOrValue<R>
@@ -44,7 +44,7 @@ export function asyncMap<T, R>(
 	return asyncReduce(items, aggrigator, [] as R[]);
 }
 
-/** reduce that awaits items prior to calling lambda and awaits async lambdas */
+/** reduce that awaits async lambdas */
 export function asyncReduce<T>(
 	items: T[],
 	lambda: (previousValue: T, item: T, index: number) => PromiseOrValue<T>

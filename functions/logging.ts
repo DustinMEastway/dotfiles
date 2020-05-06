@@ -72,6 +72,12 @@ export function logInfo(message: string) {
 	logMessage(message, ' .. ', logStyles.darkTextBlue);
 }
 
+/**
+ * logs a message out for the user to see
+ * @param message to display
+ * @param inner message to show the user what type it is
+ * @param color excape sequence to display inner message in a different color @see logStyles
+ */
 export function logMessage(message: string, inner: string, color: string) {
 	console.log(`\r  [${color}${inner}${logStyles.normalize}] ${message}`);
 }

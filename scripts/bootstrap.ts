@@ -40,6 +40,7 @@ async function setupGitconfig(): Promise<void> {
 
 /** set up symlinks specified by the symlink.json files in this directory */
 async function setupSymlinks(): Promise<void> {
+	logInfo("Configuring symlinks");
 	const symlinkConfigs = await searchDirectory(
 		'.',
 		{ directoryFilter: /^(?!.*\/\.git$)/, itemFilter: /^.*\/symlink\.json$/ }
@@ -47,8 +48,10 @@ async function setupSymlinks(): Promise<void> {
 
 	await asyncForEach(symlinkConfigs, async ({ directoryPath, path }) => {
 		const symlinkConfigs = JSON.parse(await readFile(path)) as { file: string; link: string; }[];
-		linkFiles(symlinkConfigs.map(({ file, link }) => ({ destination: link, source: `${directoryPath}/${file}` })));
+		await linkFiles(symlinkConfigs.map(({ file, link }) => ({ destination: link, source: `${directoryPath}/${file}` })));
 	});
+
+	logSuccess("Symlinks configuration complete");
 }
 
 async function main(): Promise<void> {

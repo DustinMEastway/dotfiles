@@ -1,6 +1,4 @@
 #!/bin/sh
-#
-# System functions
 
 # test if current system is running Linux OS
 function isLinuxOs() {

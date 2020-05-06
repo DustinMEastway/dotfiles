@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Loads all scripts in this directory
+# Loads all scripts in this directory so outer scripts can use their functions
 
 function loadSources() {
 	local scriptDirectory="$(dirname "$BASH_SOURCE")"
