@@ -1,24 +1,20 @@
 #!/bin/sh
 #
-# Loads all scripts in this directory
+# Loads all scripts in this directory so outer scripts can use their functions
 
-function loadFunctions() {
-	local fileName="index.sh"
-	# script path length is the path length minus the file name length
-	local scriptPathLength=$(( ${#BASH_SOURCE} - ${#fileName} - 1 ))
-	local scriptPath="$(pwd -P)/${BASH_SOURCE:0:$scriptPathLength}"
+function loadSources() {
+	local scriptDirectory="$(dirname "$BASH_SOURCE")"
 
 	# list files in this directory
-	for sourceFile in $(ls $scriptPath)
+	for sourceFile in $(ls "$scriptDirectory")
 	do
-		local sourcePath="$scriptPath/$sourceFile"
-
-		# load paths that are a file, but not this file
-		if [ -f $sourcePath ] && [ $sourceFile != $fileName ]
+		# load paths that are bash files, but not this file
+		sourceFile="$scriptDirectory/$sourceFile"
+		if [[ "$sourceFile" == *.sh ]] && [ -f "$sourceFile" ] && ! [ "$sourceFile" -ef "$BASH_SOURCE" ]
 		then
-			source $sourcePath
+			source $sourceFile
 		fi
 	done
 }
 
-loadFunctions
+loadSources

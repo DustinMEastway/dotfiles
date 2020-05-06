@@ -2,14 +2,10 @@
 
 # used to source files relative to the current path
 function sourceRelative() {
-	local fileName="link-file.sh"
-	# script path length is the path length minus the file name length
-	local scriptPathLength=$(( ${#BASH_SOURCE} - ${#fileName} - 1 ))
-	local scriptPath="$(pwd -P)/${BASH_SOURCE:0:$scriptPathLength}"
-	local sourcePath="$scriptPath/$1"
+	local sourcePath="$(dirname "$BASH_SOURCE")/$1"
 
-	# load paths that are a file, but not this file
-	if [ -f $sourcePath ] && [ $sourceFile != $fileName ]
+	# load path if it is a file, but not this file
+	if [ -f "$sourcePath" ] && ! [ "$sourcePath" -ef "$BASH_SOURCE" ]
 	then
 		source $sourcePath
 	fi
@@ -18,7 +14,7 @@ function sourceRelative() {
 sourceRelative logging.sh
 sourceRelative variable-access.sh
 
-# Creates a link from a source to a destination so the same file can be accessed in multiple places
+# Create a symlink from the source path to the destination path (works for files and directories)
 # $1 source path
 # $2 destination path
 # $3 conflict resolution mode (set by variable name, not value; optional)
@@ -36,62 +32,62 @@ function linkFile() {
 	# check if destination already exists
 	if [ -f "$destination" -o -d "$destination" -o -L "$destination" ]
 	then
-		# set local variables to defaults based on conflictMode
-		backup="false" && [[ "$conflictMode" == "backup" ]] && backup="true"
-		overwrite="false" && [[ "$conflictMode" == "overwrite" ]] && overwrite="true"
-		skip="false" && [[ "$conflictMode" == "skip" ]] && skip="true"
+		local currentSrc="$(readlink $destination)"
+
+		# check if the destination already points to source
+		if [ "$currentSrc" == "$source" ]
+		then
+			skip=true;
+		else
+			# set local variables to defaults based on conflictMode
+			backup="false" && [[ "$conflictMode" == "backup" ]] && backup="true"
+			overwrite="false" && [[ "$conflictMode" == "overwrite" ]] && overwrite="true"
+			skip="false" && [[ "$conflictMode" == "skip" ]] && skip="true"
+		fi
 
 		# make sure that a conflict resolution option is set
 		while [[ "$backup" == "false" && "$overwrite" == "false" && "$skip" == "false" ]]
 		do
-			local currentSrc="$(readlink $destination)"
+			# ask the user how to handle the link since the destination exists
+			logQuestion "File already exists: $destination ($(basename "$source")), what do you want to do?\n\
+				[s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
 
-			# check if the destination already points to source
-			if [ "$currentSrc" == "$source" ]
-			then
-				skip=true;
-			else
-				# ask the user how to handle the link since the destination exists
-				logQuestion "File already exists: $destination ($(basename "$source")), what do you want to do?\n\
-					[s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-
-				local action=
-				read -n 1 action
-				echo ""
-				case "$action" in
-					B )
-						backup=true
-						setValue $3 "backup";;
-					b )
-						backup=true;;
-					O )
-						overwrite=true
-						setValue $3 "overwrite";;
-					o )
-						overwrite=true;;
-					S )
-						skip=true
-						setValue $3 "skip";;
-					s )
-						skip=true;;
-					* )
-						;;
-				esac
-			fi
+			local action=
+			read -n 1 action
+			echo ""
+			case "$action" in
+				B )
+					backup=true
+					setValue $3 "backup";;
+				b )
+					backup=true;;
+				O )
+					overwrite=true
+					setValue $3 "overwrite";;
+				o )
+					overwrite=true;;
+				S )
+					skip=true
+					setValue $3 "skip";;
+				s )
+					skip=true;;
+				* )
+					;;
+			esac
 		done
 
 		# perform action due to destination existing
 		if [ "$backup" == "true" ]
 		then
 			mv "$destination" "${destination}.backup"
-			logSuccess "moved '$destination' to '${destination}.backup'"
+			logSuccess "Moved '$destination' to '${destination}.backup'"
 		elif [ "$overwrite" == "true" ]
 		then
 			rm -rf "$destination"
-			logSuccess "removed '$destination'"
+			logSuccess "Removed '$destination'"
 		elif [ "$skip" == "true" ]
 		then
-			logSuccess "skipped linking '$source' to '$destination'"
+			logSuccess "Skipped linking '$source' to '$destination'"
 		fi
 	fi
 
@@ -99,6 +95,6 @@ function linkFile() {
 	if [ "$skip" != "true" ]
 	then
 		ln -s "$source" "$destination"
-		logSuccess "linked '$source' to '$destination'"
+		logSuccess "Linked '$source' to '$destination'"
 	fi
 }
