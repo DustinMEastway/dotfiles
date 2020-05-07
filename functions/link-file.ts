@@ -1,5 +1,5 @@
 import { asyncForEach } from './array';
-import { input, logSuccess } from './logging';
+import { input, logFail, logSuccess } from './logging';
 import { absolutePath, exists, realpath, rename, remove, symlink } from './file-system';
 import { clone } from './object';
 
@@ -12,6 +12,7 @@ export interface LinkFileConfig {
 export async function linkFile(source: string, destination: string, config?: LinkFileConfig): Promise<LinkFileConfig> {
 	source = absolutePath(source);
 	if (!(await exists(source))) {
+		logFail(`Unable to locate source '${source}' to symlink`)
 		return config;
 	}
 
