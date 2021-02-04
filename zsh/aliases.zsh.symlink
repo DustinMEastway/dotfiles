@@ -1,5 +1,6 @@
 # *** games aliases *** #
 alias cdMinecraft='cd ~/Library/Application\ Support/minecraft/'
+alias steamSetup='hdiutil attach ~/Documents/Steam.dmg -mountroot ~/Library/Application\ Support;'
 
 # *** git aliases *** #
 # display local branches and current status
@@ -14,9 +15,9 @@ alias openICloud='open ~/Library/Mobile\ Documents/com~apple~CloudDocs/'
 
 # *** mongodb aliases *** #
 alias mongoConfig='edit /usr/local/etc/mongod.conf'
-alias mongoRestart='brew service restart mongodb-community@4.0'
-alias mongoStart='brew service start mongodb-community@4.0'
-alias mongoStop='brew service stop mongodb-community@4.0'
+alias mongoRestart='brew services restart mongodb-community'
+alias mongoStart='brew services start mongodb-community'
+alias mongoStop='brew services stop mongodb-community'
 
 # *** node.js aliases *** #
 alias createReactApp='npx create-react-app --template typescript'
@@ -40,6 +41,8 @@ alias rmdir='rm -rf '
 alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
 # update brew and its packages
 alias updateBrew='brew update; brew upgrade'
+# reinstalling xCode fixes an issue with npm
+alias reinstallXCode='sudo rm -rf $(xcode-select -print-path); xcode-select --install'
 
 # open the preferred editor
 function edit() {
