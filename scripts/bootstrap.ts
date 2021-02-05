@@ -28,8 +28,11 @@ async function setupGitconfig(): Promise<void> {
 		const authorEmail = await input(' - What is your github author email?');
 
 		await exec(
-			`sed -e "s/AUTHORNAME/${authorName}/g" -e "s/AUTHOREMAIL/${authorEmail}/g" -e `
-			+ `"s/GIT_CREDENTIAL_HELPER/${gitCredential}/g" ${gitconfigTemplatePath} > ${gitconfigPath}`
+			`sed`
+			+ `-e "s/AUTHORNAME/${authorName}/g"`
+			+ `-e "s/AUTHOREMAIL/${authorEmail}/g"`
+			+ `-e "s/GIT_CREDENTIAL_HELPER/${gitCredential}/g"`
+			+ `${gitconfigTemplatePath} > ${gitconfigPath}`
 		);
 
 		logSuccess('.gitconfig configuration complete');

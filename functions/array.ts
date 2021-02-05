@@ -1,47 +1,41 @@
 import { PromiseOrValue } from './types';
 
 /** filter that awaits async lambdas for async filtering */
-export function asyncFilter<T>(
+export async function asyncFilter<T>(
 	items: T[],
-	lambda: (item: T, index: number) => PromiseOrValue<boolean>
+	predicate: (item: T, index: number) => PromiseOrValue<boolean>
 ): Promise<T[]> {
-	const aggrigator = async (items: T[], item: T, index: number) => {
-		if (await lambda(item, index)) {
-			items.push(item);
-		}
+	const predicateValues = await asyncMap(items, predicate);
 
-		return items;
-	};
-
-	return asyncReduce(items, aggrigator, [] as T[]);
+	return items.filter((_, index) => predicateValues[index]);
 }
 
-/** forEach that awaits async lambdas */
+/**
+ * forEach that awaits async lambdas
+ *
+ * @note promises are ran in series, waiting for one to finish before starting the next
+ */
 export function asyncForEach<T>(
 	items: T[],
-	lambda: (item: T, index: number) => void
+	lambda: (item: T, index: number) => PromiseOrValue<void>
 ): Promise<T[]> {
-	const aggrigator = async (items: T[], item: T, index: number) => {
-		await lambda(item, index);
+	const aggrigator = (_, item: T, index: number) => lambda(item, index);
 
-		return items;
-	};
-
-	return asyncReduce(items, aggrigator, [] as T[]);
+	return asyncReduce(items, aggrigator, undefined);
 }
 
-/** map that awaits async lambdas */
+/**
+ * map that awaits async lambdas
+ *
+ * @note promises are ran in parallel, but output is ordered the same as the array
+ */
 export function asyncMap<T, R>(
 	items: T[],
 	lambda: (item: T, index: number) => PromiseOrValue<R>
 ): Promise<R[]> {
-	const aggrigator = async (items: R[], item: T, index: number) => {
-		items[index] = await lambda(item, index);
+	const promises = mapToPromises(items.map((item, index) => lambda(item, index)));
 
-		return items;
-	};
-
-	return asyncReduce(items, aggrigator, [] as R[]);
+	return Promise.all(promises);
 }
 
 /** reduce that awaits async lambdas */
@@ -82,4 +76,13 @@ async function asyncReduceInner<T, R>(
 	}
 
 	return initialValue;
+}
+
+/**
+ * maps each item in an array into being a promise
+ *
+ * @note leaves items that are already promises as is
+ */
+export function mapToPromises<T>(items: PromiseOrValue<T>[]): Promise<T>[] {
+	return (items instanceof Array ? items : []).map(item => Promise.resolve(item));
 }
