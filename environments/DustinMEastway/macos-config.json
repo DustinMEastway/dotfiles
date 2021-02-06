@@ -3,7 +3,7 @@
 	"commands": [
 		{
 			"key": "git-setup",
-			"value": { "configPath": "./private/symlink.gitconfig" }
+			"value": { "configPath": "./private/git/symlink.gitconfig" }
 		},
 		{
 			"key": "mkdir",
@@ -20,7 +20,7 @@
 			"key": "symlink",
 			"value": [
 				{ "file": "./private/.ssh/", "link": "~/.ssh/" },
-				{ "file": "./private/symlink.gitconfig", "link": "~/.gitconfig" },
+				{ "file": "./private/git/symlink.gitconfig", "link": "~/.gitconfig" },
 				{
 					"file": "./sublime-text/package-control.symlink.sublime-settings",
 					"link": "~/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
