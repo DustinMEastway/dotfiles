@@ -16,8 +16,8 @@ function sourceRelative() {
 	fi
 }
 
-sourceRelative ../functions/index.sh
-sourceRelative ../node/install.sh
+sourceRelative ./functions/logging.sh
+sourceRelative ./node/install.sh
 
 # Install ts-node if it does not exist
 if [ ! $(which ts-node) ]

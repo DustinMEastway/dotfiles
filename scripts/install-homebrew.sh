@@ -16,7 +16,7 @@ function sourceRelative() {
 	fi
 }
 
-sourceRelative ../functions/index.sh
+sourceRelative ./functions/logging.sh
 
 # Install Homebrew if it does not exist
 if [ ! $(which brew) ]

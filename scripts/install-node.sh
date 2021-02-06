@@ -16,8 +16,8 @@ function sourceRelative() {
 	fi
 }
 
-sourceRelative ../functions/index.sh
-sourceRelative ../homebrew/install.sh
+sourceRelative ./functions/logging.sh
+sourceRelative ./install-homebrew.sh
 
 # Install Node.js if it does not exist
 if [ ! $(which node) ]
