@@ -1,4 +1,5 @@
 export * from './array';
+export * from './commands';
 export * from './file-system';
 export * from './link-file';
 export * from './logging';

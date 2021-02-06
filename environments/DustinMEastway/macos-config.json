@@ -1,0 +1,17 @@
+{
+	"fileRoot": "./environments/DustinMEastway/",
+	"commands": [
+		{
+			"key": "git-setup",
+			"value": { "configPath": "./private/symlink.gitconfig" }
+		},
+		{
+			"key": "symlink",
+			"value": [
+				{ "file": "./private/symlink.gitconfig", "link": "~/.gitconfig" },
+				{ "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
+				{ "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" }
+			]
+		}
+	]
+}

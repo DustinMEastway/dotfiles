@@ -1,65 +1,75 @@
+import { dirname } from 'path';
+import { commandMap } from './commands/command-map';
 import {
-	asyncForEach,
-	exec,
+	absolutePath,
 	input,
 	isFile,
-	isMacOs,
-	linkFiles,
+	logFail,
 	logInfo,
-	logSuccess,
-	readFile,
-	searchDirectory
+	readJsonFile
 } from './functions/index';
+import { EnvironmentConfig } from './models/index';
 
-/** ask for git author information to fill out the gitconfig file */
-async function setupGitconfig(): Promise<void> {
-	const gitconfigPath = 'git/symlink.gitconfig';
-	const gitconfigTemplatePath = 'git/template.symlink.gitconfig';
+const exampleConfigText = 'For an example configuration, see ./environments/DustinMEastway/macos-config.json';
+const text = {
+	invalidConfigPath: 'The config argument was not specified or it was invalid.\n'
+		+ 'What file should be used to configure the environment?',
+	invalidConfig: 'The specified config exists, but does not contain a valid configuration.\n' + exampleConfigText,
+	noCommands: 'No commands found in the specified config file.\n' + exampleConfigText
 
-	if (!(await isFile(gitconfigPath))) {
-		logInfo('Configuring .gitconfig');
-
-		let gitCredential = 'cache'
-		if (await isMacOs()) {
-			gitCredential = 'osxkeychain';
-		}
-
-		const authorName = await input(' - What is your github author name?');
-		const authorEmail = await input(' - What is your github author email?');
-
-		await exec(
-			`sed `
-			+ `-e "s/AUTHORNAME/${authorName}/g" `
-			+ `-e "s/AUTHOREMAIL/${authorEmail}/g" `
-			+ `-e "s/GIT_CREDENTIAL_HELPER/${gitCredential}/g" `
-			+ `${gitconfigTemplatePath} > ${gitconfigPath}`
-		);
-
-		logSuccess('.gitconfig configuration complete');
-	} else {
-		logSuccess('Skipped .gitconfig configuration')
-	}
 }
 
-/** set up symlinks specified by the symlink.json files in this directory */
-async function setupSymlinks(): Promise<void> {
-	logInfo("Configuring symlinks");
-	const symlinkConfigs = await searchDirectory(
-		'.',
-		{ directoryFilter: /^(?!.*\/\.git$)/, itemFilter: /^.*\/symlink\.json$/ }
-	);
+async function getConfig() {
+	const configIndex = process.argv.indexOf('config');
+	let configPath = process.argv[configIndex + 1];
+	let config: EnvironmentConfig;
 
-	await asyncForEach(symlinkConfigs, async ({ directoryPath, path }) => {
-		const symlinkConfigs = JSON.parse(await readFile(path)) as { file: string; link: string; }[];
-		await linkFiles(symlinkConfigs.map(({ file, link }) => ({ destination: link, source: `${directoryPath}/${file}` })));
-	});
+	while (!config) {
+		while (!configPath || !await isFile(configPath)) {
+			configPath = await input(text.invalidConfigPath);
+		}
 
-	logSuccess("Symlinks configuration complete");
+		// get the absolute path so require is not mad about being somewhere other than the current directory
+		configPath = absolutePath(configPath);
+		config = await readJsonFile(configPath);
+
+		let validConfig = true;
+		if (!config || typeof config !== 'object') {
+			logInfo(text.invalidConfig);
+			validConfig = false;
+		} else if (!(config.commands instanceof Array) || config.commands.length < 1) {
+			logInfo(text.noCommands);
+			validConfig = false;
+		}
+
+		if (!validConfig) {
+			config = null;
+			configPath = '';
+		}
+	}
+
+	config.fileRoot = (typeof config.fileRoot === 'string') ? config.fileRoot : dirname(configPath);
+
+	return config;
 }
 
 async function main(): Promise<void> {
-	await setupGitconfig();
-	await setupSymlinks();
+	const config = await getConfig();
+
+	config.commands.forEach((commandConfig, index) => {
+		const command = commandMap.get(commandConfig?.key);
+
+		if (!command) {
+			logFail(
+				`Invalid command key "${commandConfig?.key}" provided for command index ${index}.\n`
+				+ 'A valid list of command keys can be found in the `command-key.ts` file'
+			);
+		}
+
+		command(config, commandConfig?.value);
+	});
 }
 
 main();
+
+// cls; cls; ./scripts/bootstrap.sh config ./environments/DustinMEastway/macos-config.json
