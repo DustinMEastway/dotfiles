@@ -6,6 +6,10 @@
 			"value": { "configPath": "./private/symlink.gitconfig" }
 		},
 		{
+			"key": "mkdir",
+			"value": "./private/.ssh"
+		},
+		{
 			"key": "symlink",
 			"value": [
 				{ "file": "./private/symlink.gitconfig", "link": "~/.gitconfig" },
