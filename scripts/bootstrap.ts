@@ -13,8 +13,8 @@ import {
 
 /** ask for git author information to fill out the gitconfig file */
 async function setupGitconfig(): Promise<void> {
-	const gitconfigPath = 'git/gitconfig.symlink';
-	const gitconfigTemplatePath = 'git/gitconfig.symlink.template';
+	const gitconfigPath = 'git/symlink.gitconfig';
+	const gitconfigTemplatePath = 'git/template.symlink.gitconfig';
 
 	if (!(await isFile(gitconfigPath))) {
 		logInfo('Configuring .gitconfig');

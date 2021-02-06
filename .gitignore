@@ -1,5 +1,5 @@
 # the teplate gitconfig gets checked in, this one gets linked
-git/gitconfig.symlink
+git/symlink.gitconfig
 
 # npm dependencies
 node_modules/
