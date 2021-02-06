@@ -1,0 +1,16 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"DiffTabs",
+		"Indent XML",
+		"LSP",
+		"MoveTab",
+		"Package Control",
+		"Sass",
+		"TypeScript"
+	]
+}
