@@ -1,5 +1,8 @@
-# the teplate gitconfig gets checked in, this one gets linked
-git/symlink.gitconfig
+# private directories should not be checked in
+**/private/
 
 # npm dependencies
 node_modules/
+
+# system files
+.DS_Store

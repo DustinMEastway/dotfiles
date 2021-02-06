@@ -1,4 +1,0 @@
-[
-	{ "file": "aliases.symlink.zsh", "link": "~/.aliases.zsh" },
-	{ "file": "zshrc.symlink.zsh", "link": "~/.zshrc" }
-]

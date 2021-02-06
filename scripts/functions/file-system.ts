@@ -5,6 +5,7 @@ import {
 	exists as fsExists,
 	link as fsLink,
 	lstat as fsLstat,
+	mkdir as mkDirectory,
 	readFile as fsReadFile,
 	realpath as fsRealpath,
 	rename as fsRename,
@@ -12,6 +13,7 @@ import {
 	readdir as fsReadDirectory,
 	symlink as fsSymlink,
 	unlink,
+	MakeDirectoryOptions,
 	PathLike,
 	Stats
 } from 'fs';
@@ -93,6 +95,20 @@ export function exec(command: string): Promise<string> {
 export function exists(path: PathLike): Promise<any> {
 	return new Promise(resolve => {
 		fsExists(path, pathExists => resolve(pathExists));
+	});
+}
+
+
+/** make the provided directory */
+export function makeDirectory(path: PathLike, config?: MakeDirectoryOptions): Promise<string> {
+	return new Promise((resolve, reject) => {
+		mkDirectory(path, config, (error, createdPath) => {
+			if (error) {
+				reject(error);
+			} else {
+				resolve(createdPath);
+			}
+		});
 	});
 }
 
@@ -239,6 +255,20 @@ export function readFile(path: PathLike): Promise<string> {
 			}
 		});
 	});
+}
+
+/**
+ * reads the entire contents of a file, then runs it through `JSON.parse`
+ * @param path to a file to read (if a URL is provided, it must use the `file:` protocol)
+ *
+ * @notes
+ * - URL support is experimental for the path argument
+ * - If a file descriptor is provided, the underlying file will not be closed automatically
+ */
+export async function readJsonFile<T>(path: PathLike): Promise<T> {
+	const fileConent = await readFile(path);
+
+	return (fileConent === '') ? null : JSON.parse(fileConent);
 }
 
 /**
