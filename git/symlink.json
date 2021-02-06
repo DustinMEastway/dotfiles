@@ -1,1 +1,1 @@
-[ { "file": "gitconfig.symlink", "link": "~/.gitconfig" } ]
+[ { "file": "symlink.gitconfig", "link": "~/.gitconfig" } ]

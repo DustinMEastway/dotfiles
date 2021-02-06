@@ -9,12 +9,12 @@ import {
 	logSuccess,
 	readFile,
 	searchDirectory
-} from '../functions/index';
+} from './functions/index';
 
 /** ask for git author information to fill out the gitconfig file */
 async function setupGitconfig(): Promise<void> {
-	const gitconfigPath = 'git/gitconfig.symlink';
-	const gitconfigTemplatePath = 'git/gitconfig.symlink.template';
+	const gitconfigPath = 'git/symlink.gitconfig';
+	const gitconfigTemplatePath = 'git/template.symlink.gitconfig';
 
 	if (!(await isFile(gitconfigPath))) {
 		logInfo('Configuring .gitconfig');
@@ -28,8 +28,11 @@ async function setupGitconfig(): Promise<void> {
 		const authorEmail = await input(' - What is your github author email?');
 
 		await exec(
-			`sed -e "s/AUTHORNAME/${authorName}/g" -e "s/AUTHOREMAIL/${authorEmail}/g" -e `
-			+ `"s/GIT_CREDENTIAL_HELPER/${gitCredential}/g" ${gitconfigTemplatePath} > ${gitconfigPath}`
+			`sed `
+			+ `-e "s/AUTHORNAME/${authorName}/g" `
+			+ `-e "s/AUTHOREMAIL/${authorEmail}/g" `
+			+ `-e "s/GIT_CREDENTIAL_HELPER/${gitCredential}/g" `
+			+ `${gitconfigTemplatePath} > ${gitconfigPath}`
 		);
 
 		logSuccess('.gitconfig configuration complete');

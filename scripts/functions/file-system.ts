@@ -127,7 +127,7 @@ export async function searchDirectory(directoryPath: string, config?: SearchDire
 	};
 
 	// create items for everything in the directory
-	let directoryItems: DirectoryItem[] = await asyncMap(await readDirectory(directoryPath), async itemPath => {
+	const directoryItems: DirectoryItem[] = await asyncMap(await readDirectory(directoryPath), async itemPath => {
 		const path = `${directoryPath}/${itemPath}`.replace(/\/+/g, '/');
 
 		return { directoryPath, path, stats: await lstat(path) };
@@ -137,15 +137,13 @@ export async function searchDirectory(directoryPath: string, config?: SearchDire
 	const filteredItems = await asyncFilter(directoryItems, async item => await filterItem(item, itemFilter));
 
 	// get sub directory items (which are already filtered)
-	let subItems: DirectoryItem[] = [];
-	await asyncForEach(directoryItems, async item => {
-		const { path, stats } = item;
-		if (stats.isDirectory() && (await filterItem(item, directoryFilter))) {
-			subItems = subItems.concat(await searchDirectory(path, config));
-		}
+	const subItems = await asyncMap(directoryItems, async item => {
+		return (item.stats.isDirectory() && await filterItem(item, directoryFilter))
+			? await searchDirectory(item.path, config)
+			: [];
 	});
 
-	return filteredItems.concat(subItems);
+	return filteredItems.concat(...subItems);
 }
 
 /**
