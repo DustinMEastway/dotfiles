@@ -2,6 +2,7 @@ import { dirname } from 'path';
 import { commandMap } from './commands/command-map';
 import {
 	absolutePath,
+	asyncForEach,
 	input,
 	isFile,
 	logFail,
@@ -56,7 +57,7 @@ async function getConfig() {
 async function main(): Promise<void> {
 	const config = await getConfig();
 
-	config.commands.forEach((commandConfig, index) => {
+	await asyncForEach(config.commands, async (commandConfig, index) => {
 		const command = commandMap.get(commandConfig?.key);
 
 		if (!command) {
@@ -66,7 +67,7 @@ async function main(): Promise<void> {
 			);
 		}
 
-		command(config, commandConfig?.value);
+		await command(config, commandConfig?.value);
 	});
 }
 
