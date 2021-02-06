@@ -49,6 +49,6 @@ export const gitSetup: Command = async function (
 
 		logSuccess('.gitconfig configuration complete');
 	} else {
-		logSuccess('Skipped .gitconfig configuration')
+		logSuccess('Skipped .gitconfig configuration');
 	}
 }

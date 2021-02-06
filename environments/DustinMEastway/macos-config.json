@@ -7,11 +7,19 @@
 		},
 		{
 			"key": "mkdir",
-			"value": "./private/.ssh"
+			"value": "./private/.ssh/"
+		},
+		{
+			"key": "ssh-keygen",
+			"value": {
+				"file": "./private/.ssh/id_rsa",
+				"type": "rsa"
+			}
 		},
 		{
 			"key": "symlink",
 			"value": [
+				{ "file": "./private/.ssh/", "link": "~/.ssh" },
 				{ "file": "./private/symlink.gitconfig", "link": "~/.gitconfig" },
 				{ "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
 				{ "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" }
