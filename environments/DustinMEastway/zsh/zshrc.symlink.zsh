@@ -1,6 +1,9 @@
 # shortcut to this dotfiles path
 export DOTFILESDIR=$HOME/.dotfiles
 
+# Add to PATH variable
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
 # nvm support
 export NVM_DIR="$HOME/.nvm"
 # This loads nvm

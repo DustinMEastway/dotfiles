@@ -58,7 +58,7 @@ async function main(): Promise<void> {
 	const config = await getConfig();
 
 	await asyncForEach(config.commands, async (commandConfig, index) => {
-		const command = commandMap.get(commandConfig?.key);
+		const command = commandMap[commandConfig?.key];
 
 		if (!command) {
 			logFail(

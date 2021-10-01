@@ -1,5 +1,6 @@
 # *** games aliases *** #
 alias cdMinecraft='cd ~/Library/Application\ Support/minecraft/'
+alias rmSteam='mv ~/Library/Application\ Support/Steam ~/.Trash/Steam'
 alias steamSetup='hdiutil attach ~/Documents/Steam.dmg -mountroot ~/Library/Application\ Support;'
 
 # *** git aliases *** #
@@ -45,6 +46,8 @@ alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES; ki
 alias updateBrew='brew update; brew upgrade'
 # reinstalling xCode fixes an issue with npm
 alias reinstallXCode='sudo rm -rf $(xcode-select -print-path); xcode-select --install'
+# reads system defaults into a text file
+alias readDefaults='defaults read > ~/Sites/dotfiles/defaults.txt'
 
 # open the preferred editor
 function edit() {
