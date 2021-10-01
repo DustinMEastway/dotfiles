@@ -29,6 +29,14 @@
 					"file": "./sublime-text/preferences.symlink.sublime-settings",
 					"link": "~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
 				},
+				{
+					"file": "./sublime-text/projects/",
+					"link": "~/Library/Application Support/Sublime Text 3/Packages/User/Projects/"
+				},
+				{
+					"file": "./sublime-text/snippets/",
+					"link": "~/Library/Application Support/Sublime Text 3/Packages/User/Snippets/"
+				},
 				{ "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
 				{ "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" }
 			]

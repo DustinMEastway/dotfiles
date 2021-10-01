@@ -1,19 +1,18 @@
 {
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
 	"default_line_ending": "unix",
-	"font_size": 16,
 	"ignored_packages":
 	[
 	],
 	"node_path": "/Users/dustineastway/.nvm/versions/node/v14.8.0/bin/node",
-	"open_files_in_new_window": false,
+	"open_files_in_new_window": "never",
 	"rulers":
 	[
 		120
 	],
 	"scroll_past_end": true,
-	"theme": "Default.sublime-theme",
-	"trim_trailing_white_space_on_save": true,
-	"typescript_tsdk": "/Users/dustineastway/.nvm/versions/node/v14.8.0/lib/node_modules/typescript/lib",
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": "not_on_caret",
 	"vintage_start_in_command_mode": true
 }
