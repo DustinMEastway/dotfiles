@@ -7,13 +7,13 @@ set -e
 
 # used to source files relative to the current path
 function sourceRelative() {
-	local sourcePath="$(dirname "$BASH_SOURCE")/$1"
+  local sourcePath="$(dirname "$BASH_SOURCE")/$1"
 
-	# load path if it is a file, but not this file
-	if [ -f "$sourcePath" ] && ! [ "$sourcePath" -ef "$BASH_SOURCE" ]
-	then
-		source $sourcePath
-	fi
+  # load path if it is a file, but not this file
+  if [ -f "$sourcePath" ] && ! [ "$sourcePath" -ef "$BASH_SOURCE" ]
+  then
+    source $sourcePath
+  fi
 }
 
 sourceRelative ./functions/logging.sh
@@ -22,14 +22,14 @@ sourceRelative ./node/install.sh
 # Install ts-node if it does not exist
 if [ ! $(which ts-node) ]
 then
-	logInfo "Installing ts-node"
+  logInfo "Installing ts-node"
 
-	# perform the install of [ts-node](https://github.com/TypeStrong/ts-node)
-	npm i -g ts-node typescript
+  # perform the install of [ts-node](https://github.com/TypeStrong/ts-node)
+  npm i -g ts-node typescript
 
-	logSuccess "ts-node installation complete"
+  logSuccess "ts-node installation complete"
 else
-	logSuccess "Skipped ts-node installation"
+  logSuccess "Skipped ts-node installation"
 fi
 
 # cd into the dotfiles directory

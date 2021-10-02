@@ -8,10 +8,10 @@ import { symlink } from './symlink';
 
 /** map of command keys to their commands for easy lookup */
 export const commandMap: Record<CommandKey, Command> = {
-	'brew-install': brewInstall,
-	'brew-tap': brewTap,
-	'git-setup': gitSetup,
-	'mkdir': mkdir,
-	'ssh-keygen': sshKeygen,
-	'symlink': symlink
+  'brew-install': brewInstall,
+  'brew-tap': brewTap,
+  'git-setup': gitSetup,
+  'mkdir': mkdir,
+  'ssh-keygen': sshKeygen,
+  'symlink': symlink
 };

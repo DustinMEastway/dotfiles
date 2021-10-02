@@ -55,10 +55,10 @@ alias trash='echo "TODO"'
 
 # open the preferred editor
 function edit() {
-	ST "$1"
+  ST "$1"
 }
 
 # opens in Sublime Text
 function ST() {
-	open -a /Applications/Sublime\ Text.app/ "$1"
+  open -a /Applications/Sublime\ Text.app/ "$1"
 }
