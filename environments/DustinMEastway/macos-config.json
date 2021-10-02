@@ -1,53 +1,72 @@
 {
-	"fileRoot": "./environments/DustinMEastway/",
-	"commands": [
-		{
-			"key": "brew-tap",
-			"value": {
-				"items": [
-					"mongodb/brew"
-				]
-			}
-		},
-		{
-			"key": "git-setup",
-			"value": { "configPath": "./private/git/symlink.gitconfig" }
-		},
-		{
-			"key": "mkdir",
-			"value": "./private/.ssh/"
-		},
-		{
-			"key": "ssh-keygen",
-			"value": {
-				"file": "./private/.ssh/id_rsa",
-				"type": "rsa"
-			}
-		},
-		{
-			"key": "symlink",
-			"value": [
-				{ "file": "./private/.ssh/", "link": "~/.ssh/" },
-				{ "file": "./private/git/symlink.gitconfig", "link": "~/.gitconfig" },
-				{
-					"file": "./sublime-text/package-control.symlink.sublime-settings",
-					"link": "~/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
-				},
-				{
-					"file": "./sublime-text/preferences.symlink.sublime-settings",
-					"link": "~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
-				},
-				{
-					"file": "./sublime-text/projects/",
-					"link": "~/Library/Application Support/Sublime Text 3/Packages/User/Projects/"
-				},
-				{
-					"file": "./sublime-text/snippets/",
-					"link": "~/Library/Application Support/Sublime Text 3/Packages/User/Snippets/"
-				},
-				{ "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
-				{ "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" }
-			]
-		}
-	]
+  "fileRoot": "./environments/DustinMEastway/",
+  "commands": [
+    {
+      "key": "brew-tap",
+      "value": {
+        "items": [
+          "mongodb/brew"
+        ]
+      }
+    },
+    {
+      "key": "brew-install",
+      "value": {
+        "items": [
+          "mongodb-community"
+        ]
+      }
+    },
+    {
+      "key": "brew-install",
+      "value": {
+        "args": "--cask",
+        "items": [
+          "brave-browser",
+          "godot",
+          "sublime-merge"
+        ]
+      }
+    },
+    {
+      "key": "git-setup",
+      "value": { "configPath": "./private/git/symlink.gitconfig" }
+    },
+    {
+      "key": "mkdir",
+      "value": "./private/.ssh/"
+    },
+    {
+      "key": "ssh-keygen",
+      "value": {
+        "file": "./private/.ssh/id_rsa",
+        "type": "rsa"
+      }
+    },
+    {
+      "key": "symlink",
+      "value": [
+        { "file": "./private/.ssh/", "link": "~/.ssh/" },
+        { "file": "./private/git/symlink.gitconfig", "link": "~/.gitconfig" },
+        {
+          "file": "./sublime-text/package-control.symlink.sublime-settings",
+          "link": "~/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
+        },
+        {
+          "file": "./sublime-text/preferences.symlink.sublime-settings",
+          "link": "~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+        },
+        {
+          "file": "./sublime-text/projects/",
+          "link": "~/Library/Application Support/Sublime Text 3/Packages/User/Projects/"
+        },
+        {
+          "file": "./sublime-text/snippets/",
+          "link": "~/Library/Application Support/Sublime Text 3/Packages/User/Snippets/"
+        },
+        { "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
+        { "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" }
+      ]
+    }
+  ]
 }
