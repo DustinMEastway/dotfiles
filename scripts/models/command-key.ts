@@ -6,4 +6,5 @@ export type CommandKey = (
   | 'mkdir'
   | 'ssh-keygen'
   | 'symlink'
+  | 'write-defaults'
 );

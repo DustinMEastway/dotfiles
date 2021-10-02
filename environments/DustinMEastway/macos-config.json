@@ -67,6 +67,28 @@
         { "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
         { "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" }
       ]
+    },
+    {
+      "key": "set-defaults",
+      "value": {
+        "Apple Global Domain": {
+          "AppleInterfaceStyle": "Dark",
+          "AppleAccentColor": -1,
+          "AppleHighlightColor": "0.847059 0.847059 0.862745 Graphite",
+          "AppleAquaColorVariant": 6,
+          "com.apple.trackpad.scaling": 3
+        },
+        "com.apple.AppleMultitouchTrackpad": {
+          "Clicking": 1,
+          "TrackpadCornerSecondaryClick": 2,
+          "TrackpadRightClick": 0
+        },
+        "com.apple.driver.AppleBluetoothMultitouch.trackpad": {
+          "Clicking": 1,
+          "TrackpadCornerSecondaryClick": 2,
+          "TrackpadRightClick": 0
+        }
+      }
     }
   ]
 }

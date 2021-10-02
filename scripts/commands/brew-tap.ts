@@ -16,7 +16,7 @@ export const brewTap: Command = async (_, config: BrewTapConfig) => {
 
   try {
     const itemsString = items.join(' ');
-    logInfo(`Tapping brew repos: ${itemsString}`)
+    logInfo(`Tapping brew repos: ${itemsString}`);
     await exec([
       'brew tap',
       (args) ? args : '',
