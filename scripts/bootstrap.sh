@@ -37,5 +37,5 @@ cd "$(dirname "$BASH_SOURCE")/.."
 
 # let node take it from here
 logInfo "Running Node.js bootstraper"
-npm run bootstrap "$@"
+npm run bootstrap -- "$@"
 logSuccess "Node.js bootstraper complete"

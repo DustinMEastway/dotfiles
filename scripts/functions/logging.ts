@@ -46,6 +46,8 @@ export const logStyles = {
   lightBackgroundWhite: '\x1b[107m'
 };
 
+const quietModeEnabled = process.argv.indexOf('--quiet') >= 0;
+
 export function input(message?: string): Promise<string> {
   if (message) {
     logQuestion(message);
@@ -69,7 +71,9 @@ export function logFail(message: string) {
 }
 
 export function logInfo(message: string) {
-  logMessage(message, ' .. ', logStyles.darkTextBlue);
+  if (quietModeEnabled) {
+    logMessage(message, ' .. ', logStyles.darkTextBlue);
+  }
 }
 
 /**
@@ -87,5 +91,7 @@ export function logQuestion(message: string) {
 }
 
 export function logSuccess(message: string) {
-  logMessage(message, ' OK ', logStyles.darkTextGreen);
+  if (quietModeEnabled) {
+    logMessage(message, ' OK ', logStyles.darkTextGreen);
+  }
 }

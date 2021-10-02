@@ -21,7 +21,7 @@ const text = {
 }
 
 async function getConfig() {
-  const configIndex = process.argv.indexOf('config');
+  const configIndex = process.argv.indexOf('--config');
   let configPath = process.argv[configIndex + 1];
   let config: EnvironmentConfig;
 
