@@ -1,11 +1,11 @@
 {
-	"folders":
-	[
-		{
-			"path": "/Users/dustineastway/Sites/extras/endrift/gbajs"
-		},
-		{
-			"path": "/Users/dustineastway/Sites/gba-pwa"
-		}
-	]
+  "folders":
+  [
+    {
+      "path": "/Users/dustineastway/Sites/extras/endrift/gbajs"
+    },
+    {
+      "path": "/Users/dustineastway/Sites/gba-pwa"
+    }
+  ]
 }

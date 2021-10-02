@@ -16,11 +16,11 @@ export NVM_DIR="$HOME/.nvm"
 # you'll have access to them in your scripts.
 if [[ -a ~/.localrc ]]
 then
-	source ~/.localrc
+  source ~/.localrc
 fi
 
 # Load aliases
 if [[ -a ~/.aliases.zsh ]]
 then
-	source ~/.aliases.zsh
+  source ~/.aliases.zsh
 fi
