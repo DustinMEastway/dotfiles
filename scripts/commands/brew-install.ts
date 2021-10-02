@@ -21,7 +21,7 @@ export const brewInstall: Command = async (_, config: BrewInstallConfig) => {
     }
 
     const itemsString = itemsToInstall.join(' ');
-    logInfo(`Installing brew packages: ${itemsString}`)
+    logInfo(`Installing brew packages: ${itemsString}`);
     await exec([
       'brew install',
       (args) ? args : '',

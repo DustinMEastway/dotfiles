@@ -3,6 +3,7 @@ import { brewInstall } from './brew-install';
 import { brewTap } from './brew-tap';
 import { gitSetup } from './git-setup';
 import { mkdir } from './mkdir';
+import { writeDefaults } from './write-defaults';
 import { sshKeygen } from './ssh-keygen';
 import { symlink } from './symlink';
 
@@ -13,5 +14,6 @@ export const commandMap: Record<CommandKey, Command> = {
   'git-setup': gitSetup,
   'mkdir': mkdir,
   'ssh-keygen': sshKeygen,
-  'symlink': symlink
+  'symlink': symlink,
+  'write-defaults': writeDefaults
 };
