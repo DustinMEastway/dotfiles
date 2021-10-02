@@ -2,6 +2,14 @@
 	"fileRoot": "./environments/DustinMEastway/",
 	"commands": [
 		{
+			"key": "brew-tap",
+			"value": {
+				"items": [
+					"mongodb/brew"
+				]
+			}
+		},
+		{
 			"key": "git-setup",
 			"value": { "configPath": "./private/git/symlink.gitconfig" }
 		},

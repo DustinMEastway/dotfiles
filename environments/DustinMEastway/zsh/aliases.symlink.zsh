@@ -48,6 +48,10 @@ alias updateBrew='brew update; brew upgrade'
 alias reinstallXCode='sudo rm -rf $(xcode-select -print-path); xcode-select --install'
 # reads system defaults into a text file
 alias readDefaults='defaults read > ~/Sites/dotfiles/defaults.txt'
+# TODO: move an item to the trash
+# * https://github.com/morgant/tools-osx/blob/master/src/trash
+# * https://apple.stackexchange.com/questions/50844/how-to-move-files-to-trash-from-command-line
+alias trash='echo "TODO"'
 
 # open the preferred editor
 function edit() {
