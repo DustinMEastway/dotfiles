@@ -24,6 +24,7 @@
         "items": [
           "brave-browser",
           "godot",
+          "iina",
           "sublime-merge"
         ]
       }
@@ -69,7 +70,7 @@
       ]
     },
     {
-      "key": "set-defaults",
+      "key": "write-defaults",
       "value": {
         "Apple Global Domain": {
           "AppleInterfaceStyle": "Dark",
