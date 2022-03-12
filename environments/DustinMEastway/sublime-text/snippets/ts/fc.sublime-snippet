@@ -1,0 +1,15 @@
+<snippet>
+  <content><![CDATA[
+import React from 'react';
+
+export interface $1Props {$0
+};
+
+export const $1: React.FC<${1:${TM_FILENAME/(^[a-z])|\.tsx$/\u\1/g}}Props> = ({}) => {
+  return <>$1 Works!</>;
+};
+
+]]></content>
+  <tabTrigger>dmeFc</tabTrigger>
+  <scope>source.tsx</scope>
+</snippet>

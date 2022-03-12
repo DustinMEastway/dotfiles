@@ -6,6 +6,7 @@
   "installed_packages":
   [
     "DiffTabs",
+    "GraphQL",
     "Indent XML",
     "MoveTab",
     "Package Control",

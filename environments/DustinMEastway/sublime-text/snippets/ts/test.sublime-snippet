@@ -6,6 +6,6 @@ test('${1:that something works', () => {$0
   /}/ assert
 });
 ]]></content>
-  <tabTrigger>tskTest</tabTrigger>
+  <tabTrigger>dmeTest</tabTrigger>
   <scope>source.ts</scope>
 </snippet>

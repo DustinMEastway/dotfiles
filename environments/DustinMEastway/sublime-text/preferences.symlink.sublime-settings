@@ -1,6 +1,16 @@
 {
   "color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
   "default_line_ending": "unix",
+  "folder_exclude_patterns": [
+    ".git",
+    ".hg",
+    ".svn",
+    ".Trash",
+    ".Trash-*",
+    "CVS",
+    "dist",
+    "node_modules"
+  ],
   "ignored_packages":
   [
   ],

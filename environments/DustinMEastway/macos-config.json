@@ -13,7 +13,10 @@
       "key": "brew-install",
       "value": {
         "items": [
-          "mongodb-community"
+          "coreutils",
+          "mongodb-community",
+          "postgresql",
+          "redis"
         ]
       }
     },
@@ -22,9 +25,13 @@
       "value": {
         "args": "--cask",
         "items": [
+          "altserver",
           "brave-browser",
-          "godot",
+          "calibre",
+          "godot-mono",
           "iina",
+          "insomnia",
+          "multipatch",
           "sublime-merge"
         ]
       }
@@ -66,7 +73,8 @@
           "link": "~/Library/Application Support/Sublime Text 3/Packages/User/Snippets/"
         },
         { "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
-        { "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" }
+        { "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" },
+        { "file": "./private/zsh/env.symlink.zsh", "link": "~/.env.zsh" }
       ]
     },
     {

@@ -24,3 +24,9 @@ if [[ -a ~/.aliases.zsh ]]
 then
   source ~/.aliases.zsh
 fi
+
+# Load environmental variables
+if [[ -a ~/.env.zsh ]]
+then
+  source ~/.env.zsh
+fi
