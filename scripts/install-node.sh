@@ -20,16 +20,16 @@ sourceRelative ./functions/logging.sh
 sourceRelative ./install-homebrew.sh
 
 # Install NVM if it does not exist
-if [ ! $(which nvm) ]
+if ( brew ls --versions nvm > /dev/null; )
 then
+  logSuccess "Skipped NVM installation"
+else
   logInfo "Installing NVM"
 
   # perform the install of [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md)
   brew install nvm
 
   logSuccess "NVM installation complete"
-else
-  logSuccess "Skipped NVM installation"
 fi
 
 # Install Node.js if it does not exist

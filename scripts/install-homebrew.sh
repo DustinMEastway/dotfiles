@@ -30,3 +30,7 @@ then
 else
   logSuccess "Skipped Homebrew installation"
 fi
+
+logInfo "Updating Homebrew"
+brew update
+logSuccess "Homebrew update complete"
