@@ -19,9 +19,12 @@ export function asyncForEach<T>(
   items: T[],
   lambda: (item: T, index: number) => PromiseOrValue<void>
 ): Promise<T[]> {
-  const aggrigator = (_, item: T, index: number) => lambda(item, index);
+  const aggrigator = (items: T[], item: T, index: number) => {
+    lambda(item, index);
+    return items;
+  };
 
-  return asyncReduce(items, aggrigator, undefined);
+  return asyncReduce(items, aggrigator, items);
 }
 
 /**
@@ -42,7 +45,7 @@ export function asyncMap<T, R>(
 export function asyncReduce<T>(
   items: T[],
   lambda: (previousValue: T, item: T, index: number) => PromiseOrValue<T>
-): Promise<T>;
+): Promise<T | null>;
 export function asyncReduce<T, R>(
   items: T[],
   lambda: (previousValue: R, item: T, index: number) => PromiseOrValue<R>,
@@ -52,17 +55,17 @@ export function asyncReduce<T, R>(
   items: T[],
   lambda: (previousValue: R, item: T, index: number) => PromiseOrValue<R>,
   initialValue?: R
-): Promise<R> {
-  return asyncReduceInner(items, lambda, initialValue, arguments.length > 2);
+): Promise<T | R | null> {
+  return asyncReduceInner(items, lambda, initialValue ?? null, arguments.length > 2);
 }
 
 /** used in @see asyncReduce since the 'arguments' object cannot be referenced in an async function */
 async function asyncReduceInner<T, R>(
   items: T[],
   lambda: (previousValue: R, item: T, index: number) => PromiseOrValue<R>,
-  initialValue: R,
+  initialValue: R | null,
   initialValueProvided: boolean
-): Promise<R> {
+): Promise<T | R | null> {
   items = items || [];
 
   for (let i = 0; i < items.length; ++i) {
@@ -71,7 +74,7 @@ async function asyncReduceInner<T, R>(
     if (!initialValueProvided && i === 0) {
       initialValue = item as any;
     } else {
-      initialValue = await lambda(initialValue, item, i);
+      initialValue = await lambda(initialValue!, item, i);
     }
   }
 

@@ -106,7 +106,7 @@ export function makeDirectory(path: PathLike, config?: MakeDirectoryOptions): Pr
       if (error) {
         reject(error);
       } else {
-        resolve(createdPath);
+        resolve(createdPath!);
       }
     });
   });
@@ -138,7 +138,7 @@ export async function searchDirectory(directoryPath: string, config?: SearchDire
   }
 
   const { itemFilter, directoryFilter } = config || {};
-  const filterItem = async (item: DirectoryItem, filter: DirectoryItemFilter) => {
+  const filterItem = async (item: DirectoryItem, filter?: DirectoryItemFilter) => {
     return (typeof filter === 'function') ? await filter(item) : filter == null || filter.test(item.path);
   };
 

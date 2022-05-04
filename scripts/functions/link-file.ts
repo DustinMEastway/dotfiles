@@ -5,11 +5,15 @@ import { clone } from './object';
 
 export type ConflictMode = 'backup' | 'overwrite' | 'skip';
 export interface LinkFileConfig {
-  conflictMode?: ConflictMode;
+  conflictMode: ConflictMode | null;
 }
 
 /** create a symlink from the source path to the destination path (works for files and directories) */
-export async function linkFile(source: string, destination: string, config?: LinkFileConfig): Promise<LinkFileConfig> {
+export async function linkFile(
+  source: string,
+  destination: string,
+  config: LinkFileConfig | null
+): Promise<LinkFileConfig | null> {
   source = absolutePath(source);
   if (!(await exists(source))) {
     logFail(`Unable to locate source '${source}' to symlink`)
@@ -17,7 +21,7 @@ export async function linkFile(source: string, destination: string, config?: Lin
   }
 
   config = clone<LinkFileConfig>(config || { conflictMode: null });
-  let conflictMode: ConflictMode = null;
+  let conflictMode: ConflictMode | null = null;
   destination = absolutePath(destination);
   if (await exists(destination)) {
     // make sure conflictMode is set if destination already exists
@@ -79,7 +83,7 @@ export async function linkFile(source: string, destination: string, config?: Lin
 /** create a symlink from the source paths to the destination paths (works for files and directories) */
 export async function linkFiles(
   links: { destination: string; source: string; }[],
-  config?: LinkFileConfig
+  config: LinkFileConfig | null = null
 ): Promise<void> {
   await asyncForEach(links, async ({ destination, source }) => {
     config = await linkFile(source, destination, config);

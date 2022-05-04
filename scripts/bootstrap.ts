@@ -23,7 +23,7 @@ const text = {
 async function getConfig() {
   const configIndex = process.argv.indexOf('--config');
   let configPath = process.argv[configIndex + 1];
-  let config: EnvironmentConfig;
+  let config: EnvironmentConfig | null = null;
 
   while (!config) {
     while (!configPath || !await isFile(configPath)) {

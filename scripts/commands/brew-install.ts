@@ -35,7 +35,7 @@ export const brewInstall: Command = async (_, config: BrewInstallConfig) => {
 
 async function filterInstalledPackages(config: BrewInstallConfig): Promise<string[]> {
   const { args, items } = config;
-  const isCask = /--casks?\b/.test(args);
+  const isCask = /--casks?\b/.test(args ?? '');
   const installedPackages = new Set(
     (await exec(`brew list ${(isCask) ? '--cask' : '--formula'}`)).split(/\s*\n\s*/)
   );

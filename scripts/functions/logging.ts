@@ -56,12 +56,10 @@ export function input(message?: string): Promise<string> {
   const stdin = process.stdin;
   stdin.resume();
   return new Promise(resolve => {
-    const dataListener = data => {
+    stdin.once('data', (data) => {
       resolve(data.toString().trim());
       stdin.pause();
-    };
-
-    stdin.once('data', dataListener);
+    });
   });
 }
 
