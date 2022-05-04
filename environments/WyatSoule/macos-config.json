@@ -1,0 +1,64 @@
+{
+    "fileRoot": "./environments/WyatSoule/",
+    "commands": [
+      {
+        "key": "brew-tap",
+        "value": {
+          "items": [
+            "mongodb/brew"
+          ]
+        }
+      },
+      {
+        "key": "brew-install",
+        "value": {
+          "items": [
+            "coreutils",
+            "mongodb-community",
+            "redis"
+          ]
+        }
+      },
+      {
+        "key": "brew-install",
+        "value": {
+          "args": "--cask",
+          "items": [
+            "brave-browser",
+            "calibre",
+            "godot-mono",
+            "iina",
+            "insomnia",
+            "multipatch",
+            "sublime-merge",
+            "visual-studio-code"
+          ]
+        }
+      },
+      {
+        "key": "git-setup",
+        "value": { "configPath": "./private/git/symlink.gitconfig" }
+      },
+      {
+        "key": "mkdir",
+        "value": "./private/.ssh/"
+      },
+      {
+        "key": "ssh-keygen",
+        "value": {
+          "file": "./private/.ssh/id_rsa",
+          "type": "rsa"
+        }
+      },
+      {
+        "key": "symlink",
+        "value": [
+          { "file": "./private/.ssh/", "link": "~/.ssh/" },
+          { "file": "./private/git/symlink.gitconfig", "link": "~/.gitconfig" },
+          { "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
+          { "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" },
+          { "file": "./private/zsh/env.symlink.zsh", "link": "~/.env.zsh" }
+        ]
+      }
+    ]
+  }
