@@ -11,22 +11,14 @@ export NVM_DIR="$HOME/.nvm"
 # This loads nvm bash_completion
 [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
 
-# Stash your environment variables in ~/.localrc. This means they'll stay out
-# of your main dotfiles repository (which may be public, like this one), but
-# you'll have access to them in your scripts.
-if [[ -a ~/.localrc ]]
+# Load environmental variables
+if [[ -f ~/.env.zsh ]]
 then
-  source ~/.localrc
+  source ~/.env.zsh
 fi
 
 # Load aliases
-if [[ -a ~/.aliases.zsh ]]
+if [[ -f ~/.aliases.zsh ]]
 then
   source ~/.aliases.zsh
-fi
-
-# Load environmental variables
-if [[ -a ~/.env.zsh ]]
-then
-  source ~/.env.zsh
 fi
