@@ -58,16 +58,20 @@ async function main(): Promise<void> {
   const config = await getConfig();
 
   await asyncForEach(config.commands, async (commandConfig, index) => {
-    const command = commandMap[commandConfig?.key];
+    const command = commandMap[commandConfig.key];
 
     if (!command) {
       logFail(
-        `Invalid command key "${commandConfig?.key}" provided for command index ${index}.\n`
+        `Invalid command key "${commandConfig.key}" provided for command index ${index}.\n`
         + 'A valid list of command keys can be found in the `command-key.ts` file'
       );
     }
 
-    await command(config, commandConfig?.value);
+    try {
+      const output = await command(config, commandConfig.value);
+    } catch (error) {
+      logFail(`Command failed. ${JSON.stringify(commandConfig)}`, error);
+    }
   });
 }
 

@@ -63,8 +63,11 @@ export function input(message?: string): Promise<string> {
   });
 }
 
-export function logFail(message: string) {
+export function logFail(message: string, error?: any) {
   logMessage(message, 'FAIL', `${logStyles.darkTextRed}${logStyles.blink}`);
+  if (error != null) {
+    console.error(error);
+  }
   process.exit(1);
 }
 
