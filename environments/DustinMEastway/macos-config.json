@@ -42,10 +42,8 @@
       "key": "git-setup",
       "value": { "configPath": "./private/git/symlink.gitconfig" }
     },
-    {
-      "key": "mkdir",
-      "value": "./private/.ssh/"
-    },
+    { "key": "mkdir", "value": "./private/.ssh/" },
+    { "key": "mkdir", "value": "./private/sh/bin/" },
     {
       "key": "ssh-keygen",
       "value": {
@@ -56,8 +54,13 @@
     {
       "key": "symlink",
       "value": [
+        { "file": "../..", "link": "~/.dotfiles" },
+        { "file": "./common.symlink.sh", "link": "~/.common.sh" },
         { "file": "./private/.ssh/", "link": "~/.ssh/" },
         { "file": "./private/git/symlink.gitconfig", "link": "~/.gitconfig" },
+        { "file": "./private/sh/bin", "link": "~/.bin-private" },
+        { "file": "./private/zsh/env.symlink.zsh", "link": "~/.env-private.zsh" },
+        { "file": "./sh/bin", "link": "~/.bin" },
         {
           "file": "./sublime-text/package-control.symlink.sublime-settings",
           "link": "~/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
@@ -75,8 +78,8 @@
           "link": "~/Library/Application Support/Sublime Text 3/Packages/User/Snippets/"
         },
         { "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
-        { "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" },
-        { "file": "./private/zsh/env.symlink.zsh", "link": "~/.env.zsh" }
+        { "file": "./zsh/env.symlink.zsh", "link": "~/.env.zsh" },
+        { "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" }
       ]
     },
     {
