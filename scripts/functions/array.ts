@@ -19,8 +19,8 @@ export function asyncForEach<T>(
   items: T[],
   lambda: (item: T, index: number) => PromiseOrValue<void>
 ): Promise<T[]> {
-  const aggrigator = (items: T[], item: T, index: number) => {
-    lambda(item, index);
+  const aggrigator = async (items: T[], item: T, index: number) => {
+    await lambda(item, index);
     return items;
   };
 
