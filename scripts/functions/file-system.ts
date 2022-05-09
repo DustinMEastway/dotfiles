@@ -100,7 +100,7 @@ export function exists(path: PathLike): Promise<any> {
 
 
 /** make the provided directory */
-export function makeDirectory(path: PathLike, config?: MakeDirectoryOptions): Promise<string> {
+export function makeDirectory(path: PathLike, config?: MakeDirectoryOptions): Promise<string | undefined> {
   return new Promise((resolve, reject) => {
     mkDirectory(path, config, (error, createdPath) => {
       if (error) {
@@ -318,10 +318,13 @@ export function rename(source: PathLike, destination: PathLike): Promise<void> {
  * @param path to a file to delete (if a URL is provided, it must use the `file:` protocol)
  */
 export async function remove(path: PathLike): Promise<void> {
-  const removeFile = await isFile(path);
+  if (!await canAccess(path)) {
+    return;
+  }
 
+  const fileStats = await lstat(path);
   return new Promise((resolve, reject) => {
-    if (removeFile) {
+    if (fileStats.isFile() || fileStats.isSymbolicLink()) {
       unlink(path, error => {
         if (error) {
           reject(error);
@@ -329,7 +332,7 @@ export async function remove(path: PathLike): Promise<void> {
           resolve();
         }
       });
-    } else {
+    } else if (fileStats.isDirectory()) {
       rmDirectory(path, error => {
         if (error) {
           reject(error);
