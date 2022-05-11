@@ -1,0 +1,67 @@
+#!/bin/bash
+# Create a branch (destination) from a branch (source), then push it up.
+# $1: Source branch.
+# $2: Destination branch.
+#
+# Example: Create a release branch from master.
+# createBranch master release/1.0.0
+
+sourceBranch="$1"
+destinationBranch="$2"
+repository="$(pwd | sed 's|^.*\/||g')"
+startBranch=""$(git rev-parse --abbrev-ref HEAD)""
+stashedChanges="false"
+success="true"
+
+function try() {
+  output=""
+  if [[ $success == "true" ]]
+  then
+    # Run the provided command if all prior commands have succeeded. Set `success` to `false` if command fails.
+    output=$("${@:1}" 2>&1) || success="false"
+  fi
+
+  if [[ $output != "" ]]
+  then
+    # Send output to whatever called this function.
+    echo " $output"
+  fi
+}
+
+logInfo "Creating '$destinationBranch' from '$sourceBranch' in $repository."
+
+if [[ "$(git status --porcelain)" ]]
+then
+  # Stash all local changes.
+  try logInfo "Stashing changes on '$startBranch' branch."
+  try git stash --include-untracked --quiet
+  stashedChanges="true"
+fi
+
+try logInfo "Fetching remote branches."
+try git fetch --prune --quiet
+try logInfo "Checking out '$sourceBranch' branch."
+try git checkout $sourceBranch --quiet
+try logInfo "Pulling '$sourceBranch' branch."
+try git pull --quiet
+try logInfo "Creating '$destinationBranch' branch."
+try git checkout -b $destinationBranch --quiet
+try logInfo "Pushing '$destinationBranch' branch."
+try git push --quiet --set-upstream origin $destinationBranch
+
+try logInfo "Checking out start branch '$startBranch'."
+try git checkout $startBranch --quiet
+
+if [[ $stashedChanges == "true" ]]
+then
+  try logInfo "Popping changes stashed on '$startBranch' branch."
+  try git stash pop --quiet
+fi
+
+if [[ $success == "true" ]]
+then
+  logSuccess "Created '$destinationBranch' from '$sourceBranch' in $repository."
+else
+  logFail "Failed to create '$destinationBranch' from '$sourceBranch' in $repository!"
+  exit -1
+fi

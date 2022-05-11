@@ -1,0 +1,15 @@
+#!/bin/bash
+# Log the last few commits.
+# $1: Number of commits to log.
+#
+# Example: Log the last 3 commits.
+# gitLog 3
+
+commitsToLog="$1"
+
+if [[ "$commitsToLog" == "" ]]
+then
+  commitsToLog="1"
+fi
+
+git log -n "$commitsToLog"
