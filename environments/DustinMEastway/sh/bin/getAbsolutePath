@@ -1,0 +1,39 @@
+#!/bin/bash
+# Gets an absolute path (and resolves links) from a relative path.
+# $1: Path to resolve.
+#
+# Example: Get the absolute path of a file.
+# getAbsolutePath ./path/to/file.md
+#
+# Example: Get the absolute path of the parent directory.
+# getAbsolutePath ./path/to/directory
+
+path="$1"
+startDirectory="$(pwd)"
+
+if [[ "$path" =~ ^~ ]]
+then
+  path="$(echo $path | sed -E "s|^~($\|\/)|$HOME\1|g")"
+fi
+
+linkedPath="$(readlink $path)"
+if [[ $linkedPath != "" ]]
+then
+  echo $linkedPath
+  exit 0
+fi
+
+# separate directoryPath from filePath
+if [[ -f "$path" || -d "$path" ]]
+then
+  directoryPath="$(getDirectoryPath $path)"
+  filePath="$(getFileName $path)"
+else
+  exit -1
+fi
+
+cd $directoryPath
+fullPath="$(pwd)/$filePath"
+cd $startDirectory
+
+echo $fullPath

@@ -1,0 +1,16 @@
+#!/bin/bash
+# Get the directory part of a path (remove file name).
+# $1: Path to strip the file name from.
+#
+# Example: Get a file's directory.
+# getDirectoryPath ./path/to/file.md
+
+path="$1"
+
+if [[ -f $path ]]
+then
+  echo "$(dirname "$path")"
+elif [[ -d $path ]]
+then
+  echo "$path"
+fi
