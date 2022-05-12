@@ -52,13 +52,3 @@ alias readDefaults='defaults read > ~/Sites/dotfiles/defaults.txt'
 # * https://github.com/morgant/tools-osx/blob/master/src/trash
 # * https://apple.stackexchange.com/questions/50844/how-to-move-files-to-trash-from-command-line
 alias trash='echo "TODO"'
-
-# open the preferred editor
-function edit() {
-  ST "$1"
-}
-
-# opens in Sublime Text
-function ST() {
-  open -a /Applications/Sublime\ Text.app/ "$1"
-}
