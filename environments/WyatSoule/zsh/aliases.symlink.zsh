@@ -18,3 +18,5 @@ alias dotfiles='cls; cls; ~/Sites/dotfiles/scripts/bootstrap.sh --config ./envir
 function edit(){
     open -a /Applications/Visual\ Studio\ Code.app "$1"
 }
+# update brew and applications installed with brew
+alias updateAll='brew update; brew upgrade;'

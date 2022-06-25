@@ -12,3 +12,6 @@ if [[ -f ~/.aliases.zsh ]]
 then
   source ~/.aliases.zsh
 fi
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
