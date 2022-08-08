@@ -1,0 +1,19 @@
+#!/bin/bash
+# Load/source/import another script to run it.
+# $1: Bash source for your script.
+# $2: Relative path to the script you want to load.
+#
+# Example:
+# sourceRelative $BASH_SOURCE ./script-to-load.sh
+
+bashSource="$1"
+script="$2"
+
+# Used to source files relative to the current path.
+local sourcePath="$(getDirectoryPath "$bashSource")/$script"
+
+# Load path if it is a file and not this file.
+if [ -f "$sourcePath" ] && ! [ "$sourcePath" -ef "$bashSource" ]
+then
+  source $sourcePath
+fi

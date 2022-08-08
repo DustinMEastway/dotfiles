@@ -10,6 +10,6 @@ export const $1: React.FC<${1:${TM_FILENAME/(^[a-z])|\.tsx$/\u\1/g}}Props> = ({}
 };
 
 ]]></content>
-  <tabTrigger>dmeFc</tabTrigger>
+  <tabTrigger>brFc</tabTrigger>
   <scope>source.tsx</scope>
 </snippet>

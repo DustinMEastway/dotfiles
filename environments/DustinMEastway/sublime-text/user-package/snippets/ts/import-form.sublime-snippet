@@ -13,6 +13,6 @@ ${0:const [ \{\}, ${1/^([A-Z])|Mutation$/\l\1/g} ] = use$1();
 const router = useRouter();
 const toast = useToast();}
 ]]></content>
-  <tabTrigger>dmeImportForm</tabTrigger>
+  <tabTrigger>brImportForm</tabTrigger>
   <scope>source.tsx</scope>
 </snippet>

@@ -8,6 +8,8 @@
     "DiffTabs",
     "GraphQL",
     "Indent XML",
+    "LSP",
+    "LSP-typescript",
     "MoveTab",
     "Package Control",
     "SCSS",

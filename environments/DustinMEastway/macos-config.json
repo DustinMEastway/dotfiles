@@ -29,6 +29,8 @@
           "altserver",
           "brave-browser",
           "calibre",
+          "curseforge",
+          "docker",
           "godot-mono",
           "iina",
           "insomnia",
@@ -62,20 +64,8 @@
         { "file": "./private/zsh/env.symlink.zsh", "link": "~/.env-private.zsh" },
         { "file": "./sh/bin", "link": "~/.bin" },
         {
-          "file": "./sublime-text/package-control.symlink.sublime-settings",
-          "link": "~/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
-        },
-        {
-          "file": "./sublime-text/preferences.symlink.sublime-settings",
-          "link": "~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
-        },
-        {
-          "file": "./sublime-text/projects/",
-          "link": "~/Library/Application Support/Sublime Text 3/Packages/User/Projects/"
-        },
-        {
-          "file": "./sublime-text/snippets/",
-          "link": "~/Library/Application Support/Sublime Text 3/Packages/User/Snippets/"
+          "file": "./sublime-text/user-package/",
+          "link": "~/Library/Application Support/Sublime Text 3/Packages/User/"
         },
         { "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
         { "file": "./zsh/env.symlink.zsh", "link": "~/.env.zsh" },
