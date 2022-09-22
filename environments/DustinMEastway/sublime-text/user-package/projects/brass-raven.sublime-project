@@ -2,7 +2,25 @@
 	"folders":
 	[
 		{
-			"path": "/Users/dustineastway/Sites/brass-raven/cli"
-		}
-	]
+			"path": "/Users/dustineastway/Sites/brass-raven/cli",
+		},
+		{
+			"path": "/Users/dustineastway/Sites/brass-raven/cli/build",
+		},
+		{
+			"path": "/Users/dustineastway/Sites/sandbox/react/node_modules/react-scripts",
+		},
+		{
+			"path": "/Users/dustineastway/Sites/brass-raven/core",
+		},
+		{
+			"path": "/Users/dustineastway/Sites/brass-raven/react",
+		},
+		{
+			"path": "/Users/dustineastway/Sites/brass-raven/registry",
+		},
+		{
+			"path": "/Users/dustineastway/Desktop/Registry",
+		},
+	],
 }

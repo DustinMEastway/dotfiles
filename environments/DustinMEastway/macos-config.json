@@ -17,7 +17,9 @@
           "ffmpeg",
           "mongodb-community",
           "postgresql",
+          "ruby",
           "redis"
+
         ]
       }
     },
@@ -27,6 +29,7 @@
         "args": "--cask",
         "items": [
           "altserver",
+          "bfxr",
           "brave-browser",
           "calibre",
           "curseforge",
@@ -36,7 +39,8 @@
           "insomnia",
           "multipatch",
           "pgadmin4",
-          "sublime-merge"
+          "sublime-merge",
+          "zoom"
         ]
       }
     },

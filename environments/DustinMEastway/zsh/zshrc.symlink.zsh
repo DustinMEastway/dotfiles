@@ -1,4 +1,5 @@
 # Add to PATH variable.
+
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 # Load environmental variables.
