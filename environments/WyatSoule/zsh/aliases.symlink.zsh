@@ -16,7 +16,7 @@ alias mkdir='mkdir -pv'
 #run dotfiles command
 alias dotfiles='cls; cls; ~/Sites/dotfiles/scripts/bootstrap.sh --config ./environments/WyatSoule/macos-config.json'
 function edit(){
-    open -a /Applications/Visual\ Studio\ Code.app "$1"
+    open -a /Applications/Sublime\ Text.app "$1"
 }
 # update brew and applications installed with brew
 alias updateAll='brew update; brew upgrade;'

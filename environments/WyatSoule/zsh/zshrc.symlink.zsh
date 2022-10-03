@@ -14,4 +14,4 @@ then
 fi
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(npx ng completion script)

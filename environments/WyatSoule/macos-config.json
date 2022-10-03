@@ -58,7 +58,8 @@
           { "file": "./private/git/symlink.gitconfig", "link": "~/.gitconfig" },
           { "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
           { "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" },
-          { "file": "./private/zsh/env.symlink.zsh", "link": "~/.env.zsh" }
+          { "file": "./private/zsh/env.symlink.zsh", "link": "~/.env.zsh" },
+          { "file": "./sublime-text/user-package/", "link": "~/Library/Application Support/Sublime Text/Packages/User"}
         ]
       }
     ]
