@@ -15,13 +15,15 @@ export const brewTap: Command = async (_, config: BrewTapConfig) => {
   }
 
   try {
-    const itemsString = items.join(' ');
-    logInfo(`Tapping brew repos: ${itemsString}`);
-    await exec([
-      'brew tap',
-      (args) ? args : '',
-      itemsString
-    ].filter((text) => !!text).join(' '));
+    logInfo(`Tapping brew repos: ${items.join(' ')}`);
+    for (const item of items) {
+      await exec([
+        'brew tap',
+        (args) ? args : '',
+        item
+      ].filter((text) => !!text).join(' '));
+      logSuccess(`Tapped ${item}`);
+    }
     logSuccess('Finished tapping brew repos');
   } catch (error) {
     logFail(`Tapping repos failed: ${error}`);

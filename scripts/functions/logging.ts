@@ -72,7 +72,7 @@ export function logFail(message: string, error?: any) {
 }
 
 export function logInfo(message: string) {
-  if (quietModeEnabled) {
+  if (!quietModeEnabled) {
     logMessage(message, ' .. ', logStyles.darkTextBlue);
   }
 }
@@ -92,7 +92,7 @@ export function logQuestion(message: string) {
 }
 
 export function logSuccess(message: string) {
-  if (quietModeEnabled) {
+  if (!quietModeEnabled) {
     logMessage(message, ' OK ', logStyles.darkTextGreen);
   }
 }

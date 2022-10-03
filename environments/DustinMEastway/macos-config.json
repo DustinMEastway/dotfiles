@@ -5,6 +5,7 @@
       "key": "brew-tap",
       "value": {
         "items": [
+          "homebrew/cask-versions",
           "mongodb/brew"
         ]
       }
@@ -16,10 +17,9 @@
           "coreutils",
           "ffmpeg",
           "mongodb-community",
-          "postgresql",
-          "ruby",
-          "redis"
-
+          "postgresql@14",
+          "redis",
+          "ruby@2.7"
         ]
       }
     },
@@ -29,18 +29,25 @@
         "args": "--cask",
         "items": [
           "altserver",
-          "bfxr",
+          "android-studio",
           "brave-browser",
           "calibre",
           "curseforge",
           "docker",
+          "gimp",
           "godot-mono",
           "iina",
           "insomnia",
+          "multimc",
           "multipatch",
+          "parallels",
           "pgadmin4",
+          "slack",
+          "steam",
           "sublime-merge",
-          "zoom"
+          "sublime-text",
+          "zoom",
+          "zulu11"
         ]
       }
     },
@@ -69,34 +76,12 @@
         { "file": "./sh/bin", "link": "~/.bin" },
         {
           "file": "./sublime-text/user-package/",
-          "link": "~/Library/Application Support/Sublime Text 3/Packages/User/"
+          "link": "~/Library/Application Support/Sublime Text/Packages/User/"
         },
         { "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
         { "file": "./zsh/env.symlink.zsh", "link": "~/.env.zsh" },
         { "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" }
       ]
-    },
-    {
-      "key": "write-defaults",
-      "value": {
-        "Apple Global Domain": {
-          "AppleInterfaceStyle": "Dark",
-          "AppleAccentColor": -1,
-          "AppleHighlightColor": "0.847059 0.847059 0.862745 Graphite",
-          "AppleAquaColorVariant": 6,
-          "com.apple.trackpad.scaling": 3
-        },
-        "com.apple.AppleMultitouchTrackpad": {
-          "Clicking": 1,
-          "TrackpadCornerSecondaryClick": 2,
-          "TrackpadRightClick": 0
-        },
-        "com.apple.driver.AppleBluetoothMultitouch.trackpad": {
-          "Clicking": 1,
-          "TrackpadCornerSecondaryClick": 2,
-          "TrackpadRightClick": 0
-        }
-      }
     }
   ]
 }
