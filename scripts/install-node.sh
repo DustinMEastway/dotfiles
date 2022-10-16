@@ -47,6 +47,9 @@ then
   # perform the install of [Node.js](https://nodejs.org/en/)
   nvm install node
 
+  # Link node to the directory where other programs will look for it
+  ln -s "$(which node)" /usr/local/bin/node
+
   logSuccess "Node.js installation complete"
 else
   logSuccess "Skipped Node.js installation"

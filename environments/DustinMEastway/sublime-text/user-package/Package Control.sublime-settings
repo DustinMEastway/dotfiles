@@ -13,7 +13,8 @@
     "MoveTab",
     "Package Control",
     "SCSS",
+    "SideBarEnhancements",
     "SublimeLinter",
-    "SublimeLinter-eslint"
+    "SublimeLinter-eslint",
   ],
 }
