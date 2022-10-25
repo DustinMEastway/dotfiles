@@ -35,16 +35,16 @@ export class $1 extends BaseEntity {$0
   $11: $10;
 
   @Field()
-  @PrimaryColumn()
-  $11Id: number;
+  @PrimaryColumn('uuid')
+  $11Id: string;
 
   @Field(() => $20)
   @ManyToOne(() => $20, (${20/(.*)/\l\1/}) => ${20/(.*)/\l\1/}.$22)
   $21: $20;
 
   @Field()
-  @PrimaryColumn()
-  $21Id: number;
+  @PrimaryColumn('uuid')
+  $21Id: string;
 
   @Field(() => String)
   @CreateDateColumn()

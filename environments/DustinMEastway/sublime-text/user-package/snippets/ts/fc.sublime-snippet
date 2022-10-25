@@ -3,9 +3,9 @@
 import { FC } from 'react';
 
 export interface $1Props {$0
-};
+}
 
-export const $1: FC<${1:${TM_FILENAME/(^[a-z])|\.tsx$/\u\1/g}}Props> = ({}) => {
+export const $1: FC<${1:${TM_FILENAME/\.tsx$|(?:^|-)([a-z])/\u\1/g}}Props> = ({}) => {
   return <>$1 Works!</>;
 };
 

@@ -14,8 +14,8 @@ $3: $1[];
 $4: $2;
 
 @Field()
-@Column()
-$4Id: number;
+@Column({ type: 'uuid' })
+$4Id: string;
 ]]></content>
   <tabTrigger>tsEntityOneToMany</tabTrigger>
   <scope>source.ts</scope>
