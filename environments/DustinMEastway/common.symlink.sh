@@ -19,7 +19,8 @@ export NVM_DIR="$HOME/.nvm"
 # This loads NVM bash_completion.
 [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
 
-# ruby setup.
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include"
+# Ruby setup.
+if [[ -d "/usr/local/opt/ruby@2.7/bin" ]]
+then
+  export PATH="/usr/local/opt/ruby@2.7/bin:$PATH"
+fi

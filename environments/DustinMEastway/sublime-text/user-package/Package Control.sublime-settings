@@ -9,12 +9,11 @@
     "GraphQL",
     "Indent XML",
     "LSP",
+    "LSP-eslint",
     "LSP-typescript",
     "MoveTab",
     "Package Control",
     "SCSS",
-    "SublimeLinter",
-    "SublimeLinter-eslint",
-    "TypeScript"
-  ]
+    "SideBarEnhancements",
+  ],
 }

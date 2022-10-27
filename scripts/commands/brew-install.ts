@@ -20,13 +20,16 @@ export const brewInstall: Command = async (_, config: BrewInstallConfig) => {
       return;
     }
 
-    const itemsString = itemsToInstall.join(' ');
-    logInfo(`Installing brew packages: ${itemsString}`);
-    await exec([
-      'brew install',
-      (args) ? args : '',
-      itemsString
-    ].filter((text) => !!text).join(' '));
+    logInfo(`Installing brew packages: ${itemsToInstall.join(', ')}`);
+    for (const item of itemsToInstall) {
+      await exec([
+        'brew install',
+        (args) ? args : '',
+        item
+      ].filter((text) => !!text).join(' '));
+      logSuccess(`Installed ${item}`);
+    }
+
     logSuccess('Finished installing brew packages');
   } catch (error) {
     logFail(`Installing brew packages failed: ${error}`);

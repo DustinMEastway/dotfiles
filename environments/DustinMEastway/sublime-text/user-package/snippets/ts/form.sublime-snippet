@@ -22,6 +22,6 @@
   </Form>
 )}</Formik>
 ]]></content>
-  <tabTrigger>brForm</tabTrigger>
+  <tabTrigger>tsForm</tabTrigger>
   <scope>source.tsx</scope>
 </snippet>
