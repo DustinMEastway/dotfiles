@@ -1,6 +1,30 @@
 {
-	"ignored_packages":
-	[
-		"Vintage",
-	],
+  "color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
+  "default_line_ending": "unix",
+  "folder_exclude_patterns": [
+    ".git",
+    ".hg",
+    ".svn",
+    ".Trash",
+    ".Trash-*",
+    "build",
+    "CVS",
+    "dist",
+    "node_modules"
+  ],
+  "ignored_packages":
+  [
+    "TypeScript",
+  ],
+  "node_path": "/Users/wsoule/.nvm/versions/node/v14.8.0/bin/node",
+  "open_files_in_new_window": "never",
+  "rulers":
+  [
+    120
+  ],
+  "scroll_past_end": true,
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": "not_on_caret",
+  "vintage_start_in_command_mode": true,
 }

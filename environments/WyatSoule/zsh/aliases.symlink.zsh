@@ -3,6 +3,10 @@ aliasSource=$0
 alias hideHiddenFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder'
 alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
 
+#turn on and off repeating keyboard presses
+alias repeatOn='defaults write -g ApplePressAndHoldEnabled -bool false'
+alias repeatOff='defaults write -g ApplePressAndHoldEnabled -bool true'
+
 #edit aliases
 alias aEdit='edit "$aliasSource"'
 #reload aliases
@@ -20,3 +24,8 @@ function edit(){
 }
 # update brew and applications installed with brew
 alias updateAll='brew update; brew upgrade;'
+
+function runCpp(){
+    outName="${1/.cpp/}"
+    nodemon --exec "clear && g++ $1 -o $outName && $outName" --watch "$1"
+}

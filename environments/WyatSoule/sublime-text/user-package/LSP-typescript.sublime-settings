@@ -1,0 +1,7 @@
+// Settings in here override those in "LSP-typescript/LSP-typescript.sublime-settings"
+
+{
+ "lsp_code_actions_on_save": "source.addMissingImports.ts",
+ "lsp_code_actions_on_save":"source.fixAll.ts",
+ "lsp_code_actions_on_save":"source.organizeImports.ts",
+}
