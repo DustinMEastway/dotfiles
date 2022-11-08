@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Set PATH so it includes user's personal bin if it exists.
 if [[ -d "$HOME/.bin" ]]

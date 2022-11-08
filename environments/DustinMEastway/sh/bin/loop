@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Split a string using a delimiter, then preform a command on each split segment.
 # $1: Delimiter used to split the string.
 # $2: String to split.

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Get the file name part of a path (remove directory path).
 # $1: Path to get the file name from.
 #

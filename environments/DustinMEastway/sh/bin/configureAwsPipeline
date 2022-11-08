@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Update AWS CodePipeline pipeline configuration.
 # --pipelineName: Name of the pipeline to configure.
 # --sourceBranch: Branch to use in the source stage of the pipeline.

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Create a branch (destination) from a branch (source), then push it up.
 # $1: Source branch.
 # $2: Destination branch.

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Determine the current bash env.
 export ENV_TYPE="linux"

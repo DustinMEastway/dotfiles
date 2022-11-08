@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Gets an absolute path (and resolves links) from a relative path.
 # $1: Path to resolve.
 #

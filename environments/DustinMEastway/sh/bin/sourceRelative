@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Load/source/import another script to run it.
 # $1: Bash source for your script.
 # $2: Relative path to the script you want to load.

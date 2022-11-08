@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Logs an info message out for the user to see.
 # $1: Message to display.
 #

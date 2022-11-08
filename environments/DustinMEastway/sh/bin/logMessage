@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Logs a message out for the user to see.
 # $1: Message to display.
 # $2: Message prefix (should be 4 characters).

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Get the directory part of a path (remove file name).
 # $1: Path to strip the file name from.
 #

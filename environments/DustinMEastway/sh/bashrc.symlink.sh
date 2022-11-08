@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Load environmental variables.
 if [[ -f "$HOME/.env.sh" ]]
