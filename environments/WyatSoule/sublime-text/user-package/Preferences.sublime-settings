@@ -20,6 +20,7 @@
   "default_line_ending": "unix",
   "ignored_packages":
   [
+    "TypeScript",
   ],
   "node_path": "/Users/wsoule/.nvm/versions/node/v14.8.0/bin/node",
   "open_files_in_new_window": "never",

@@ -12,7 +12,7 @@ alias aEdit='edit "$aliasSource"'
 #reload aliases
 alias aReload='unalias -a; source $aliasSource'
 #gits status
-alias gitS='git branch && git status'
+alias gitS='cls; cls; git branch && git status'
 #clear terminal
 alias cls='clear'
 #make directory with verbose and ability to make subdirectories
