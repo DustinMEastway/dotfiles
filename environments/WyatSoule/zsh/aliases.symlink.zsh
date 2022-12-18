@@ -18,7 +18,7 @@ alias cls='clear'
 #make directory with verbose and ability to make subdirectories
 alias mkdir='mkdir -pv'
 #run dotfiles command
-alias dotfiles='cls; cls; ~/Sites/dotfiles/scripts/bootstrap.sh --config ./environments/WyatSoule/macos-config.json'
+alias dotfiles='cls; cls;  cd ~/Sites/dotfiles/ && git pull && scripts/bootstrap.sh --config ./environments/WyatSoule/macos-config.json'
 function edit(){
     open -a /Applications/Sublime\ Text.app "$1"
 }
