@@ -1,0 +1,91 @@
+{
+  "fileRoot": "./environments/DustinMEastway/",
+  "commands": [
+    {
+      "key": "brew-tap",
+      "value": {
+        "items": [
+          "homebrew/cask-versions",
+          "mongodb/brew"
+        ]
+      }
+    },
+    {
+      "key": "brew-install",
+      "value": {
+        "items": [
+          "coreutils",
+          "ffmpeg",
+          "mongodb-community",
+          "postgresql@14",
+          "redis",
+          "ruby@2.7"
+        ]
+      }
+    },
+    {
+      "key": "brew-install",
+      "value": {
+        "args": "--cask",
+        "items": [
+          "altserver",
+          "android-studio",
+          "brave-browser",
+          "calibre",
+          "curseforge",
+          "discord",
+          "docker",
+          "gimp",
+          "godot-mono",
+          "iina",
+          "insomnia",
+          "mos",
+          "multimc",
+          "multipatch",
+          "parallels",
+          "pgadmin4",
+          "private-internet-access",
+          "raycast",
+          "slack",
+          "steam",
+          "sublime-merge",
+          "sublime-text",
+          "zoom",
+          "zulu11"
+        ]
+      }
+    },
+    {
+      "key": "git-setup",
+      "value": { "configPath": "./private/git/symlink.gitconfig" }
+    },
+    { "key": "mkdir", "value": "./private/.ssh/" },
+    { "key": "mkdir", "value": "./private/sh/bin/" },
+    {
+      "key": "ssh-keygen",
+      "value": {
+        "file": "./private/.ssh/id_rsa",
+        "type": "rsa"
+      }
+    },
+    {
+      "key": "symlink",
+      "value": [
+        { "file": "../..", "link": "~/.dotfiles" },
+        { "file": "./common.symlink.sh", "link": "~/.common.sh" },
+        { "file": "./private/.ssh/", "link": "~/.ssh/" },
+        { "file": "./private/git/symlink.gitconfig", "link": "~/.gitconfig" },
+        { "file": "./private/sh/bin", "link": "~/.bin-private" },
+        { "file": "./private/zsh/env.symlink.zsh", "link": "~/.env-private.zsh" },
+        { "file": "./sh/bin", "link": "~/.bin" },
+        {
+          "file": "./sublime-text/user-package/",
+          "link": "~/Library/Application Support/Sublime Text/Packages/User/"
+        },
+        { "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
+        { "file": "./zsh/env.symlink.zsh", "link": "~/.env.zsh" },
+        { "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" }
+      ]
+    }
+  ]
+}

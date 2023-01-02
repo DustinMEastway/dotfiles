@@ -29,7 +29,7 @@ alias aEdit='edit ~/.aliases.zsh'
 # reload aliases
 alias aReload='unalias -a && source ~/.aliases.zsh'
 # run the bootstrapper to setup the environment
-alias bootstrap='cls && cls && ~/.dotfiles/scripts/bootstrap.sh --config ./environments/DustinMEastway/macos-config.json'
+alias dotfiles='cls && git pull && ~/.dotfiles/scripts/bootstrap.sh --config ./environments/DustinMEastway/home-macos-config.json'
 # clear shorthand for consistency accross systems
 alias cls='clear'
 # hide hidden files in Finder
