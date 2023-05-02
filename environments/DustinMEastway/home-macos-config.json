@@ -81,6 +81,10 @@
         { "file": "./private/zsh/env.symlink.zsh", "link": "~/.env-private.zsh" },
         { "file": "./sh/bin", "link": "~/.bin" },
         {
+          "file": "./sublime-merge/user-package/",
+          "link": "~/Library/Application Support/Sublime Merge/Packages/User/"
+        },
+        {
           "file": "./sublime-text/user-package/",
           "link": "~/Library/Application Support/Sublime Text/Packages/User/"
         },
