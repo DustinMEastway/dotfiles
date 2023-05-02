@@ -52,7 +52,7 @@
 * **System Voice**: `Alex`
 * **Speaking Rate**: `100%`
 * **Speak selection**: `true`
-  * **Show controller**: `Never`
+* **Show controller**: `Never`
 
 #### Security & Privacy
 
@@ -78,6 +78,13 @@ Add these values for external Windows keyboards.
   - Note: This is because [Raycast](https://www.raycast.com) replaces Spotlight.
 * **Show Finder search window**: `false`
 * **Use keyboard navigation to move focus between controls**: `true`
+
+#### Text
+* **Correct spelling automatically**: `false`
+* **Capitalize words automatically**: `false`
+* **Add period with double-space**: `false`
+* **Spelling**: `U.S. English`
+* **Use smart quotes and dashes**: `false`
 
 ### Trackpad
 
@@ -129,12 +136,15 @@ This is not in the Finder settings, just drag and drop the items in the sidebar 
 * **Show all filename extensions**: `true`
 * **Show warning before changing an extension**: `false`
 
+## Software Installs
+* [Download Wacom Cintiq Driver](https://www.wacom.com/download).
+
 ## Sublime Merge
 
 ### General
 
- * **Theme**: `Auto`
- * **Tab Size**: `2`
+* **Theme**: `Auto`
+* **Tab Size**: `2`
 
 ### Commits
 

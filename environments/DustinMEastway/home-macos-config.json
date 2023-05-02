@@ -15,8 +15,10 @@
       "value": {
         "items": [
           "coreutils",
+          "dotnet",
           "ffmpeg",
           "mongodb-community",
+          "mono",
           "postgresql@14",
           "redis",
           "ruby@2.7"

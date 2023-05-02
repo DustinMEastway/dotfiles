@@ -11,9 +11,11 @@
     "LSP",
     "LSP-css",
     "LSP-eslint",
+    "LSP-file-watcher-chokidar",
     "LSP-typescript",
     "MoveTab",
     "Package Control",
+    "SCSS",
     "SideBarEnhancements",
   ],
 }
