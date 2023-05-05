@@ -1,15 +1,24 @@
 [
-  { "keys": ["f12"], "command": "lsp_symbol_definition" },
-  { "keys": ["super+r"], "command": "lsp_symbol_rename" },
-  { "keys": ["super+shift+o"], "command": "reveal_in_side_bar" },
+  {
+    "command": "lsp_symbol_definition",
+    "keys": ["f12"]
+  },
+  {
+    "command": "lsp_symbol_rename",
+    "keys": ["super+r"]
+  },
   {
     "args": { "position": "-1" },
-    "keys": ["super+shift+alt+["],
-    "command": "move_tab"
+    "command": "move_tab",
+    "keys": ["super+shift+alt+["]
   },
   {
     "args": { "position": "+1" },
-    "keys": ["super+shift+alt+]"],
-    "command": "move_tab"
+    "command": "move_tab",
+    "keys": ["super+shift+alt+]"]
+  },
+  {
+    "command": "reveal_in_side_bar",
+    "keys": ["super+shift+o"]
   }
 ]

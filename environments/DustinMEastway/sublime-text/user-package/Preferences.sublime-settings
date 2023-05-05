@@ -35,4 +35,5 @@
   "theme": "auto",
   "dark_theme": "Adaptive.sublime-theme",
   "light_theme": "Adaptive.sublime-theme",
+  "font_size": 15,
 }
