@@ -4,8 +4,19 @@
     {
       "key": "brew-install",
       "value": {
+        "items": [
+          "nvm",
+          "pyenv"
+        ]
+      }
+    },
+    {
+      "key": "brew-install",
+      "value": {
         "args": "--cask",
         "items": [
+          "brave-browser",
+          "insomnia",
           "raycast",
           "sublime-merge",
           "sublime-text"
@@ -16,30 +27,30 @@
       "key": "git-setup",
       "value": { "configPath": "./private/git/symlink.gitconfig" }
     },
-    { "key": "mkdir", "value": "./private/.ssh/" },
+    { "key": "mkdir", "value": "./private/ssh/" },
     {
       "key": "ssh-keygen",
       "value": {
-        "file": "./private/.ssh/id_rsa",
+        "file": "./private/ssh/id_rsa",
         "type": "rsa"
       }
     },
     {
       "key": "symlink",
       "value": [
-        { "file": "./common.symlink.sh", "link": "~/.common.sh" },
-        { "file": "./private/.ssh/", "link": "~/.ssh/" },
-        { "file": "./private/git/symlink.gitconfig", "link": "~/.gitconfig" },
-        { "file": "./private/sh/bin", "link": "~/.bin-private" },
-        { "file": "./private/zsh/env.symlink.zsh", "link": "~/.env-private.zsh" },
+        { "file": "./work-macos/sh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
         { "file": "./sh/bin", "link": "~/.bin" },
-        {
-          "file": "./sublime-text/user-package/",
-          "link": "~/Library/Application Support/Sublime Text/Packages/User/"
-        },
-        { "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
+        { "file": "./common/sh/aliases.symlink.sh", "link": "~/.common.aliases.sh" },
+        { "file": "./common/sh/common.symlink.sh", "link": "~/.common.sh" },
         { "file": "./zsh/env.symlink.zsh", "link": "~/.env.zsh" },
-        { "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" }
+        { "file": "./private/zsh/env.symlink.zsh", "link": "~/.env-private.zsh" },
+        { "file": "./private/git/symlink.gitconfig", "link": "~/.gitconfig" },
+        { "file": "./private/ssh/", "link": "~/.ssh/" },
+        { "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" },
+        {
+          "file": "./work-macos/sublime-text/user-package/",
+          "link": "~/Library/Application Support/Sublime Text/Packages/User/"
+        }
       ]
     }
   ]
