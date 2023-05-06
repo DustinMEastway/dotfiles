@@ -1,1 +1,1 @@
-export DOTFILES_CONFIG='./environments/DustinMEastway/work-macos-config.json'
+export DOTFILES_CONFIG='./environments/DustinMEastway/work-macos/config.json'
