@@ -54,3 +54,18 @@ then
 else
   logSuccess "Skipped Node.js installation"
 fi
+
+# Set up NVM if needed to get access to NPM.
+if [ ! $(which npm) ]
+then
+  logInfo "Setting up NVM"
+
+  # NVM setup.
+  export NVM_DIR="$HOME/.nvm"
+  # This loads NVM.
+  [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && source "$(brew --prefix)/opt/nvm/nvm.sh"
+  # This loads NVM bash completion.
+  [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && source "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
+
+  logSuccess "NVM setup complete"
+fi

@@ -61,8 +61,10 @@
       "key": "git-setup",
       "value": { "configPath": "./private/git/symlink.gitconfig" }
     },
-    { "key": "mkdir", "value": "./private/.ssh/" },
-    { "key": "mkdir", "value": "./private/sh/bin/" },
+    {
+      "key": "mkdir",
+      "value": "./private/.ssh/"
+    },
     {
       "key": "ssh-keygen",
       "value": {
@@ -73,24 +75,66 @@
     {
       "key": "symlink",
       "value": [
-        { "file": "../..", "link": "~/.dotfiles" },
-        { "file": "./common.symlink.sh", "link": "~/.common.sh" },
-        { "file": "./private/.ssh/", "link": "~/.ssh/" },
-        { "file": "./private/git/symlink.gitconfig", "link": "~/.gitconfig" },
-        { "file": "./private/sh/bin", "link": "~/.bin-private" },
-        { "file": "./private/zsh/env.symlink.zsh", "link": "~/.env-private.zsh" },
-        { "file": "./sh/bin", "link": "~/.bin" },
         {
-          "file": "./sublime-merge/user-package/",
+          "file": "./common/sh/aliases.symlink.sh",
+          "link": "~/.aliases-common.sh"
+        },
+        {
+          "file": "./common/sh/bashrc.symlink.sh",
+          "link": "~/.bashrc"
+        },
+        {
+          "file": "./common/sh/bin/",
+          "link": "~/.bin-common/"
+        },
+        {
+          "file": "./common/sh/common.symlink.sh",
+          "link": "~/.common.sh"
+        },
+        {
+          "file": "./common/sh/env.symlink.sh",
+          "link": "~/.env-common.sh"
+        },
+        {
+          "file": "./common/sh/zshrc.symlink.zsh",
+          "link": "~/.zshrc"
+        },
+        {
+          "file": "./common/sublime-text/",
+          "link": "~/Library/Application Support/Sublime Text/Packages/User/"
+        },
+        {
+          "file": "./common/sublime-merge/",
           "link": "~/Library/Application Support/Sublime Merge/Packages/User/"
         },
         {
-          "file": "./sublime-text/user-package/",
-          "link": "~/Library/Application Support/Sublime Text/Packages/User/"
+          "file": "./home-macos/sh/aliases.symlink.sh",
+          "link": "~/.aliases.sh"
         },
-        { "file": "./zsh/aliases.symlink.zsh", "link": "~/.aliases.zsh" },
-        { "file": "./zsh/env.symlink.zsh", "link": "~/.env.zsh" },
-        { "file": "./zsh/zshrc.symlink.zsh", "link": "~/.zshrc" }
+        {
+          "file": "./home-macos/sh/env.symlink.sh",
+          "link": "~/.env.sh"
+        },
+        {
+          "file": "./home-macos/sublime-text/projects/",
+          "link": "./common/sublime-text/projects/"
+        },
+        {
+          "file": "./home-macos/sublime-text/Preferences.sublime-settings",
+          "link": "./common/sublime-text/Preferences.sublime-settings"
+        },
+        {
+          "file": "./private/.ssh/",
+          "link": "~/.ssh/"
+        },
+        {
+          "file": "./private/git/symlink.gitconfig",
+          "link": "~/.gitconfig"
+        },
+        {
+          "file": "./private/sh/env.symlink.sh",
+          "link": "~/.env-private.sh"
+        }
       ]
     }
   ]

@@ -10,6 +10,12 @@ editor="vim"
 editorMacosPath="/Applications/Sublime Text.app"
 editorWindowsPath="$ROOT_DIRECTORY/Program Files/Sublime Text/sublime_text.exe"
 
+if [[ "$path" == "" ]]
+then
+  logFail 'No $path provided to `edit` command.'
+  exit -1
+fi
+
 # Use Sublime Text editor when available.
 if [[ -d "$editorMacosPath" ]]
 then
@@ -17,11 +23,6 @@ then
 elif [[ -f "$editorWindowsPath" ]]
 then
   editor="$editorWindowsPath"
-fi
-
-if [[ "$path" == "" ]]
-then
-  exit -1
 fi
 
 if [[ "$ENV_TYPE" == "linux-subsystem" ]]

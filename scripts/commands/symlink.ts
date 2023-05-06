@@ -1,12 +1,9 @@
 import {
   absoluteConfigPath,
-  asyncForEach,
   linkFiles,
   logFail,
   logInfo,
-  logSuccess,
-  readJsonFile,
-  searchDirectory
+  logSuccess
 } from '../functions/index';
 import { Command, EnvironmentConfig } from '../models/index';
 
@@ -34,7 +31,7 @@ export const symlink: Command = async function (
   }
 
   await linkFiles(linkConfigs.map(({ file, link }) => ({
-    destination: link,
+    destination: absoluteConfigPath(config, link),
     source: absoluteConfigPath(config, file)
   })));
 
