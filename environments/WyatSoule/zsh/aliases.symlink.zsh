@@ -21,6 +21,8 @@ alias mkdir='mkdir -pv'
 alias dotfiles='cls; cls;  cd ~/Sites/dotfiles/ && git pull && scripts/bootstrap.sh --config ./environments/WyatSoule/macos-config.json'
 #show slashes indicators on ls
 alias ls='ls -F'
+
+#opens sublime text to edit
 function edit(){
     open -a /Applications/Sublime\ Text.app "$1"
 }

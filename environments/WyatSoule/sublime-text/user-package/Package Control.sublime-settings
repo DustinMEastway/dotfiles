@@ -18,6 +18,7 @@
     "LSP-html",
     "LSP-json",
     "LSP-OmniSharp",
+    "LSP-pyright",
     "LSP-typescript",
     "MoveTab",
     "Package Control",
