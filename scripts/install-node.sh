@@ -40,7 +40,7 @@ else
 fi
 
 # Install Node.js if it does not exist
-if [ ! $(which node) ]
+if [ "$(command -v node)" != "" ]
 then
   logInfo "Installing Node.js"
 
@@ -48,7 +48,7 @@ then
   nvm install node
 
   # Link node to the directory where other programs will look for it
-  ln -s "$(which node)" /usr/local/bin/node
+  ln -s "$(command -v node)" /usr/local/bin/node
 
   logSuccess "Node.js installation complete"
 else
@@ -56,7 +56,7 @@ else
 fi
 
 # Set up NVM if needed to get access to NPM.
-if [ ! $(which npm) ]
+if [ "$(command -v npm)" != "" ]
 then
   logInfo "Setting up NVM"
 
