@@ -14,6 +14,7 @@
     "*.jar",
     "*.zip",
     "build/*",
+    "dist/*",
     "node_modules/*"
   ],
   "color_scheme": "Monokai.sublime-color-scheme",

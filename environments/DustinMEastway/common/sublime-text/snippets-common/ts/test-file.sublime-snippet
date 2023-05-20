@@ -4,7 +4,7 @@ import { ${2:${TM_FILENAME/(?#
   Capitalize letters proceeded by dash)-(.)|(?#
   Capitalize first letter for tsx files)(^.(?=.*\.[jt]sx$))|(?#
   Remove everything after .)\..*/\u\1\2/g
-}} } from './${1:${TM_FILENAME/\.spec\.[jt]sx?$//}}';
+}} } from './${1:${TM_FILENAME/\.(spec|test)\.[jt]sx?$//}}';
 
 describe('$2', () => {$0
 });
