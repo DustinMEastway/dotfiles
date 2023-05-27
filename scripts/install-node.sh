@@ -40,7 +40,7 @@ else
 fi
 
 # Install Node.js if it does not exist
-if [ "$(command -v node)" != "" ]
+if [ "$(command -v node)" == "" ]
 then
   logInfo "Installing Node.js"
 
@@ -56,7 +56,7 @@ else
 fi
 
 # Set up NVM if needed to get access to NPM.
-if [ "$(command -v npm)" != "" ]
+if [ "$(command -v npm)" == "" ]
 then
   logInfo "Setting up NVM"
 

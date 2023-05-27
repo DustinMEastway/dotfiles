@@ -20,7 +20,7 @@ sourceRelative ./functions/logging.sh
 sourceRelative ./install-node.sh
 
 # Install ts-node if it does not exist
-if [ "$(command -v ts-node)" != "" ]
+if [ "$(command -v ts-node)" == "" ]
 then
   logInfo "Installing ts-node"
 
