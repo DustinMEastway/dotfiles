@@ -58,10 +58,16 @@ then
 fi
 
 # *** Tools setup *** #
-# Ruby setup.
-if [[ -d "/usr/local/opt/ruby/bin" ]]
+# Brew bin setup.
+if [[ -d "$(brew --prefix)/bin" ]]
 then
-  export PATH="/usr/local/opt/ruby/bin:$PATH"
+  export PATH="$(brew --prefix)/bin:$PATH"
+fi
+
+# Ruby setup.
+if [[ -d "$(brew --prefix)/opt/ruby/bin" ]]
+then
+  export PATH="$(brew --prefix)/opt/ruby/bin:$PATH"
 fi
 
 # NVM setup.

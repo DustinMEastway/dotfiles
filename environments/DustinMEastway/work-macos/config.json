@@ -39,6 +39,14 @@
       }
     },
     {
+      "key": "write-defaults",
+      "value": {
+        "Apple Global Domain": {
+          "ApplePressAndHoldEnabled": false
+        }
+      }
+    },
+    {
       "key": "symlink",
       "value": [
         {

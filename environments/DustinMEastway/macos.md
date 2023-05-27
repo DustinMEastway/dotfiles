@@ -151,9 +151,5 @@ This is not in the Finder settings, just drag and drop the items in the sidebar 
 * **Commit Signature Error Highlighting**: `No Signature, Invalid Signature, or Missing Public Key`
 
 ### Commit Messages
-
 ### Editor
 ### Advanced
-
-# TODO
-defaults write com.sublimetext.4
