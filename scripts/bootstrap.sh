@@ -19,19 +19,6 @@ function sourceRelative() {
 sourceRelative ./functions/logging.sh
 sourceRelative ./install-node.sh
 
-# Install ts-node if it does not exist.
-if [ "$(command -v ts-node)" == "" ]
-then
-  logInfo "Installing ts-node"
-
-  # Perform the install of [ts-node](https://github.com/TypeStrong/ts-node).
-  npm i -g ts-node typescript
-
-  logSuccess "ts-node installation complete"
-else
-  logSuccess "Skipped ts-node installation"
-fi
-
 # Use cd to move into the dotfiles directory.
 cd "$(dirname "$BASH_SOURCE")/.."
 
