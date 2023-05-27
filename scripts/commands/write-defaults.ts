@@ -1,7 +1,7 @@
 import { exec, logFail, logInfo, logSuccess } from '../functions/index';
 import { Command } from '../models/index';
 
-export type WriteDefaultsValue = number | string | WriteDefaultsValue[];
+export type WriteDefaultsValue = boolean | number | string | WriteDefaultsValue[];
 
 export interface WriteDefaultsConfig {
   [domain: string]: {
@@ -22,7 +22,12 @@ export const writeDefaults: Command = async (_, config: WriteDefaultsConfig) => 
           const stringValue = value.map((v) => stringifyValue(v)).join(', ');
           await exec(`defaults write "${domainKey}" "${key}" -array "${stringValue}"`);
         } else {
-          await exec(`defaults write "${domainKey}" "${key}" "${value}"`);
+          let valueArguments = `"${value}"`;
+          if (typeof value === 'boolean') {
+            valueArguments = `-bool ${value}`;
+          }
+
+          await exec(`defaults write "${domainKey}" "${key}" ${valueArguments}`);
         }
       }
     }
