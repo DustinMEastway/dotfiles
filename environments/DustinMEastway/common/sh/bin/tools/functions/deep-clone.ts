@@ -1,4 +1,4 @@
-/** Clone the provided value and any inner values */
+/** Clone the provided value and any inner values. */
 export function deepClone<T>(value: T): T {
   if (typeof value !== 'object' || value == null) {
     return value;

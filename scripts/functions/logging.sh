@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Logging functions to display messages to the user
+# Logging functions to display messages to the user.
 
 function logFail() {
   logMessage "$1" "FAIL" "\033[31m\033[05m"
@@ -12,7 +12,7 @@ function logInfo() {
   logMessage "$1" " .. " "\033[34m"
 }
 
-# Logs a message out for the user to see
+# Logs a message out for the user to see.
 # $1 message to display
 # $2 inner message to show the user what type it is
 # $3 color excape sequence to display inner message in a different color (e.g \033[34m)

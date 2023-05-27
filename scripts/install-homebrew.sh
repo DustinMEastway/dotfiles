@@ -1,15 +1,15 @@
 #!/bin/sh
 #
-# Installs Homebrew
+# Installs Homebrew.
 
-# exit if anything fails
+# Exit if anything fails.
 set -e
 
-# used to source files relative to the current path
+# Used to source files relative to the current path.
 function sourceRelative() {
   local sourcePath="$(dirname "$BASH_SOURCE")/$1"
 
-  # load path if it is a file, but not this file
+  # Load path if it is a file, but not this file.
   if [ -f "$sourcePath" ] && ! [ "$sourcePath" -ef "$BASH_SOURCE" ]
   then
     source $sourcePath
@@ -18,12 +18,12 @@ function sourceRelative() {
 
 sourceRelative ./functions/logging.sh
 
-# Install Homebrew if it does not exist
+# Install Homebrew if it does not exist.
 if [ "$(command -v brew)" == "" ]
 then
   logInfo "Installing Homebrew"
 
-  # perform the install of [Homebrew](https://brew.sh)
+  # Perform the install of [Homebrew](https://brew.sh).
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
   logSuccess "Homebrew installation complete"

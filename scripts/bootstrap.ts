@@ -30,7 +30,7 @@ async function getConfig() {
       configPath = await input(text.invalidConfigPath);
     }
 
-    // get the absolute path so require is not mad about being somewhere other than the current directory
+    // Get the absolute path so require is not mad about being somewhere other than the current directory.
     configPath = absolutePath(configPath);
     config = await readJsonFile(configPath);
 
@@ -76,5 +76,3 @@ async function main(): Promise<void> {
 }
 
 main();
-
-// cls; cls; ./scripts/bootstrap.sh config ./environments/DustinMEastway/macos-config.json

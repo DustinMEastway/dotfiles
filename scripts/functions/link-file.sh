@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# used to source files relative to the current path
+# Used to source files relative to the current path.
 function sourceRelative() {
   local sourcePath="$(dirname "$BASH_SOURCE")/$1"
 
-  # load path if it is a file, but not this file
+  # Load path if it is a file, but not this file.
   if [ -f "$sourcePath" ] && ! [ "$sourcePath" -ef "$BASH_SOURCE" ]
   then
     source $sourcePath
@@ -14,7 +14,7 @@ function sourceRelative() {
 sourceRelative logging.sh
 sourceRelative variable-access.sh
 
-# Create a symlink from the source path to the destination path (works for files and directories)
+# Create a symlink from the source path to the destination path (works for files and directories).
 # $1 source path
 # $2 destination path
 # $3 conflict resolution mode (set by variable name, not value; optional)
@@ -25,30 +25,30 @@ sourceRelative variable-access.sh
 function linkFile() {
   local source=$1
   local destination=$2
-  # check if a value was provided for conflictMode
+  # Check if a value was provided for conflictMode.
   local conflictMode=$(getValue $3)
   local backup= overwrite= skip=
 
-  # check if destination already exists
+  # Check if destination already exists.
   if [ -f "$destination" -o -d "$destination" -o -L "$destination" ]
   then
     local currentSrc="$(readlink $destination)"
 
-    # check if the destination already points to source
+    # Check if the destination already points to source.
     if [ "$currentSrc" == "$source" ]
     then
       skip=true;
     else
-      # set local variables to defaults based on conflictMode
+      # Set local variables to defaults based on conflictMode.
       backup="false" && [[ "$conflictMode" == "backup" ]] && backup="true"
       overwrite="false" && [[ "$conflictMode" == "overwrite" ]] && overwrite="true"
       skip="false" && [[ "$conflictMode" == "skip" ]] && skip="true"
     fi
 
-    # make sure that a conflict resolution option is set
+    # Make sure that a conflict resolution option is set.
     while [[ "$backup" == "false" && "$overwrite" == "false" && "$skip" == "false" ]]
     do
-      # ask the user how to handle the link since the destination exists
+      # Ask the user how to handle the link since the destination exists.
       logQuestion "File already exists: $destination ($(basename "$source")), what do you want to do?\n\
         [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
 
@@ -76,7 +76,7 @@ function linkFile() {
       esac
     done
 
-    # perform action due to destination existing
+    # Perform action due to destination existing.
     if [ "$backup" == "true" ]
     then
       mv "$destination" "${destination}.backup"
@@ -91,7 +91,7 @@ function linkFile() {
     fi
   fi
 
-  # link destination to source if skip is not set
+  # Link destination to source if skip is not set.
   if [ "$skip" != "true" ]
   then
     ln -s "$source" "$destination"

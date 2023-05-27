@@ -1,15 +1,15 @@
 #!/bin/sh
 #
-# Installs Node.js
+# Installs NVM and use it to install Node.js.
 
-# exit if anything fails
+# Exit if anything fails.
 set -e
 
-# used to source files relative to the current path
+# Used to source files relative to the current path.
 function sourceRelative() {
   local sourcePath="$(dirname "$BASH_SOURCE")/$1"
 
-  # load path if it is a file, but not this file
+  # Load path if it is a file, but not this file.
   if [ -f "$sourcePath" ] && ! [ "$sourcePath" -ef "$BASH_SOURCE" ]
   then
     source $sourcePath
@@ -19,14 +19,14 @@ function sourceRelative() {
 sourceRelative ./functions/logging.sh
 sourceRelative ./install-homebrew.sh
 
-# Install NVM if it does not exist
+# Install NVM if it does not exist.
 if ( brew ls --versions nvm > /dev/null; )
 then
   logSuccess "Skipped NVM installation"
 else
   logInfo "Installing NVM"
 
-  # perform the install of [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md)
+  # Perform the install of [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
   brew install nvm
 
   # NVM setup.
@@ -39,15 +39,15 @@ else
   logSuccess "NVM installation complete"
 fi
 
-# Install Node.js if it does not exist
+# Install Node.js if it does not exist.
 if [ "$(command -v node)" == "" ]
 then
   logInfo "Installing Node.js"
 
-  # perform the install of [Node.js](https://nodejs.org/en/)
+  # Perform the install of [Node.js](https://nodejs.org/en/).
   nvm install node
 
-  # Link node to the directory where other programs will look for it
+  # Link node to the directory where other programs will look for it.
   ln -s "$(command -v node)" /usr/local/bin/node
 
   logSuccess "Node.js installation complete"
