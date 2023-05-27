@@ -24,6 +24,7 @@ cd "$(dirname "$BASH_SOURCE")/.."
 
 # Let node take it from here.
 logInfo "Installing node dependencies"
+nvm use stable
 npm install
 logSuccess "Node dependencies installed"
 logInfo "Running Node.js bootstraper"

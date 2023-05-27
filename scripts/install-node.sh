@@ -29,13 +29,6 @@ else
   # Perform the install of [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
   brew install nvm
 
-  # NVM setup.
-  export NVM_DIR="$HOME/.nvm"
-  # This loads NVM.
-  [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"
-  # This loads NVM bash_completion.
-  [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
-
   logSuccess "NVM installation complete"
 fi
 
@@ -45,7 +38,7 @@ then
   logInfo "Installing Node.js"
 
   # Perform the install of [Node.js](https://nodejs.org/en/).
-  nvm install node
+  nvm install stable
 
   # Link node to the directory where other programs will look for it.
   ln -s "$(command -v node)" /usr/local/bin/node
@@ -56,7 +49,9 @@ else
 fi
 
 # Set up NVM if needed to get access to NPM.
-if [ "$(command -v npm)" == "" ]
+if
+  [ "$(command -v npm)" == "" ] \
+  || [ "$(command -v nvm)" == "" ]
 then
   logInfo "Setting up NVM"
 
