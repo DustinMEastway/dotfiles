@@ -4,8 +4,11 @@ alias hideHiddenFiles='defaults write com.apple.finder AppleShowAllFiles NO; kil
 alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
 
 #turn on and off repeating keyboard presses
-alias repeatOn='defaults write com.com.sublimetext.4 ApplePressAndHoldEnabled -bool false'
+alias repeatOn='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool false'
 alias repeatOff='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool true'
+alias repeatAllOn='defaults write -g ApplePressAndHoldEnabled -bool false'
+alias repeatAllOff='defaults write -g ApplePressAndHoldEnabled -bool true'
+
 
 #edit aliases
 alias aEdit='edit "$aliasSource"'

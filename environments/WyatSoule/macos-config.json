@@ -19,7 +19,7 @@
         "ffmpeg",
         "mongodb-community",
         "mono",
-        "postgresql@15",
+        "postgresql",
         "redis",
         "ruby"
       ]
@@ -30,10 +30,8 @@
     "value": {
       "args": "--cask",
       "items": [
-        "altserver",
         "android-studio",
         "brave-browser",
-        "calibre",
         "curseforge",
         "discord",
         "docker",

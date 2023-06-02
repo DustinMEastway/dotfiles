@@ -14,9 +14,10 @@
     "*.jar",
     "*.zip",
     "build/*",
+    "dist/*",
     "node_modules/*"
   ],
-  "color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
+  "color_scheme": "Monokai.sublime-color-scheme",
   "default_line_ending": "unix",
   "ignored_packages":
   [
@@ -26,7 +27,7 @@
   "open_files_in_new_window": "never",
   "rulers":
   [
-    120
+    100
   ],
   "scroll_past_end": true,
   "tab_size": 2,
