@@ -32,22 +32,6 @@ else
   logSuccess "NVM installation complete"
 fi
 
-# Install Node.js if it does not exist.
-if [ "$(command -v node)" == "" ]
-then
-  logInfo "Installing Node.js"
-
-  # Perform the install of [Node.js](https://nodejs.org/en/).
-  nvm install stable
-
-  # Link node to the directory where other programs will look for it.
-  ln -s "$(command -v node)" /usr/local/bin/node
-
-  logSuccess "Node.js installation complete"
-else
-  logSuccess "Skipped Node.js installation"
-fi
-
 # Set up NVM if needed to get access to NPM.
 if
   [ "$(command -v npm)" == "" ] \
@@ -63,4 +47,20 @@ then
   [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && source "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
 
   logSuccess "NVM setup complete"
+fi
+
+# Install Node.js if it does not exist.
+if [ "$(command -v node)" == "" ]
+then
+  logInfo "Installing Node.js"
+
+  # Perform the install of [Node.js](https://nodejs.org/en/).
+  nvm install stable
+
+  # Link node to the directory where other programs will look for it.
+  ln -s "$(command -v node)" /usr/local/bin/node
+
+  logSuccess "Node.js installation complete"
+else
+  logSuccess "Skipped Node.js installation"
 fi
