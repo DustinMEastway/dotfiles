@@ -1,5 +1,5 @@
 {
-	"side_bar_layout": "locations_as_column",
+	"side_bar_layout": "tabs",
 	"render_commit_dialog_message_at_top": true,
 	"theme": "Merge Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
