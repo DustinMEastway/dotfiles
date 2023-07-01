@@ -58,7 +58,7 @@ then
   nvm install stable
 
   # Link node to the directory where other programs will look for it.
-  ln -s "$(command -v node)" /usr/local/bin/node
+  ln -s "$(command -v node)" "$(brew --prefix)/bin/node"
 
   logSuccess "Node.js installation complete"
 else
