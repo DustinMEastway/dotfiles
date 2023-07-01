@@ -26,6 +26,15 @@ then
   # Perform the install of [Homebrew](https://brew.sh).
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
+  # Start brew up for the first time.
+  if [[ -d "/opt/homebrew/bin/" ]]
+  then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -d "/usr/local/bin/" ]]
+  then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+
   logSuccess "Homebrew installation complete"
 else
   logSuccess "Skipped Homebrew installation"

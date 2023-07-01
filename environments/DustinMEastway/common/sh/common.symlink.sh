@@ -58,10 +58,13 @@ then
 fi
 
 # *** Tools setup *** #
-# Brew bin setup.
-if [[ -d "$(brew --prefix)/bin" ]]
+# Brew setup.
+if [[ -d "/opt/homebrew/bin/" ]]
 then
-  export PATH="$(brew --prefix)/bin:$PATH"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -d "/usr/local/bin/" ]]
+then
+  eval "$(/usr/local/bin/brew shellenv)"
 fi
 
 # Ruby setup.
