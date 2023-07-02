@@ -15,7 +15,6 @@
       "value": {
         "items": [
           "coreutils",
-          "dotnet",
           "ffmpeg",
           "mongodb-community",
           "mono",
@@ -63,7 +62,11 @@
     },
     {
       "key": "mkdir",
-      "value": "./private/.ssh/"
+      "value": [
+        "./private/.ssh/",
+        "~/Library/Application Support/Sublime Merge/Packages/",
+        "~/Library/Application Support/Sublime Text/Packages/"
+      ]
     },
     {
       "key": "ssh-keygen",

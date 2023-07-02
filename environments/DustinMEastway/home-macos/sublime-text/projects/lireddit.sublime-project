@@ -2,10 +2,10 @@
 	"folders":
 	[
 		{
-			"path": "/Users/dustineastway/Sites/lireddit/app",
+			"path": "~/Sites/lireddit/app",
 		},
 		{
-			"path": "/Users/dustineastway/Sites/lireddit/server"
+			"path": "~/Sites/lireddit/server"
 		},
 	],
 }

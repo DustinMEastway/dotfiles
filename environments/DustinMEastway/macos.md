@@ -1,6 +1,27 @@
 # MacOS
 
+## Brave
+
+### Settings
+
+#### Downloads
+
+* **Ask where to save each file before downloading**: `false`
+* **Show downloads when they're done**: `false`
+
+## CurseForge
+
+### Minecraft
+
+* DME Pixelmod
+* SevTech: Ages of the Sky
+
 ## Finder
+
+### Advanced
+
+* **Show all filename extensions**: `true`
+* **Show warning before changing an extension**: `false`
 
 ### General
 
@@ -8,10 +29,19 @@
 
 ### Sidebar
 
+#### Favorites
+
 * **Applications**: `true`
-* **Documents**: `true`
 * **Downloads**: `true`
 * **{username}**: `true`
+
+#### iCloud
+
+* **iCloud Drive**: `false`
+* **Shared**: `false`
+
+#### Locations
+
 * **Hard disks**: `true`
 * **External disks**: `true`
 * **CDs, DVDs, and iOS Devices**: `true`
@@ -31,11 +61,6 @@ This is not in the Finder settings, just drag and drop the items in the sidebar 
 * `Media`: `~/Media`
 * `Sites`: `~/Sites`
 * `Tags`: N/A
-
-### Advanced
-
-* **Show all filename extensions**: `true`
-* **Show warning before changing an extension**: `false`
 
 ## Raycast
 
@@ -91,69 +116,83 @@ Lets you keep your mac from sleeping.
 
 ## System Settings
 
-### General
+### Accessibillity
+
+#### Spoken Content
+
+* **System Voice**: `Evan (Enhanced)`
+* **Speaking Rate**: `65%`
+* **Speak selection**: `true`
+* **Show controller**: `Never`
+
+### Appearance
 
 * **Appearance**: `Dark`
 * **Accent color**: `Grey`
 * **Highlight color**: `Graphite`
 * **Click in the scroll bar to**: `Jump to the spot that's clicked`
-* **Prefer tabs**: `in full screen`
 
-### Desktop & Screen Saver
+### Control Center
 
-#### Screen Saver
+#### Control Center Modules
 
-##### Hot Corners...
+* **Bluetooth**: `Show in Menu Bar`
 
-* **Bottom Right**: `-`
+#### Other Modules
 
-### Dock & Menu Bar
+##### Battery
 
-#### Dock & Menu Bar
+* **Show Percentage**: `true`
+
+#### Menu Bar Only
+
+* **Spotlight**: `Don't Show in Menu Bar`
+
+##### Clock Options...
+
+* **Show date**: `Always`
+* **Display the time with seconds**: `true`
+
+### Desktop & Dock
 
 * **Automatically hide and show the Dock**: `true`
 * **Show recent applications in Dock**: `false`
 
-#### Bluetooth
+#### Hot Corners...
 
-* **Show in Menu Bar**: `true`
+* **Bottom Right**: `-`
 
-#### Battery
+### Internet Accounts
 
-* **Show Percentage**: `true`
-
-#### Clock
-
-* **Display the time with seconds**: `true`
-
-#### Spotlight
-
-* **Show in Menu Bar**: `false`
-
-### Siri
-
-* **Enable Ask Siri**: `false`
-
-### Accessibillity
-
-#### Spoken Content
-
-* **System Voice**: `Alex`
-* **Speaking Rate**: `100%`
-* **Speak selection**: `true`
-* **Show controller**: `Never`
-
-#### Security & Privacy
-
-* **Require password**: `After 5 seconds`
+Add all accounts.
+* Aaron Gmail
+* Live
+* Personal Gmail
+* Professional Gmail
 
 ### Keyboard
 
 #### Keyboard
 
-##### Modifier Keys...
+* **Adjust keyboard brightness in low light**: `false`
+* **Press 'globe' key to**: `Do Nothing`
+* **Keyboard navigation**: `true`
+
+##### Keyboard Shortcuts...
+
+###### Function Keys
+
+* **Use F1, F2, etc. keys as standard function keys**: `true`
+
+###### Modifier Keys...
 
 * **Caps Lock**: `No Action`
+
+###### Spotlight
+
+* **Show Spotlight search**: `false`
+  - Note: This is because [Raycast](https://www.raycast.com) replaces Spotlight.
+* **Show Finder search window**: `false`
 
 Add these values for external Windows keyboards.
 * **Option**: `Command`
@@ -161,29 +200,38 @@ Add these values for external Windows keyboards.
 
 #### Shortcuts
 
-##### Spotlight
+#### Text Input
 
-* **Show Spotlight search**: `false`
-  - Note: This is because [Raycast](https://www.raycast.com) replaces Spotlight.
-* **Show Finder search window**: `false`
-* **Use keyboard navigation to move focus between controls**: `true`
-
-#### Text
 * **Correct spelling automatically**: `false`
 * **Capitalize words automatically**: `false`
 * **Add period with double-space**: `false`
-* **Spelling**: `U.S. English`
 * **Use smart quotes and dashes**: `false`
+
+### Lock Screen
+
+* **Start Screen Saver when inactive**: `For 20 minutes`
+* **Turn display off on battery when inactive**: `For 10 minutes`
+* **Turn display off on power adapter when inactive**: `For 30 minutes`
+* **Require password after screen saver begins or display is turned off**: `After 5 seconds`
+
+### Siri & Spotlight
+
+* **Ask Siri**: `false`
 
 ### Trackpad
 
 #### Point & Click
 
-* **Look up & data detectors**: `Tap with three fingers`
+* **Look up & data detectors**: `Force Click with One Finger`
 * **Secondary click**: `Click in bottom right corner`
 * **Tracking speed**: `100%`
 
 #### More Gestures
 
-* **Swipe between full-screen apps**: `Swipe left or right with four fingers`
+* **Swipe between full-screen applications**: `Swipe left or right with four fingers`
 * **Mission Control**: `Swipe up with four fingers`
+
+## Sublime Text
+
+* Open the Command Palette (`cmd + shift + p`)
+* Run "Install Package Control"

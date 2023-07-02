@@ -2,13 +2,13 @@
 	"folders":
 	[
 		{
-			"path": "/Users/dustineastway/Sites/aaron",
+			"path": "~/Sites/aaron",
 		},
 		{
-			"path": "/Users/dustineastway/Sites/aaron-old/epub-creator",
+			"path": "~/Sites/aaron-old/epub-creator",
 		},
 		{
-			"path": "/Users/dustineastway/Sites/aaron-old/text-to-speech"
+			"path": "~/Sites/aaron-old/text-to-speech"
 		},
 	],
 }

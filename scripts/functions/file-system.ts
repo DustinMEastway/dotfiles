@@ -333,7 +333,7 @@ export async function remove(path: PathLike): Promise<void> {
         }
       });
     } else if (fileStats.isDirectory()) {
-      rmDirectory(path, error => {
+      rmDirectory(path, { recursive: true }, error => {
         if (error) {
           reject(error);
         } else {

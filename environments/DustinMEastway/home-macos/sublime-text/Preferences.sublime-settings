@@ -23,7 +23,7 @@
   "ignored_packages":
   [
   ],
-  "node_path": "/Users/dustineastway/.nvm/versions/node/v14.8.0/bin/node",
+  "node_path": "~/.nvm/versions/node/v14.8.0/bin/node",
   "open_files_in_new_window": "never",
   "rulers":
   [
