@@ -2,6 +2,7 @@
 export type CommandKey = (
   'brew-install'
   | 'brew-tap'
+  | 'git-clone'
   | 'git-setup'
   | 'mkdir'
   | 'ssh-keygen'

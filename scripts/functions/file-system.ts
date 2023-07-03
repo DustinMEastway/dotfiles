@@ -69,20 +69,32 @@ export async function canAccess(path: PathLike, mode: number = constants.R_OK): 
   }
 }
 
+export interface ExecConfig {
+  /** Whether or not std errors should be skipped. */
+  skipStdError?: boolean;
+}
+
 /**
  * executes a command in the CLI
  * @param command to run
  * @returns standard output from the command
  */
-export function exec(command: string): Promise<string> {
+export function exec(
+  command: string,
+  {
+    skipStdError = false
+  }: ExecConfig = {}
+): Promise<string> {
   return new Promise((resolve, reject) => {
-    fsExec(command, (error, stdout, stderr) => {
-      if (error || stderr) {
-        reject(error || stderr);
+    fsExec(command, (error, stdOut, stdError) => {
+      if (stdError && !skipStdError) {
+        reject(stdError);
+      } else if (error) {
+        reject(stdError);
       } else {
-        stdout = (stdout.endsWith('\n')) ? stdout.substr(0, stdout.length - 1) : stdout;
+        stdOut = (stdOut.endsWith('\n')) ? stdOut.substr(0, stdOut.length - 1) : stdOut;
 
-        resolve(stdout || '');
+        resolve(stdOut || '');
       }
     });
   });

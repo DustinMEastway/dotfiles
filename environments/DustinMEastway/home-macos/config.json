@@ -147,6 +147,41 @@
           "link": "~/.env-private.sh"
         }
       ]
+    },
+    {
+      "key": "git-clone",
+      "value": {
+        "items": [
+          {
+            "path": "~/Sites/aaron",
+            "url": "git@github.com:DustinMEastway/aaron.git"
+          },
+          {
+            "path": "~/Sites/brass-raven",
+            "url": "git@github.com:brass-raven/brass-raven.git"
+          },
+          {
+            "path": "~/Sites/epub-creator",
+            "url": "git@github.com:DustinMEastway/epub-creator.git"
+          },
+          {
+            "path": "~/Sites/games/generate-chunks",
+            "url": "git@github.com:DustinMEastway/generate-chunks.git"
+          },
+          {
+            "path": "~/Sites/lireddit/app",
+            "url": "git@github.com:DustinMEastway/lireddit-app.git"
+          },
+          {
+            "path": "~/Sites/lireddit/server",
+            "url": "git@github.com:DustinMEastway/lireddit-server.git"
+          },
+          {
+            "path": "~/Sites/text-to-speech",
+            "url": "git@github.com:DustinMEastway/text-to-speech.git"
+          }
+        ]
+      }
     }
   ]
 }
