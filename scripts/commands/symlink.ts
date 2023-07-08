@@ -5,12 +5,14 @@ import {
   logInfo,
   logSuccess
 } from '../functions/index';
-import { Command, EnvironmentConfig } from '../models/index';
+import { Command } from '../models/index';
+
+export type SymlinkConfig = { file: string; link: string; }[];
 
 /** set up symlinks specified by the symlink.json files in this directory */
-export const symlink: Command = async function (
-  config: EnvironmentConfig,
-  linkConfigs: { file: string; link: string; }[]
+export const symlink: Command<SymlinkConfig> = async function (
+  config,
+  linkConfigs
 ): Promise<void> {
   logInfo("Configuring symlinks");
 

@@ -9,7 +9,7 @@ import {
   logSuccess,
   makeDirectory
 } from '../functions/index';
-import { Command, EnvironmentConfig } from '../models/index';
+import { Command } from '../models/index';
 
 export interface GitSetupConfig {
   configPath: string;
@@ -17,10 +17,10 @@ export interface GitSetupConfig {
 }
 
 /** ask for git author information to fill out the gitconfig file */
-export const gitSetup: Command = async function (
-  config: EnvironmentConfig,
-  { configPath, templatePath }: GitSetupConfig
-): Promise<void> {
+export const gitSetup: Command<GitSetupConfig> = async (
+  config,
+  { configPath, templatePath }
+): Promise<void> => {
   configPath = absoluteConfigPath(config, configPath);
   templatePath = templatePath
     ? absoluteConfigPath(config, templatePath)

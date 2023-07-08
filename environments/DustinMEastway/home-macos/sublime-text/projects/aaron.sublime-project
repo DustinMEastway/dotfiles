@@ -5,10 +5,10 @@
 			"path": "~/Sites/aaron",
 		},
 		{
-			"path": "~/Sites/aaron-old/epub-creator",
+			"path": "~/Sites/epub-creator",
 		},
 		{
-			"path": "~/Sites/aaron-old/text-to-speech"
+			"path": "~/Sites/text-to-speech"
 		},
 	],
 }

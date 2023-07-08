@@ -62,6 +62,18 @@ This is not in the Finder settings, just drag and drop the items in the sidebar 
 * `Sites`: `~/Sites`
 * `Tags`: N/A
 
+## pgAdmin 4
+
+* Add New Server
+* **Name**: `localhost`
+* **Host name/address**: `localhost`
+* **Username**: `deastway`
+* Add Login
+  - Username & password are stored in the private environment file.
+  - Member of
+    * `pg_read_all_data`
+    * `pg_write_all_data`
+
 ## Raycast
 
 ### Extensions
@@ -114,6 +126,11 @@ Lets you keep your mac from sleeping.
 ## Software Installs
 * [Download Wacom Cintiq Driver](https://www.wacom.com/download).
 
+## Sublime Text
+
+* Open the Command Palette (`cmd + shift + p`)
+* Run "Install Package Control"
+
 ## System Settings
 
 ### Accessibillity
@@ -161,6 +178,10 @@ Lets you keep your mac from sleeping.
 #### Hot Corners...
 
 * **Bottom Right**: `-`
+
+#### Windows & Apps
+
+* **Default web browser**: `Brave Browser.app`
 
 ### Internet Accounts
 
@@ -230,8 +251,3 @@ Add these values for external Windows keyboards.
 
 * **Swipe between full-screen applications**: `Swipe left or right with four fingers`
 * **Mission Control**: `Swipe up with four fingers`
-
-## Sublime Text
-
-* Open the Command Palette (`cmd + shift + p`)
-* Run "Install Package Control"

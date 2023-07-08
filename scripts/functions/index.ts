@@ -1,6 +1,7 @@
 export * from './array';
 export * from './boolean';
 export * from './commands';
+export * from './english-join';
 export * from './file-system';
 export * from './link-file';
 export * from './logging';

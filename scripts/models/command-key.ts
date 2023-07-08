@@ -5,6 +5,7 @@ export type CommandKey = (
   | 'git-clone'
   | 'git-setup'
   | 'mkdir'
+  | 'npm-install'
   | 'ssh-keygen'
   | 'symlink'
   | 'write-defaults'

@@ -7,7 +7,7 @@ import {
   logSuccess,
   toBoolean
 } from '../functions/index';
-import { Command, EnvironmentConfig } from '../models/index';
+import { Command } from '../models/index';
 
 export interface SshKeygenConfig {
   file: string;
@@ -15,9 +15,9 @@ export interface SshKeygenConfig {
   type: string;
 }
 
-export const sshKeygen: Command = async (
-  config: EnvironmentConfig,
-  { file, skipPassphrase, type }:  SshKeygenConfig
+export const sshKeygen: Command<SshKeygenConfig> = async (
+  config,
+  { file, skipPassphrase, type }
 ) => {
   if (!file || typeof file !== 'string') {
     logFail('ssh-keygen commnd was not provided a valid `file` property.')

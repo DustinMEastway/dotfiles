@@ -1,9 +1,9 @@
 import { absoluteConfigPath, logInfo, logSuccess, makeDirectory } from '../functions/index';
-import { Command, EnvironmentConfig } from '../models/index';
+import { Command } from '../models/index';
 
-export const mkdir: Command = async (
-  config: EnvironmentConfig,
-  paths: string | string[]
+export const mkdir: Command<string | string[]> = async (
+  config,
+  paths
 ) => {
   paths = ((typeof paths === 'string') ? [paths] : paths);
   for (let path of paths) {

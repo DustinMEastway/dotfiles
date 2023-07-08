@@ -9,7 +9,10 @@ export interface WriteDefaultsConfig {
   };
 }
 
-export const writeDefaults: Command = async (_, config: WriteDefaultsConfig) => {
+export const writeDefaults: Command<WriteDefaultsConfig> = async (
+  _,
+  config
+) => {
   if (!Object.keys(config || {}).length) {
     logFail('No domains were supplied to the write-defaults command.');
   }

@@ -15,6 +15,7 @@
       "value": {
         "items": [
           "coreutils",
+          "deno",
           "ffmpeg",
           "mongodb-community",
           "mono",
@@ -40,7 +41,7 @@
           "godot-mono",
           "iina",
           "insomnia",
-          "mos",
+          "linearmouse",
           "multimc",
           "multipatch",
           "parallels",
@@ -67,6 +68,15 @@
         "~/Library/Application Support/Sublime Merge/Packages/",
         "~/Library/Application Support/Sublime Text/Packages/"
       ]
+    },
+    {
+      "key": "npm-install",
+      "value": {
+        "packages": [
+          "nx",
+          "yarn"
+        ]
+      }
     },
     {
       "key": "ssh-keygen",

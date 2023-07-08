@@ -6,7 +6,7 @@ export interface BrewInstallConfig {
   items: string[];
 }
 
-export const brewInstall: Command = async (_, config: BrewInstallConfig) => {
+export const brewInstall: Command<BrewInstallConfig> = async (_, config) => {
   const { args, items } = config || {};
   if (!(items instanceof Array) || !items.length) {
     logFail('No items were supplied to the brew-install command.');

@@ -6,7 +6,7 @@ export interface BrewTapConfig {
   items: string[];
 }
 
-export const brewTap: Command = async (_, config: BrewTapConfig) => {
+export const brewTap: Command<BrewTapConfig> = async (_, config) => {
   const { args, items } = config || {};
   if (!(items instanceof Array) || !items.length) {
     logFail('No items were supplied to the brew-tap command.');
