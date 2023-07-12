@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# Edit the provided path.
+# $1: Path to edit.
+#
+# Example: Edit a file.
+# edit ./path/to/file.md
+
+path="$(getAbsolutePath $1)"
+editor="vim"
+editorMacosPath="/Applications/Sublime Text.app"
+editorWindowsPath="$ROOT_DIRECTORY/Program Files/Sublime Text/sublime_text.exe"
+
+# Use Sublime Text editor when available.
+if [[ -d "$editorMacosPath" ]]
+then
+  editor="open -a \"$editorMacosPath\""
+elif [[ -f "$editorWindowsPath" ]]
+then
+  editor="$editorWindowsPath"
+fi
+
+if [[ "$path" == "" ]]
+then
+  exit -1
+fi
+
+if [[ "$ENV_TYPE" == "linux-subsystem" ]]
+then
+  # Transform $path into a Windows absolute path instead of a linux absolute path.
+  if [[ "$path" =~ ^$ROOT_DIRECTORY ]]
+  then
+      path="$(echo $path | sed "s|$ROOT_DIRECTORY||g")"
+
+      # You can only edit Windows files after changing the working directory to the windows directory.
+      startDirectory="$(pwd)"
+      cd $ROOT_DIRECTORY
+      eval "$editor $path"
+      cd $startDirectory
+      exit 0
+  else
+    path="//wsl\$/Ubuntu$path"
+  fi
+fi
+
+eval "$editor $path"
