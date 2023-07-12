@@ -34,5 +34,9 @@
   "translate_tabs_to_spaces": true,
   "trim_trailing_white_space_on_save": "not_on_caret",
   "vintage_start_in_command_mode": true,
-    "auto_complete_commit_on_tab": true,
+  "auto_complete_commit_on_tab": true,
+  "relative_line_numbers": true,
+  "vintage_use_clipboard": true,
+  "theme": "auto",
+  "font_size": 13,
 }

@@ -6,6 +6,7 @@
   ],
   "installed_packages":
   [
+    "Copy Relative Path",
     "DiffTabs",
     "GraphQL",
     "Indent XML",
