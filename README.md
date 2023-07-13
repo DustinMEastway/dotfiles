@@ -123,3 +123,6 @@ Once that is working, then I recommend creating an alias that allows you to run 
     - Example: `export DOTFILES_CONFIG='./environments/DustinMEastway/home-macos/config.json'`
 3. Create a `dotfiles` (or other name) alias that uses the above two variables to run this repository with your config file.
     - Example: `alias dotfiles="$DOTFILES_DIR/scripts/bootstrap.sh --config $DOTFILES_CONFIG"`
+
+### IF YOU GET SUBLIME PACKAGE CONTROL ERROR WITH libcrypto.dylib FILE
+[github link](https://stackoverflow.com/questions/65202385/openssl-libcrypto-dylib-problem-with-package-control-in-sublime-text-3)

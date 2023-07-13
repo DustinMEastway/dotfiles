@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Password protect a directory/file.
+# $1: Directory/file path to protect.
+# $2: Output zip file (default: protected.zip).
+#
+# Example: Password protects the ./foo.txt file.
+# protectPath ./foo.txt
+
+inPath="$1"
+outPath="$2"
+
+if [[ $outPath == "" ]]
+then
+  outPath='protected.zip'
+fi
+
+zip -er $outPath $inPath;

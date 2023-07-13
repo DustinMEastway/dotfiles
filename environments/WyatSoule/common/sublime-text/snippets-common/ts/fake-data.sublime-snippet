@@ -1,0 +1,27 @@
+<snippet>
+  <content><![CDATA[
+import { $1 } from '../../../types';
+import { fakeCreationTime, fakeSavedModifiedTime } from '../fake-times';
+
+export interface Fake${1:${TM_FILENAME/^fake|\..*|(?:^|-)(\w)/\u\1/g}}Props {
+  id: string;
+}
+
+export const fake$1AConfig = (): Fake$1Props => ({
+  id: 'foo-${TM_FILENAME/^fake-|\..*//g}-a-id'
+});
+
+export function fake$1({
+  id
+}: Fake$1Props = fake$1AConfig()): $1 {
+  return {$0
+    createdTime: fakeCreationTime,
+    id,
+    lastLocalChange: fakeSavedModifiedTime,
+    lastSavedChange: fakeSavedModifiedTime
+  };
+}
+]]></content>
+  <tabTrigger>tsFakeData</tabTrigger>
+  <scope>source.ts</scope>
+</snippet>

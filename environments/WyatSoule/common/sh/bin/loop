@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Split a string using a delimiter, then preform a command on each split segment.
+# $1: Delimiter used to split the string.
+# $2: String to split.
+# $3: Command to run on each item.
+#
+# Example: Use $item to access each item and $i to access each item's index.
+# loop ";" "Linux;MacOS;Windows" "echo \"\$i: \$item\""
+#
+# Example: Loop within a loop.
+# loop ";" "Col;Col;Col" "loop \";\" \"Row;Row\" \"echo \\\"\$i: \\\$i\\\"\""
+
+delimiter="$1"
+inputString="$2"
+command="$3"
+i=0
+
+IFS="$delimiter" read -ra splitString <<< "$inputString"
+for item in "${splitString[@]}"
+do
+  eval "${@:3:1}"
+  i=$(($i + 1))
+done
