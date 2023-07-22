@@ -12,9 +12,9 @@ export default metadata;
 
 type Story = StoryObj<typeof $2>;
 
-const TemplateFn: FC<InputProps> = (args) => {
+const TemplateRender: FC<$2Props> = (args) => {
   return (
-    <Input
+    <$2
       {...args}
     />
   );
@@ -23,7 +23,7 @@ const TemplateFn: FC<InputProps> = (args) => {
 const Template: Story = {
   args: {},
   argTypes: {},
-  render: (args) => <TemplateFn {...args} />
+  render: (args) => <TemplateRender {...args} />
 };
 
 export const Default: Story = Template;

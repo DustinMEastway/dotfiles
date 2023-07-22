@@ -15,15 +15,15 @@ alias aEditCustom="edit $HOME/.aliases.sh"
 # Reload aliases.
 alias aReload="unalias -a && source $HOME/.aliases-common.sh"
 # Clear shorthand for consistency accross systems.
-alias cls='clear'
+alias cls='clear && clear'
 # Run the dotfiles to setup the environment.
-alias dotfiles="cls && cls && $DOTFILES_DIR/scripts/bootstrap.sh --config $DOTFILES_CONFIG"
+alias dotfiles="cls && $DOTFILES_DIR/scripts/bootstrap.sh --config $DOTFILES_CONFIG"
 # Hide hidden files in Finder.
 alias hideHiddenFiles='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder'
 # List all versions of Java that are installed.
 alias javaListVersions='aliase /usr/libexec/java_home -V'
 # Display file type ending symbols ('/' for directories and '@' for symlinks).
-alias ll='ls -F -a'
+alias ll='ls -aF'
 # Default to creating intermediate directories as needed and verbosely logging each created directory.
 alias mkdir='mkdir -pv'
 # Remove directories recursively.

@@ -74,12 +74,12 @@
           "link": "~/.zshrc"
         },
         {
-          "file": "./common/sublime-text/",
-          "link": "~/Library/Application Support/Sublime Text/Packages/User/"
-        },
-        {
           "file": "./common/sublime-merge/",
           "link": "~/Library/Application Support/Sublime Merge/Packages/User/"
+        },
+        {
+          "file": "./common/sublime-text/",
+          "link": "~/Library/Application Support/Sublime Text/Packages/User/"
         },
         {
           "file": "./work-macos/sh/aliases.symlink.sh",
@@ -90,12 +90,16 @@
           "link": "~/.env.sh"
         },
         {
+          "file": "./work-macos/sublime-text/Preferences.sublime-settings",
+          "link": "./common/sublime-text/Preferences.sublime-settings"
+        },
+        {
           "file": "./work-macos/sublime-text/projects/",
           "link": "./common/sublime-text/projects/"
         },
         {
-          "file": "./work-macos/sublime-text/Preferences.sublime-settings",
-          "link": "./common/sublime-text/Preferences.sublime-settings"
+          "file": "./work-macos/sublime-text/snippets/",
+          "link": "./common/sublime-text/snippets/"
         },
         {
           "file": "./private/.ssh/",

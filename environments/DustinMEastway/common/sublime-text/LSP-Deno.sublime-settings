@@ -1,0 +1,5 @@
+// Settings in here override those in "LSP-Deno/LSP-Deno.sublime-settings"
+
+{
+    "command": ["/opt/homebrew/bin/deno", "lsp"]
+}

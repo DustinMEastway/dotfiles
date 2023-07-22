@@ -62,6 +62,16 @@ This is not in the Finder settings, just drag and drop the items in the sidebar 
 * `Sites`: `~/Sites`
 * `Tags`: N/A
 
+## iPhone
+
+### Settings
+
+#### Messages
+
+##### Text Message Forwarding
+
+* **{Name of Mac}**: `true`
+
 ## pgAdmin 4
 
 * Add New Server
