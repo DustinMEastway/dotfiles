@@ -59,12 +59,15 @@ fi
 
 # *** Tools setup *** #
 # Brew setup.
-if [[ -d "/opt/homebrew/bin/" ]]
+if [[ -d "$BREW_PATH/bin/" ]]
 then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -d "/usr/local/bin/" ]]
+  eval "$($BREW_PATH/bin/brew shellenv)"
+fi
+
+# Pyenv setup.
+if [[ "$(command -v pyenv)" != "" ]]
 then
-  eval "$(/usr/local/bin/brew shellenv)"
+  PATH="$(pyenv root)/shims:$PATH"
 fi
 
 # Ruby setup.
