@@ -14,12 +14,13 @@
     "key": "brew-install",
     "value": {
       "items": [
+        "arduino-cli",
         "coreutils",
         "dotnet",
         "ffmpeg",
         "mongodb-community",
         "mono",
-        "postgresql",
+        "postgresql@14",
         "redis",
         "ruby"
       ]
@@ -30,6 +31,7 @@
     "value": {
       "args": "--cask",
       "items": [
+        "arduino",
         "android-studio",
         "brave-browser",
         "curseforge",
@@ -37,11 +39,14 @@
         "docker",
         "gimp",
         "godot-mono",
+        "iina",
         "insomnia",
+        "linearmouse",
         "mos",
         "multipatch",
         "pgadmin4",
         "private-internet-access",
+        "obsidian",
         "raycast",
         "slack",
         "steam",

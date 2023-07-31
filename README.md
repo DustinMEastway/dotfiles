@@ -126,3 +126,6 @@ Once that is working, then I recommend creating an alias that allows you to run 
 
 ### IF YOU GET SUBLIME PACKAGE CONTROL ERROR WITH libcrypto.dylib FILE
 [github link](https://stackoverflow.com/questions/65202385/openssl-libcrypto-dylib-problem-with-package-control-in-sublime-text-3)
+A lot of Homebrew packages require `openssl` and this can cause the problem you're seeing.
+
+I fixed it by unlinking openssl: `brew unlink openssl` and restarting Sublime Text.
