@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "node"
+    ]
+  },
+  "exclude": [
+    "**/*.test.ts",
+    "./build",
+    "node_modules"
+  ],
+  "include": [
+    "**/*.cjs",
+    "**/*.js",
+    "**/*.ts",
+    ".eslintrc.cjs"
+  ]
+}

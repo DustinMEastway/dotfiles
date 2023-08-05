@@ -1,0 +1,15 @@
+.toastGroup {
+  z-index: var(--toastZIndex);
+  position: absolute;
+
+  .top {
+    left: 50%
+  }
+
+  
+}
+
+
+.success {
+  background-color: var(--success);
+}

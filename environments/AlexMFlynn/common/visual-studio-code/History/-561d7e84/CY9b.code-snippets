@@ -1,0 +1,22 @@
+{
+	"story-file": {
+		"prefix": "tsStoryFile",
+		"body": [
+"import { Meta, StoryObj } from '@storybook/react';",
+"import { ${2:${1/(?:^|-)(.)/\\u",
+"${2:${1/(?:^|-)(.)/\\u$1/g}}, $2Props } from './${1:${TM_FILENAME/\\.stories\\.tsx?$//}}';",
+"const metaData: Meta<typeof $2> = {",
+"  component: $2",
+"};",
+"export default metaData;",
+"type Story = StoryObj<typeof $2>",
+"const Template: Story = {",
+"  args: {},",
+"  argTypes {}",
+"}",
+"export const Default = Template;"
+],
+		"scope": "source.ts, source.tsx",
+		"description": ""
+	}
+}

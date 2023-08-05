@@ -1,0 +1,39 @@
+.drawer {
+  height: 100%;
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  z-index: var(--drawerZIndex);
+  padding-top: 20px;
+  box-sizing: border-box;
+  background-color: var(--background);
+
+
+  &.short {
+    width: 20%;
+  }
+
+  &.full {
+    width: 100%;
+  }
+}
+
+.left {
+  left: 0;
+  transition: left .5s;
+  border-right: 1px solid var(--accent);
+
+  &.closed {
+    left: -100%;
+  }
+}
+
+.right {
+  right: 0;
+  transition: right .5s;
+  border-left: 1px solid var(--accent);
+
+  &.closed {
+    right: -100%;
+  }
+}

@@ -1,0 +1,39 @@
+.sidenav {
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  transition: .5s;
+  z-index: 1;
+
+  &.short {
+    max-width: 20%;
+  }
+
+  &.full {
+    max-width: 99.9%;
+  }
+}
+
+.left {
+  background-color: var(--background);
+  border-right: 1px solid var(--accent);
+  left: 0;
+  transition: left .5s;
+
+  &.closed {
+    left: -100%;
+  }
+}
+
+.right {
+  right: 0;
+  background-color: var(--background);
+  border-left: 1px solid var(--accent);
+  transition: right .5s;
+
+  &.closed {
+    right: -100%;
+  }
+}

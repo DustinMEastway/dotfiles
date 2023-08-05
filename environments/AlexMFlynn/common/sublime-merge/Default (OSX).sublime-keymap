@@ -1,0 +1,10 @@
+[
+  {
+    "command": "next_tab",
+    "keys": ["super+shift+]"]
+  },
+  {
+    "command": "prev_tab",
+    "keys": ["super+shift+["]
+  }
+]

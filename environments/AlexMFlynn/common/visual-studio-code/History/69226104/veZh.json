@@ -1,0 +1,22 @@
+{
+  "files.autoSave": "onFocusChange",
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "workbench.iconTheme": "file-icons",
+  "editor.tabCompletion": "on",
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.colorTheme": "One Dark Pro",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "html.format.templating": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vs-kubernetes": {
+    "vscode-kubernetes.helm-path.mac": "/Users/alex/.vs-kubernetes/tools/helm/darwin-arm64/helm",
+    "vscode-kubernetes.kubectl-path.mac": "/Users/alex/.vs-kubernetes/tools/kubectl/kubectl",
+    "vscode-kubernetes.minikube-path.mac": "/Users/alex/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
+  },
+  "redhat.telemetry.enabled": false,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "files.insertFinalNewline": true
+}

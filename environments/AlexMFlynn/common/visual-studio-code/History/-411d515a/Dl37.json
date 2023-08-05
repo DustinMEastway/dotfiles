@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "types": []
+  },
+  "exclude": [
+    "**/*.stories.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "./build",
+    "node_modules"
+  ],
+  "extends": "./tsconfig.json",
+  "include": [
+    "**/*.cjs",
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
+    ".eslintrc.cjs"
+  ]
+}

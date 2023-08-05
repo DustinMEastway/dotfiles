@@ -1,0 +1,13 @@
+.pokemon {
+    display: inline-block;
+    text-align: center;
+}
+.pokemon img {
+    display: block;
+}
+
+hr{
+  height: 1px;
+  background-color: #271ced;
+  border: none;
+}

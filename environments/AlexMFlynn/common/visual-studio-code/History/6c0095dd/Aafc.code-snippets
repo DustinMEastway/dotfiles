@@ -1,0 +1,16 @@
+{
+	"story": {
+		"prefix": "tsStory",
+		"body": [
+"export const $1 = {",
+"...Template,",
+"args: {",
+"...Template.args,",
+"$2",
+"}",
+"};"
+],
+		"scope": "",
+		"description": ""
+	}
+}

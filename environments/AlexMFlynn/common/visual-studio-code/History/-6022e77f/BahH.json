@@ -1,0 +1,26 @@
+{
+  "name": "snippetconversion",
+  "version": "1.0.0",
+  "description": "Converts snippets from Sublime Text to VSCode",
+  "main": "bin/index.js",
+  "author": "Alex Flynn",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^20.3.3",
+    "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  },
+  "scripts": {
+    "test": "echo 'Error: no test specified' && exit 1",
+    "build": "tsc",
+    "setup": "yarn && tsc && npm i -g"
+  },
+  "bin": {
+    "snp": "./bin/index.js"
+  },
+  "keywords": [
+    "cli"
+  ]
+}

@@ -1,0 +1,20 @@
+.toastGroup {
+  z-index: var(--toastZIndex);
+  position: absolute;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  gap: 1vh;
+
+  .top {
+    left: 50%
+    
+  }
+
+
+}
+
+
+.success {
+  background-color: var(--success);
+}
