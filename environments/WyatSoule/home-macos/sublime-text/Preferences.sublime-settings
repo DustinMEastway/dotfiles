@@ -18,7 +18,7 @@
     "dist/*",
     "node_modules/*"
   ],
-  "color_scheme": "Night Owl.sublime-color-scheme",
+  "color_scheme": "Monokai.sublime-color-scheme",
   "default_line_ending": "unix",
   "font_size": 13,
   "font_face": "Monospace",

@@ -36,9 +36,6 @@ alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES && 
 alias updateAll='brew update && brew upgrade'
 #show slashes indicators on ls
 alias ls='ls -F'
-#show and hide hidden files
-alias hideHiddenFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder'
-alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
 
 #turn on and off repeating keyboard presses
 alias repeatOn='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool false'
@@ -48,10 +45,8 @@ alias repeatOff='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool
 function edit(){
     open -a /Applications/Sublime\ Text.app "$1"
 }
-# update brew and applications installed with brew
-alias updateAll='brew update; brew upgrade;'
 
 function runCpp(){
     outName="${1/.cpp/}"
-    nodemon --exec "clear && g++ $1 -o $outName && $outName" --watch "$1"
+    nodemon --exec "clear && g++ $1 -Wall -std=c++17 -o $outName && ./$outName" --watch "$1"
 }
