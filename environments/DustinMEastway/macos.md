@@ -16,6 +16,11 @@
 * DME Pixelmod
 * SevTech: Ages of the Sky
 
+## Dock
+
+* Add `/Applications` & `~/Downloads` to the right side of the dock.
+* Rick-click dock folders and set **Display as** to `Folder`.
+
 ## Finder
 
 ### Advanced
@@ -182,6 +187,7 @@ Lets you keep your mac from sleeping.
 
 ### Desktop & Dock
 
+* **Minimize windows into application icon**: `true`
 * **Automatically hide and show the Dock**: `true`
 * **Show recent applications in Dock**: `false`
 

@@ -21,7 +21,8 @@
           "mono",
           "postgresql@14",
           "redis",
-          "ruby@2.7"
+          "ruby@2.7",
+          "youtube-dl"
         ]
       }
     },
@@ -44,10 +45,13 @@
           "linearmouse",
           "multimc",
           "multipatch",
+          "notion",
+          "obsidian",
           "parallels",
           "pgadmin4",
           "private-internet-access",
           "raycast",
+          "rider",
           "slack",
           "steam",
           "sublime-merge",
