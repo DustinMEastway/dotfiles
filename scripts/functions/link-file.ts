@@ -1,9 +1,21 @@
 import { asyncForEach } from './array';
-import { input, logFail, logSuccess } from './logging';
-import { absolutePath, exists, realpath, rename, remove, symlink } from './file-system';
+import {
+  input,
+  logFail,
+  logSuccess
+} from './logging';
+import {
+  absolutePath,
+  exists,
+  realpath,
+  rename,
+  remove,
+  symlink
+} from './file-system';
 import { clone } from './object';
 
 export type ConflictMode = 'backup' | 'overwrite' | 'skip';
+
 export interface LinkFileConfig {
   conflictMode: ConflictMode | null;
 }
@@ -82,10 +94,20 @@ export async function linkFile(
 
 /** create a symlink from the source paths to the destination paths (works for files and directories) */
 export async function linkFiles(
-  links: { destination: string; source: string; }[],
+  links: {
+    destination: string;
+    source: string;
+  }[],
   config: LinkFileConfig | null = null
 ): Promise<void> {
-  await asyncForEach(links, async ({ destination, source }) => {
-    config = await linkFile(source, destination, config);
+  await asyncForEach(links, async ({
+    destination,
+    source
+  }) => {
+    config = await linkFile(
+      source,
+      destination,
+      config
+    );
   });
 }

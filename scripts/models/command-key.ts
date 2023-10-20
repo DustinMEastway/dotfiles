@@ -1,12 +1,12 @@
 /** type used to determine which @see Command to run */
-export type CommandKey = (
-  'brew-install'
-  | 'brew-tap'
-  | 'git-clone'
-  | 'git-setup'
-  | 'mkdir'
-  | 'npm-install'
-  | 'ssh-keygen'
-  | 'symlink'
-  | 'write-defaults'
-);
+export enum CommandKey {
+  brewInstall = 'brew-install',
+  brewTap = 'brew-tap',
+  gitClone = 'git-clone',
+  gitSetup = 'git-setup',
+  mkdir = 'mkdir',
+  npmInstall = 'npm-install',
+  sshKeygen = 'ssh-keygen',
+  symlink = 'symlink',
+  writeDefaults = 'write-defaults',
+}

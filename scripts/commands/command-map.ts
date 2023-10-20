@@ -1,23 +1,23 @@
 import { Command, CommandKey } from '../models/index';
 import { brewInstall } from './brew-install';
 import { brewTap } from './brew-tap';
+import { gitClone } from './git-clone';
 import { gitSetup } from './git-setup';
 import { mkdir } from './mkdir';
-import { writeDefaults } from './write-defaults';
+import { npmInstall } from './npm-install';
 import { sshKeygen } from './ssh-keygen';
 import { symlink } from './symlink';
-import { gitClone } from './git-clone';
-import { npmInstall } from './npm-install';
+import { writeDefaults } from './write-defaults';
 
 /** map of command keys to their commands for easy lookup */
 export const commandMap: Record<CommandKey, Command<any>> = {
-  'brew-install': brewInstall,
-  'brew-tap': brewTap,
-  'git-clone': gitClone,
-  'git-setup': gitSetup,
-  'mkdir': mkdir,
-  'npm-install': npmInstall,
-  'ssh-keygen': sshKeygen,
-  'symlink': symlink,
-  'write-defaults': writeDefaults
+  [CommandKey.brewInstall]: brewInstall,
+  [CommandKey.brewTap]: brewTap,
+  [CommandKey.gitClone]: gitClone,
+  [CommandKey.gitSetup]: gitSetup,
+  [CommandKey.mkdir]: mkdir,
+  [CommandKey.npmInstall]: npmInstall,
+  [CommandKey.sshKeygen]: sshKeygen,
+  [CommandKey.symlink]: symlink,
+  [CommandKey.writeDefaults]: writeDefaults
 };
