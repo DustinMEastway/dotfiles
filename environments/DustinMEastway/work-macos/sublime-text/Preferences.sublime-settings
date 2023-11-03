@@ -35,5 +35,6 @@
   "translate_tabs_to_spaces": true,
   "trim_trailing_white_space_on_save": "not_on_caret",
   "vintage_start_in_command_mode": true,
-  "font_size": 15,
+  "wrap_width": 9999,
+  "font_size": 17,
 }

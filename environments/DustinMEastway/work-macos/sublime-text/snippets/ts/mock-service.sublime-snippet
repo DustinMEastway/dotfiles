@@ -1,0 +1,12 @@
+<snippet>
+  <content><![CDATA[
+import { I${1:${TM_FILENAME/^mock|\..*|(?:^|-)(\w)/\u\1/g}} } from '../../services';
+
+/** Fake version of @see $1 to use in unit tests. */
+export class Mock$1 implements I$1 {
+}
+
+]]></content>
+  <tabTrigger>tsMockService</tabTrigger>
+  <scope>source.ts</scope>
+</snippet>

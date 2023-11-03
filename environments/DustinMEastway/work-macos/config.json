@@ -5,6 +5,7 @@
       "key": "brew-install",
       "value": {
         "items": [
+          "mvnvm",
           "nvm",
           "pyenv"
         ]
@@ -18,6 +19,7 @@
           "brave-browser",
           "insomnia",
           "raycast",
+          "rider",
           "sublime-merge",
           "sublime-text"
         ]
