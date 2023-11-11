@@ -1,0 +1,24 @@
+<snippet>
+  <content><![CDATA[
+import { Meta, StoryObj } from '@storybook/react';
+import { ${2:${1/(?:^|-)(.)/\u$1/g}} } from './${1:${TM_FILENAME/\.stories\.tsx?$//}}';
+
+const metadata: Meta<typeof $2> = {
+  component: $2
+};
+
+export default metadata;
+
+type Story = StoryObj<typeof $2>;
+
+const Template: Story = {
+  args: {},
+  argTypes: {}
+};
+
+export const Default: Story = Template;
+
+]]></content>
+  <tabTrigger>tsStoryFile</tabTrigger>
+  <scope>source.ts, source.tsx</scope>
+</snippet>

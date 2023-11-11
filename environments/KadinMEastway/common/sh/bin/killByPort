@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Kill all processes using a specific port.
+# $1: Port being used by processes to kill.
+#
+# Example: Kill all processes using port 5000.
+# killByPort 5000
+
+portNumber="$1"
+
+# List all processes listening to the port.
+processTable=$(lsof -i tcp:${portNumber})
+
+# Get the second (PID) column for each row.
+# pids=$processTable | awk 'NR!=1 {print $2}'
+
+while IFS= read -r line; do
+  processId="$(echo "$line"|awk '{print $2}')"
+
+  if [[ "$processId" != "PID" ]]
+  then
+    # Kill each process.
+    kill "$processId"
+  fi
+done <<< "$processTable"

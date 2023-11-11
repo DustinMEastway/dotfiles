@@ -1,0 +1,61 @@
+<snippet>
+  <content><![CDATA[
+${99:/* Entity Join
+entity:         ${1:${TM_FILENAME/\..*|(?:^|-)([a-z])/\u\1/g}}
+entityOne:      ${10:One}
+entityOneField: ${11:${10/(.*)/\l\1/}}
+oneEntityField: ${12:${1/(.*)/\l\1/}s}
+entityTwo:      ${20:Two}
+entityTwoField: ${21:${20/(.*)/\l\1/}}
+twoEntityField: ${22:${1/(.*)/\l\1/}s}
+
+// Add to $10.
+${30:@OneToMany(() => $1, (${1/(.*)/\l\1/}) => ${1/(.*)/\l\1/}.$11)
+$12: $1[];}
+
+// Add to $20.
+${31:@OneToMany(() => $1, (${1/(.*)/\l\1/}) => ${1/(.*)/\l\1/}.$21)
+$22: $1[];}
+*/
+}import { Field, ObjectType } from 'type-graphql';
+import {
+  BaseEntity,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryColumn,
+  UpdateDateColumn
+} from 'typeorm';
+
+@Entity()
+@ObjectType()
+export class $1 extends BaseEntity {$0
+  @Field(() => $10)
+  @ManyToOne(() => $10, (${10/(.*)/\l\1/}) => ${10/(.*)/\l\1/}.$12)
+  $11: $10;
+
+  @Field()
+  @PrimaryColumn('uuid')
+  $11Id: string;
+
+  @Field(() => $20)
+  @ManyToOne(() => $20, (${20/(.*)/\l\1/}) => ${20/(.*)/\l\1/}.$22)
+  $21: $20;
+
+  @Field()
+  @PrimaryColumn('uuid')
+  $21Id: string;
+
+  @Field(() => String)
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @Field(() => String)
+  @UpdateDateColumn()
+  updatedAt: Date;
+}
+
+]]></content>
+  <tabTrigger>tsEntityJoin</tabTrigger>
+  <scope>source.ts</scope>
+</snippet>

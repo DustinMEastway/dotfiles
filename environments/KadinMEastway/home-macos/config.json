@@ -1,0 +1,181 @@
+{
+  "fileRoot": "./environments/KadinMEastway/",
+  "commands": [
+    {
+      "key": "brew-tap",
+      "value": {
+        "items": [
+          "homebrew/cask-versions",
+          "mongodb/brew"
+        ]
+      }
+    },
+    {
+      "key": "brew-install",
+      "value": {
+        "items": [
+          "coreutils",
+          "deno",
+          "ffmpeg",
+          "mongodb-community",
+          "mono",
+          "postgresql@14",
+          "redis",
+          "ruby@2.7",
+          "youtube-dl"
+        ]
+      }
+    },
+    {
+      "key": "brew-install",
+      "value": {
+        "args": "--cask",
+        "items": [
+          "altserver",
+          "android-studio",
+          "brave-browser",
+          "calibre",
+          "curseforge",
+          "discord",
+          "docker",
+          "gimp",
+          "godot-mono",
+          "iina",
+          "insomnia",
+          "linearmouse",
+          "multimc",
+          "multipatch",
+          "notion",
+          "obsidian",
+          "parallels",
+          "pgadmin4",
+          "private-internet-access",
+          "raycast",
+          "rider",
+          "slack",
+          "steam",
+          "sublime-merge",
+          "sublime-text",
+          "zoom",
+          "zulu11"
+        ]
+      }
+    },
+    {
+      "key": "git-setup",
+      "value": { "configPath": "./private/git/symlink.gitconfig" }
+    },
+    {
+      "key": "mkdir",
+      "value": [
+        "./private/.ssh/",
+        "~/Library/Application Support/Sublime Merge/Packages/",
+        "~/Library/Application Support/Sublime Text/Packages/"
+      ]
+    },
+    {
+      "key": "npm-install",
+      "value": {
+        "packages": [
+          "nx",
+          "yarn"
+        ]
+      }
+    },
+    {
+      "key": "ssh-keygen",
+      "value": {
+        "file": "./private/.ssh/id_rsa",
+        "type": "rsa"
+      }
+    },
+    {
+      "key": "write-defaults",
+      "value": {
+        "Apple Global Domain": {
+          "ApplePressAndHoldEnabled": false
+        }
+      }
+    },
+    {
+      "key": "symlink",
+      "value": [
+        {
+          "file": "./common/sh/aliases.symlink.sh",
+          "link": "~/.aliases-common.sh"
+        },
+        {
+          "file": "./common/sh/bashrc.symlink.sh",
+          "link": "~/.bashrc"
+        },
+        {
+          "file": "./common/sh/bin/",
+          "link": "~/.bin-common/"
+        },
+        {
+          "file": "./common/sh/common.symlink.sh",
+          "link": "~/.common.sh"
+        },
+        {
+          "file": "./common/sh/env.symlink.sh",
+          "link": "~/.env-common.sh"
+        },
+        {
+          "file": "./common/sh/zshrc.symlink.zsh",
+          "link": "~/.zshrc"
+        },
+        {
+          "file": "./common/sublime-merge/",
+          "link": "~/Library/Application Support/Sublime Merge/Packages/User/"
+        },
+        {
+          "file": "./common/sublime-text/",
+          "link": "~/Library/Application Support/Sublime Text/Packages/User/"
+        },
+        {
+          "file": "./home-macos/sh/aliases.symlink.sh",
+          "link": "~/.aliases.sh"
+        },
+        {
+          "file": "./home-macos/sh/env.symlink.sh",
+          "link": "~/.env.sh"
+        },
+        {
+          "file": "./home-macos/sublime-text/Preferences.sublime-settings",
+          "link": "./common/sublime-text/Preferences.sublime-settings"
+        },
+        {
+          "file": "./home-macos/sublime-text/projects/",
+          "link": "./common/sublime-text/projects/"
+        },
+        {
+          "file": "./home-macos/sublime-text/snippets/",
+          "link": "./common/sublime-text/snippets/"
+        },
+        {
+          "file": "./private/.ssh/",
+          "link": "~/.ssh/"
+        },
+        {
+          "file": "./private/git/symlink.gitconfig",
+          "link": "~/.gitconfig"
+        },
+        {
+          "file": "./private/sh/env.symlink.sh",
+          "link": "~/.env-private.sh"
+        }
+      ]
+    },
+    {
+      "key": "git-clone",
+      "value": {
+        "items": [
+          {
+            "path": "~/Sites/brass-raven",
+            "url": "git@github.com:brass-raven/brass-raven.git"
+          }
+        ]
+      }
+    }
+  ]
+}

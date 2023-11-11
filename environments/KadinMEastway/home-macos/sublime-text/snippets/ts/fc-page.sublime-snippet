@@ -1,0 +1,22 @@
+<snippet>
+  <content><![CDATA[
+import { NavBar, Wrapper } from '../components';
+import { withUrqlClient } from '../core';
+
+export interface $1Props {$0
+};
+
+export const ${1:${TM_FILENAME/(?:^|-)([a-z])|\.tsx$/\u\1/g}}: React.FC<$1Props> = ({}) => {
+  return <>
+    <NavBar />
+    <Wrapper size="small">
+    </Wrapper>
+  </>;
+};
+
+export default withUrqlClient()($1);
+
+]]></content>
+  <tabTrigger>tsFcPage</tabTrigger>
+  <scope>source.tsx</scope>
+</snippet>

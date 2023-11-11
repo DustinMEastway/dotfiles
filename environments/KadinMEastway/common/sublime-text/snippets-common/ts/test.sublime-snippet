@@ -1,0 +1,11 @@
+<snippet>
+  <content><![CDATA[
+test('${1:Functionality}.', () => {
+  // Arrange$0
+  // Act
+  // Assert
+});
+]]></content>
+  <tabTrigger>tsTest</tabTrigger>
+  <scope>source.js, source.jsx, source.ts, source.tsx</scope>
+</snippet>
