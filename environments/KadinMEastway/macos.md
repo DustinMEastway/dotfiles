@@ -15,6 +15,7 @@
 
 * DME Pixelmod
 * SevTech: Ages of the Sky
+* Dawncraft
 
 ## Dock
 
