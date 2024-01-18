@@ -20,5 +20,13 @@
   {
     "command": "reveal_in_side_bar",
     "keys": ["super+shift+o"]
+  },
+  {
+    "command": "sublime_merge_file_history",
+    "keys": ["super+shift+enter"]
+  },
+  {
+    "command": "sublime_merge_open_repo",
+    "keys": ["super+enter"]
   }
 ]
