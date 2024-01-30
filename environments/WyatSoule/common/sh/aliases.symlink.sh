@@ -36,6 +36,8 @@ alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES && 
 alias updateAll='brew update && brew upgrade'
 #show slashes indicators on ls
 alias ls='ls -F'
+#show all branches in git
+alias glola='git log --graph --oneline --decorate --all --abbrev-commit'
 
 #turn on and off repeating keyboard presses
 alias repeatOn='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool false'
@@ -48,5 +50,9 @@ function edit(){
 
 function runCpp(){
     outName="${1/.cpp/}"
-    nodemon --exec "clear && g++ $1 -Wall -std=c++17 -o $outName && ./$outName" --watch "$1"
+    nodemon --exec "clear && g++ -Wall -std=c++17 $1 $2 && ./a.out " -e "cpp"
+}
+ function runC(){
+    outName="${1/.c/}"
+      clear && gcc -Wall -o $outName $1 && ./$outName
 }

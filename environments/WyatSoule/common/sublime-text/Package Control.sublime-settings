@@ -1,11 +1,7 @@
 {
   "bootstrapped": true,
-  "in_process_packages":
-  [
-    "TypeScript",
-  ],
-  "installed_packages":
-  [
+  "in_process_packages": [],
+  "installed_packages": [
     "Copy Relative Path",
     "DiffTabs",
     "GraphQL",
@@ -15,6 +11,7 @@
     "LSP-clangd",
     "LSP-copilot",
     "LSP-css",
+    "LSP-dockerfile",
     "LSP-eslint",
     "LSP-file-watcher-chokidar",
     "LSP-graphql",
@@ -25,10 +22,9 @@
     "LSP-pyright",
     "LSP-svelte",
     "LSP-typescript",
-    "MoveTab",
-    "Night Owl",
     "Package Control",
+    "Prisma",
     "Sass",
-    "TypeScript",
-  ],
+    "Svelte"
+  ]
 }

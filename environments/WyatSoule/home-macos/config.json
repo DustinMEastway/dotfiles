@@ -1,65 +1,63 @@
 {
   "fileRoot": "./environments/WyatSoule/",
-   "commands": [
-  {
-    "key": "brew-tap",
-    "value": {
-      "items": [
-        "homebrew/cask-versions",
-        "mongodb/brew"
-      ]
-    }
-  },
-  {
-    "key": "brew-install",
-    "value": {
-      "items": [
-        "arduino-cli",
-        "coreutils",
-        "dotnet",
-        "ffmpeg",
-        "mongodb-community",
-        "mono",
-        "postgresql@16",
-        "redis",
-        "ruby"
-      ]
-    }
-  },
-  {
-    "key": "brew-install",
-    "value": {
-      "args": "--cask",
-      "items": [
-        "arduino",
-        "android-studio",
-        "brave-browser",
-        "curseforge",
-        "discord",
-        "docker",
-        "gather",
-        "gimp",
-        "godot-mono",
-        "iina",
-        "insomnia",
-        "linearmouse",
-        "mos",
-        "multipatch",
-        "pgadmin4",
-        "private-internet-access",
-        "raycast",
-        "slack",
-        "steam",
-        "sublime-merge",
-        "sublime-text",
-        "zoom",
-        "zulu11"
-      ]
-    }
-  },
+  "commands": [
+    {
+      "key": "brew-tap",
+      "value": {
+        "items": [
+          "homebrew/cask-versions",
+          "mongodb/brew"
+        ]
+      }
+    },
+    {
+      "key": "brew-install",
+      "value": {
+        "items": [
+          "coreutils",
+          "dotnet",
+          "ffmpeg",
+          "mono",
+          "postgresql@16",
+          "redis",
+          "ruby"
+        ]
+      }
+    },
+    {
+      "key": "brew-install",
+      "value": {
+        "args": "--cask",
+        "items": [
+          "arduino",
+          "android-studio",
+          "brave-browser",
+          "curseforge",
+          "discord",
+          "docker",
+          "gimp",
+          "godot-mono",
+          "iina",
+          "insomnia",
+          "linearmouse",
+          "multipatch",
+          "pgadmin4",
+          "private-internet-access",
+          "raycast",
+          "slack",
+          "steam",
+          "sublime-merge",
+          "sublime-text",
+          "zoom",
+          "zulu11"
+        ]
+      }
+    },
     {
       "key": "git-setup",
-      "value": { "configPath": "./private/git/symlink.gitconfig" }
+      "value": {
+        "configPath": "./private/git/symlink.gitconfig"
+      }
     },
     {
       "key": "mkdir",
