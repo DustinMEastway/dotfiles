@@ -77,8 +77,7 @@
       "key": "npm-install",
       "value": {
         "packages": [
-          "nx",
-          "yarn"
+          "nx"
         ]
       }
     },
