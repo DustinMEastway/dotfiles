@@ -1,54 +1,122 @@
 # Espanso match file
-# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+# For a complete introduction, visit [the official docs](https://espanso.org/docs/)
 
 global_vars:
   -
-    name: todaysDate
+    name: 'todaysDate'
     params:
-      format: "%Y-%m-%d"
-    type: date
+      format: '%Y-%m-%d'
+    type: 'date'
+  -
+    name: 'myName'
+    params:
+      echo: 'Dustin'
+    type: 'echo'
 matches:
   -
-    label: Create an Espanso match.
-    replace: "  # Foo.\n-\n  replace: \"\"\ntrigger: \"\""
-    trigger: ":es"
+    label: 'Create an Espanso match.'
+    replace: '  # Foo.\n-\n  replace: ""\ntrigger: ""'
+    trigger: ':es'
   -
-    label: Print the current date.
-    replace: "{{todaysDate}}"
-    trigger: ":today"
+    label: 'Print today''s date.'
+    replace: '{{todaysDate}}'
+    trigger: ':today'
   -
-    label: Print the output of a shell command.
-    replace: "{{output}}"
-    trigger: ":shell"
+    label: 'Public IP Address'
+    replace: "{{ipAddress}}"
+    trigger: ":ip"
     vars:
-      -
-        name: output
-        params:
-          cmd: "echo \"Hello World!\""
+      - name: ipAddress
         type: shell
+        params:
+          cmd: "curl 'https://api.ipify.org'"
   -
     ## HTML rich text replacement.
-    # html: "Text is <b>bold</b>!"
+    # html: 'Text is <b>bold</b>!'
     ## Image replacement from the Espanso config directory.
-    # image_path: "$CONFIG/image/image.png"
-    label: Sandbox to mess around with.
+    # image_path: '$CONFIG/image/image.png'
+    label: 'Sandbox to mess around with.'
     ## Markdown rich text replacement.
-    # markdown: "Text is **bold**!"
-    replace: "Sandbox"
+    # markdown: 'Text is **bold**!'
+    replace: 'Hello {{myName}}'
     triggers:
-      - ":sb"
-      - ":sandbox"
-    ## Variables
-    # vars:
-      ## Nested match variable.
+      - ':sb'
+      - ':sandbox'
+    # Variables
+    vars:
+      # # Output the selected value (id) from options.
       # -
-      #   name: matchOutput
+      #   name: 'choiceVariable'
       #   params:
-      #     trigger: ":one"
-      #   type: match
-      # - name: tomorrow
-      #   type: date
+      #     values:
+      #       -
+      #         id: 'foo'
+      #         label: 'Option 1.'
+      #       -
+      #         id: 'bar'
+      #         label: 'Option 2.'
+      #   type: 'choice'
+      # # Output date/time information.
+      # -
+      #   name: 'tomorrow'
       #   params:
-      #     format: "%x"
+      #     # Format options:
+      #     #   %Y: Full year (e.g. `2024`)
+      #     #   %m: 2-digit month (e.g. `02`)
+      #     #   %d: 2-digit day (e.g. `23`)
+      #     #   %H: 2-digit hour in military time (e.g. 16)
+      #     #   %M: 2-digit minute (e.g. 11)
+      #     #   %x: Human readable date (e.g. 02/23/2024)
+      #     format: '%x'
       #     # Offset (in seconds) from today's date.
       #     offset: 86400
+      #   type: 'date'
+      # # Output one match in another.
+      # -
+      #   name: 'matchVariable'
+      #   params:
+      #     trigger: ':one'
+      #   type: 'match'
+      # # Output date using a format output by a choice variable.
+      # # Warning: Variables are resolved in order, so put dependent ones later.
+      # -
+      #   name: 'dateOrTimeFormat'
+      #   params:
+      #     values:
+      #       -
+      #         id: '%Y-%m-%d'
+      #         label: 'Date'
+      #       -
+      #         id: '%H:%M'
+      #         label: 'Time'
+      #   type: 'choice'
+      # -
+      #   name: 'dateOrTime'
+      #   params:
+      #     format: '{{dateOrTimeFormat}}'
+      #   type: 'date'
+      # # Output value stored in the clipboard.
+      # -
+      #   name: 'clipboardVariable'
+      #   type: 'clipboard'
+      # # Output response from a shell command.
+      # -
+      #   name: 'shellVariable'
+      #   params:
+      #     cmd: 'echo "Hello World!"'
+      #   type: 'shell'
+      # # Output response from a script stored in the config directory.
+      # -
+      #   name: 'scriptVariable'
+      #   params:
+      #     args:
+      #       - 'python'
+      #       - '%CONFIG%/script.py'
+      #   type: 'script'
+      # # Output a random value from options.
+      # -
+      #   name: 'randomVariable'
+      #   params:
+      #     choices:
+      #       - 'Every moment is a fresh beginning.'
+      #   type: 'random'
