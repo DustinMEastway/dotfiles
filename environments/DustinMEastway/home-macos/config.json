@@ -38,6 +38,7 @@
           "curseforge",
           "discord",
           "docker",
+          "espanso",
           "gimp",
           "godot-mono",
           "iina",
@@ -45,7 +46,6 @@
           "linearmouse",
           "multimc",
           "multipatch",
-          "notion",
           "obsidian",
           "parallels",
           "pgadmin4",
@@ -63,7 +63,9 @@
     },
     {
       "key": "git-setup",
-      "value": { "configPath": "./private/git/symlink.gitconfig" }
+      "value": {
+        "configPath": "./private/git/symlink.gitconfig"
+      }
     },
     {
       "key": "mkdir",
@@ -77,7 +79,6 @@
       "key": "npm-install",
       "value": {
         "packages": [
-          "nx",
           "yarn"
         ]
       }
@@ -123,6 +124,10 @@
         {
           "file": "./common/sh/zshrc.symlink.zsh",
           "link": "~/.zshrc"
+        },
+        {
+          "file": "./common/espanso/",
+          "link": "~/Library/Application Support/espanso/"
         },
         {
           "file": "./common/sublime-merge/",

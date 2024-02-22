@@ -1,0 +1,54 @@
+# Espanso match file
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+global_vars:
+  -
+    name: todaysDate
+    params:
+      format: "%Y-%m-%d"
+    type: date
+matches:
+  -
+    label: Create an Espanso match.
+    replace: "  # Foo.\n-\n  replace: \"\"\ntrigger: \"\""
+    trigger: ":es"
+  -
+    label: Print the current date.
+    replace: "{{todaysDate}}"
+    trigger: ":today"
+  -
+    label: Print the output of a shell command.
+    replace: "{{output}}"
+    trigger: ":shell"
+    vars:
+      -
+        name: output
+        params:
+          cmd: "echo \"Hello World!\""
+        type: shell
+  -
+    ## HTML rich text replacement.
+    # html: "Text is <b>bold</b>!"
+    ## Image replacement from the Espanso config directory.
+    # image_path: "$CONFIG/image/image.png"
+    label: Sandbox to mess around with.
+    ## Markdown rich text replacement.
+    # markdown: "Text is **bold**!"
+    replace: "Sandbox"
+    triggers:
+      - ":sb"
+      - ":sandbox"
+    ## Variables
+    # vars:
+      ## Nested match variable.
+      # -
+      #   name: matchOutput
+      #   params:
+      #     trigger: ":one"
+      #   type: match
+      # - name: tomorrow
+      #   type: date
+      #   params:
+      #     format: "%x"
+      #     # Offset (in seconds) from today's date.
+      #     offset: 86400

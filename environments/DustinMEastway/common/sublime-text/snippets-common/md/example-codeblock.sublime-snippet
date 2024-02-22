@@ -1,0 +1,17 @@
+<snippet>
+  <content><![CDATA[
+${99:<!--
+Code:
+${3:Code}
+-->
+}> [!example]-
+> ##### Syntax
+> ```md
+> ${3/\n/\n> /g}
+> ```
+> > [!info] Output
+> > ${3/\n/\n> > /g}$0
+]]></content>
+  <tabTrigger>mdExampleCodeblock</tabTrigger>
+  <scope>text.html.markdown</scope>
+</snippet>

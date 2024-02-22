@@ -2,7 +2,13 @@
 	"folders":
 	[
 		{
-			"path": "~/Sites/notes",
+			"path": "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/second-brain",
+		},
+		{
+			"path": "~/Sites/obsidian-scripts",
+		},
+		{
+			"path": "~/Sites/notes-old"
 		},
 	],
 }

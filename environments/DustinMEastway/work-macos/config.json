@@ -28,7 +28,9 @@
     },
     {
       "key": "git-setup",
-      "value": { "configPath": "./private/git/symlink.gitconfig" }
+      "value": {
+        "configPath": "./private/git/symlink.gitconfig"
+      }
     },
     {
       "key": "mkdir",

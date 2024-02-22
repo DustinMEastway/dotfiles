@@ -25,6 +25,8 @@ alias cdICloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 alias cls='clear && clear'
 # Run the dotfiles to setup the environment.
 alias dotfiles="cls && $DOTFILES_DIR/scripts/bootstrap.sh --config $DOTFILES_CONFIG"
+# Reload environment variables.
+alias eReload="source $HOME/.env-common.sh"
 # Hide hidden files in Finder.
 alias hideHiddenFiles='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder'
 # List all versions of Java that are installed.

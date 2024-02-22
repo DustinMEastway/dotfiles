@@ -1,0 +1,34 @@
+# Espanso configuration file
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# Keys: CTRL, SHIFT, ALT, CMD, OFF
+# Key Variants: LEFT_CTRL, RIGHT_SHIFT, etc...
+
+# Enable/disable the config auto-reload after a file change is detected.
+auto_restart: true
+
+# Customize the method of performing the text replacement.
+# Options: Auto/Clipboard/Inject
+backend: Auto
+
+# Because injecting long texts char-by-char is a slow operation, espanso automatically
+# uses the clipboard if the text is longer than 'clipboard_threshold' characters.
+clipboard_threshold: 100
+
+# Hotkey to display search bar.
+search_shortcut: ALT+SPACE
+
+# Match to display search bar (e.g. .search).
+search_trigger: off
+
+# Whether Espanso icon should display in the menu.
+show_icon: false
+
+# Whether Espanso notifications should display.
+show_notifications: true
+
+# Customize the key used to disable and enable espanso (when double tapped).
+toggle_key: OFF
+
+# Hitting backspace after expanding a match will revert back to what you had.
+undo_backspace: true
