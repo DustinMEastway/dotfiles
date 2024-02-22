@@ -24,6 +24,7 @@
   "ignored_packages":
   [
   ],
+  "index_files": true,
   "node_path": "/Users/deastway/.nvm/versions/node/v14.21.0/bin/node",
   "open_files_in_new_window": "never",
   "relative_line_numbers": true,

@@ -17,6 +17,7 @@
         "args": "--cask",
         "items": [
           "brave-browser",
+          "espanso",
           "insomnia",
           "obsidian",
           "raycast",
@@ -77,6 +78,10 @@
         {
           "file": "./common/sh/zshrc.symlink.zsh",
           "link": "~/.zshrc"
+        },
+        {
+          "file": "./common/espanso/",
+          "link": "~/Library/Application Support/espanso/"
         },
         {
           "file": "./common/sublime-merge/",

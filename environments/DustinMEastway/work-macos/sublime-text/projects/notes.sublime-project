@@ -2,7 +2,13 @@
 	"folders":
 	[
 		{
-			"path": "/Users/deastway/Sites/notes"
-		}
+			"path": "/Users/deastway/Sites/notes",
+		},
+		{
+			"path": "/Users/deastway/Sites/scripts",
+		},
+		{
+			"path": "/Users/deastway/Sites/notes-old"
+		},
 	],
 }

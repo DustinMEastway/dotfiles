@@ -7,8 +7,6 @@
 
 path="$(getAbsolutePath $1)"
 editor="vim"
-editorMacosPath="/Applications/Sublime Text.app"
-editorWindowsPath="$ROOT_DIRECTORY/Program Files/Sublime Text/sublime_text.exe"
 
 if [[ "$path" == "" ]]
 then
@@ -16,13 +14,10 @@ then
   exit -1
 fi
 
-# Use Sublime Text editor when available.
-if [[ -d "$editorMacosPath" ]]
+# Use `EDITOR` environment variable when present.
+if [[ "$EDITOR" != "" ]]
 then
-  editor="open -a \"$editorMacosPath\""
-elif [[ -f "$editorWindowsPath" ]]
-then
-  editor="$editorWindowsPath"
+  editor="$EDITOR"
 fi
 
 if [[ "$ENV_TYPE" == "linux-subsystem" ]]
@@ -43,4 +38,4 @@ then
   fi
 fi
 
-eval "$editor $path"
+eval "$editor \"$path\""
