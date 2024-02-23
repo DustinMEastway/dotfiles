@@ -2,6 +2,7 @@
 # All variables are availble as environment varibles in `type: "shell"` and `type: "script"` variables.
 #   A `varName` variable becomes `ESPANSO_VARNAME`.
 #   A `form1` form variable with a `name` field becomes `ESPANSO_FORM1_NAME`.
+
 global_vars:
   # Output the selected value (id) from options (label is displayed to the user).
   -

@@ -1,4 +1,5 @@
 # Match set for Espanso YAML files.
+
 global_vars:
 matches:
   -
@@ -13,6 +14,7 @@ matches:
     label: "Create an Espanso matchset."
     form: |
       # [[comment]].
+
       global_vars:
       matches:
     trigger: ":mset"

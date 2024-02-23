@@ -1,4 +1,5 @@
 # Match set for JS files.
+
 global_vars:
 matches:
   -

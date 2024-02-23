@@ -1,5 +1,5 @@
-# Espanso configuration file
-# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+# Espanso configuration file.
+# For a complete introduction, visit [the official docs](https://espanso.org/docs/).
 
 # Keys: CTRL, SHIFT, ALT, CMD, OFF
 # Key Variants: LEFT_CTRL, RIGHT_SHIFT, etc...
@@ -14,6 +14,11 @@ backend: Auto
 # Because injecting long texts char-by-char is a slow operation, espanso automatically
 # uses the clipboard if the text is longer than `clipboard_threshold` characters.
 clipboard_threshold: 100
+
+# Extra files that start with `_` that you want to include.
+extra_includes:
+  # This will get overriden when app specific configs overwrite `extra_includes`.
+  - "../match/_non-code-snippets.yml"
 
 # Hotkey to display search bar.
 search_shortcut: ALT+SPACE

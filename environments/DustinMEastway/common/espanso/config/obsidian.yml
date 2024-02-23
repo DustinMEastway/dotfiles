@@ -1,4 +1,5 @@
 extra_includes:
   - "../match/_md-snippets.yml"
+  - "../match/_md-obsidian-snippets.yml"
   - "../match/_yml-snippets.yml"
 filter_exec: "Obsidian"

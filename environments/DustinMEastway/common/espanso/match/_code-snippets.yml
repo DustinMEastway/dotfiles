@@ -1,6 +1,8 @@
 # Match set for code editors.
+
 imports:
   - "./_js-snippets.yml"
   - "./_md-snippets.yml"
+  - "./_md-obsidian-snippets.yml"
   - "./_yml-espanso-snippets.yml"
   - "./_yml-snippets.yml"

@@ -1,9 +1,9 @@
 # Base match set available everywhere on your machine.
-# For a complete introduction, visit [the official docs](https://espanso.org/docs/)
+# For a complete introduction, visit [the official docs](https://espanso.org/docs/).
 
 global_vars:
   -
-    name: "todaysDate"
+    name: "nowDate"
     params:
       format: "%Y-%m-%d"
     type: "date"
@@ -13,10 +13,6 @@ global_vars:
       echo: "Dustin"
     type: "echo"
 matches:
-  -
-    label: "Print today's date."
-    replace: "{{todaysDate}}"
-    trigger: ":today"
   -
     label: "Public IP Address"
     replace: "{{ipAddress}}"

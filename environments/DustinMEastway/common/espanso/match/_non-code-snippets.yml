@@ -1,0 +1,8 @@
+# Snippets that should not be used in code editors.
+
+global_vars:
+matches:
+  -
+    label: "Print today's date."
+    replace: "{{nowDate}}"
+    trigger: ":today"
