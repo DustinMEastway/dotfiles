@@ -1,0 +1,21 @@
+# Match set for JS files.
+global_vars:
+matches:
+  -
+    label: "Creates a lambda function."
+    replace: "($|$) => {\n\treturn ;\n}"
+    trigger: ":fn"
+  -
+    label: "Logs a message to the console."
+    replace: "console.log($|$);"
+    trigger: ":log"
+  -
+    label: "Calls an array function."
+    replace: ".{{functionName}}({{lambda}});"
+    regex: ":(?P<functionName>(filter|map|sort))"
+    vars:
+      -
+        name: "lambda"
+        params:
+          trigger: ":fn"
+        type: "match"

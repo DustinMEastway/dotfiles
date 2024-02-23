@@ -1,0 +1,152 @@
+# Match set to serve as documentation for Espanso.
+# All variables are availble as environment varibles in `type: "shell"` and `type: "script"` variables.
+#   A `varName` variable becomes `ESPANSO_VARNAME`.
+#   A `form1` form variable with a `name` field becomes `ESPANSO_FORM1_NAME`.
+global_vars:
+  # Output the selected value (id) from options (label is displayed to the user).
+  -
+    name: "choiceVariable"
+    params:
+      values:
+        -
+          id: "foo"
+          label: "Option 1."
+        -
+          id: "bar"
+          label: "Option 2."
+    type: "choice"
+  # Output date/time information.
+  -
+    name: "tomorrow"
+    params:
+      # Format options:
+      #   %Y: Full year (e.g. `2024`)
+      #   %m: 2-digit month (e.g. `02`)
+      #   %d: 2-digit day (e.g. `23`)
+      #   %H: 2-digit hour in military time (e.g. 16)
+      #   %M: 2-digit minute (e.g. 11)
+      #   %x: Human readable date (e.g. 02/23/2024)
+      format: "%x"
+      # Offset (in seconds) from now.
+      offset: 86400
+    type: "date"
+  # Output one match in another.
+  -
+    name: "matchVariable"
+    params:
+      trigger: ":sandbox"
+    type: "match"
+  # Output date using a format output by a choice variable.
+  # Warning: Variables are resolved in order, so put dependent ones last.
+  -
+    name: "dateOrTimeFormat"
+    params:
+      values:
+        -
+          id: "%Y-%m-%d"
+          label: "Date"
+        -
+          id: "%H:%M"
+          label: "Time"
+    type: "choice"
+  -
+    name: "dateOrTime"
+    params:
+      format: "{{dateOrTimeFormat}}"
+    type: "date"
+  # Output a const string.
+  -
+    name: "constVariable"
+    params:
+      echo: "Value"
+    type: "echo"
+  # Output value stored in the clipboard.
+  -
+    name: "clipboardVariable"
+    type: "clipboard"
+  # Output response from a shell command.
+  -
+    name: "shellVariable"
+    params:
+      cmd: "echo \"Hello World!\""
+    type: "shell"
+  # Output response from a script stored in the config directory.
+  -
+    name: "scriptVariable"
+    params:
+      args:
+        - "python"
+        - "%CONFIG%/script.py"
+    type: "script"
+  # Output a random value from options.
+  -
+    name: "randomVariable"
+    params:
+      choices:
+        - "Every moment is a fresh beginning."
+    type: "random"
+matches:
+  -
+    # force_mode can be used to change how the match text is inserted.
+    # Values:
+    #   clipboard: Pastes it in one go.
+    #   keys: Types it out one character at a time.
+    force_mode: clipboard
+    label: "Force mode example."
+    replace: "Text being inserted."
+    trigger: ":exampleForceMode"
+  -
+    label: "Form example."
+    # Form variables must not contain spaces.
+    form: "Hello [[name]],\n[[message]]\n[[signature]]"
+    form_fields:
+      name:
+        # Defaults to empty.
+        default: "World"
+      message:
+        multiline: true
+        # Defaults to true.
+        trim_string_values: false
+      signature:
+        # Defaults to input.
+        type: "choice"
+        # List displays the options differently.
+        # type: "list"
+        values: |
+          Regards
+          Sincerely
+    trigger: ":exampleForm"
+  -
+    label: "HTML Rich text example."
+    html: "Text is <b>bold</b>!"
+    trigger: ":exampleHtmlRichText"
+  -
+    label: "Image example."
+    image_path: "$CONFIG/image/image.png"
+    trigger: ":exampleImage"
+  -
+    label: "Markdown rich text example."
+    markdown: "Text is **bold**!"
+    trigger: ":exampleMdRichText"
+  -
+    # Can be triggered by multiple triggers.
+    label: "Multi-trigger example."
+    replace: "Multi"
+    triggers:
+      - ":exampleMultiTrigger"
+      - ":eMultiTrigger"
+  -
+    label: "Regex trigger example."
+    replace: "Is {{digit}} your favorite number?"
+    # The syntax is `(?P<varName>pattern)` where `varName` is the variable name and `pattern` is the value.
+    regex: ":exampleRegexTrigger(?P<digit>\\d)"
+  -
+    label: "Match variable example."
+    replace: "Hello {{exampleConst}}!"
+    trigger: ":exampleVariable"
+    vars:
+      -
+        name: "exampleConst"
+        params:
+          echo: "World"
+        type: "echo"

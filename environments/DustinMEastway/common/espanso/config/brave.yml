@@ -1,0 +1,5 @@
+# Used to prevent Safari from auto-indenting.
+backend: Clipboard
+extra_includes:
+  - "../match/_js-snippets.yml"
+filter_exec: "Brave"
