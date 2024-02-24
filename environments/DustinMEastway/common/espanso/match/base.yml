@@ -28,3 +28,18 @@ matches:
     triggers:
       - ":sb"
       - ":sandbox"
+  -
+    label: "Convert from one string case to another."
+    replace: "{{convertedCase}}"
+    regex: ":c\\((?P<case>.*), (?P<value>.*)\\)"
+    vars:
+      -
+        name: "convertedCase"
+        params:
+          args:
+            - "/opt/homebrew/bin/deno"
+            - "run"
+            - "%CONFIG%/scripts/convert-case.ts"
+            - "{{case}}"
+            - "{{value}}"
+        type: "script"

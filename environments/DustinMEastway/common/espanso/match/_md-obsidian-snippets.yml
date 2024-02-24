@@ -1,5 +1,9 @@
 # Match set for Obsidian Markdown files.
 
+imports:
+  - "../match/_md-snippets.yml"
+  # YAML is used for Metadata in notes.
+  - "../match/_yml-snippets.yml"
 global_vars:
 matches:
   -

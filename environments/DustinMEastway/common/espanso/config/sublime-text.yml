@@ -2,4 +2,5 @@
 backend: Clipboard
 extra_includes:
   - "../match/_code-snippets.yml"
+  - "../match/_js-interactions-snippets.yml"
 filter_exec: "Sublime Text"

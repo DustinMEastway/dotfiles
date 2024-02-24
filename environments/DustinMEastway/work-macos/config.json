@@ -5,6 +5,7 @@
       "key": "brew-install",
       "value": {
         "items": [
+          "deno",
           "mvnvm",
           "nvm",
           "pyenv"

@@ -1,5 +1,5 @@
-# Used to prevent Safari from auto-indenting.
+# Used to prevent Chrome from auto-indenting.
 backend: Clipboard
 extra_includes:
   - "../match/_browser-snippets.yml"
-filter_exec: "Brave"
+filter_exec: "Chrome"
