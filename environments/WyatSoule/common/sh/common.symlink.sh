@@ -1,60 +1,31 @@
 #!/usr/bin/env bash
 
 # *** Environment variables *** #
-# Add common environment variables.
 if [[ -f "$HOME/.env-common.sh" ]]
 then
   source "$HOME/.env-common.sh"
 fi
 
-# Add config specific environment variables.
-if [[ -f "$HOME/.env.sh" ]]
-then
-  source "$HOME/.env.sh"
-fi
-
-# Add private environment variables.
-if [[ -f "$HOME/.env-private.sh" ]]
-then
-  source "$HOME/.env-private.sh"
-fi
-
 # *** Bin directories *** #
-# Add common bin commands to PATH.
-if [[ -d "$HOME/.bin-common" ]]
-then
-  export PATH="$HOME/.bin-common:$PATH"
-fi
+binDirectories=(
+  "$HOME/.bin-common"
+  "$HOME/.bin"
+  "$HOME/.bin-private"
+)
 
-# Add config specific bin commands to PATH.
-if [[ -d "$HOME/.bin" ]]
-then
-  export PATH="$HOME/.bin:$PATH"
-fi
+# for key in "${!fruits[@]}"
+for binDirectory in "${binDirectories[@]}"
+do
+  if [[ -d "$binDirectory" ]]
+  then
+    export PATH="$binDirectory:$PATH"
+  fi
+done
 
-# Add private bin commands to PATH.
-if [[ -d "$HOME/.bin-private" ]]
-then
-  export PATH="$HOME/.bin-private:$PATH"
-fi
-
-# *** Aliases *** #
-# Add common aliases.
+# *** Add aliases *** #
 if [[ -f "$HOME/.aliases-common.sh" ]]
 then
   source "$HOME/.aliases-common.sh"
-fi
-
-# Add config specific aliases.
-if [[ -f "$HOME/.aliases.sh" ]]
-then
-  source "$HOME/.aliases.sh"
-fi
-
-# Add private aliases.
-if [[ -f "$HOME/.aliases-private.sh" ]]
-then
-  source "$HOME/.aliases-private.sh"
 fi
 
 # *** Tools setup *** #
@@ -65,6 +36,12 @@ then
 elif [[ -d "/usr/local/bin/" ]]
 then
   eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# Pyenv setup.
+if [[ "$(command -v pyenv)" != "" ]]
+then
+  PATH="$(pyenv root)/shims:$PATH"
 fi
 
 # Ruby setup.

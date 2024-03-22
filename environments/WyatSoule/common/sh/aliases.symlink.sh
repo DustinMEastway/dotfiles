@@ -56,3 +56,19 @@ function runCpp(){
     outName="${1/.c/}"
       clear && gcc -Wall -o $outName $1 && ./$outName
 }
+
+# TODO: Make an alias to move an item to the trash.
+# * https://github.com/morgant/tools-osx/blob/master/src/trash
+# * https://apple.stackexchange.com/questions/50844/how-to-move-files-to-trash-from-command-line
+
+# Add config specific aliases.
+if [[ -f "$HOME/.aliases.sh" ]]
+then
+  source "$HOME/.aliases.sh"
+fi
+
+# Add private aliases.
+if [[ -f "$HOME/.aliases-private.sh" ]]
+then
+  source "$HOME/.aliases-private.sh"
+fi

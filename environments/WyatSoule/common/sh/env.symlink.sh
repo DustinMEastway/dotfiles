@@ -14,3 +14,16 @@ then
 fi
 
 export DOTFILES_DIR="$HOME/Sites/dotfiles"
+export EDITOR="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
+# Add config specific environment variables.
+if [[ -f "$HOME/.env.sh" ]]
+then
+  source "$HOME/.env.sh"
+fi
+
+# Add private environment variables.
+if [[ -f "$HOME/.env-private.sh" ]]
+then
+  source "$HOME/.env-private.sh"
+fi
