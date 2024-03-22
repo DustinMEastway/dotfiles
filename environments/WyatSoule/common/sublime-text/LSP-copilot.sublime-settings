@@ -1,8 +1,7 @@
 // Settings in here override those in "LSP-copilot/LSP-copilot.sublime-settings"
-
 {
   "settings": {
     // "completion_style": "phantom",
-    "auto_ask_completions": false
+    "auto_ask_completions": true
   }
 }

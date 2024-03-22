@@ -1,6 +1,7 @@
 {
   "bootstrapped": true,
-  "in_process_packages": [],
+  "in_process_packages": [
+  ],
   "installed_packages": [
     "Copy Relative Path",
     "DiffTabs",
@@ -25,6 +26,7 @@
     "Package Control",
     "Prisma",
     "Sass",
-    "Svelte"
-  ]
+    "Svelte",
+    "Tailwind CSS",
+  ],
 }

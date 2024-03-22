@@ -1,5 +1,5 @@
 {
-  "auto_complete_commit_on_tab": true,
+  // "auto_complete_commit_on_tab": true,
   "binary_file_patterns": [
     "*.jpg",
     "*.jpeg",
@@ -20,16 +20,14 @@
   ],
   "color_scheme": "Monokai.sublime-color-scheme",
   "default_line_ending": "unix",
-  "font_size": 14,
+  "font_size": 13,
   "font_face": "Monospace",
-  "ignored_packages":
-  [
+  "ignored_packages": [
   ],
   "open_files_in_new_window": "never",
   "node_path": "~/.nvm/versions/node/v14.8.0/bin/node",
   "relative_line_numbers": true,
-  "rulers":
-  [
+  "rulers": [
     100
   ],
   "scroll_past_end": true,
