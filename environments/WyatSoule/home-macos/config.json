@@ -71,8 +71,7 @@
       "key": "npm-install",
       "value": {
         "packages": [
-          "nx",
-          "yarn"
+          "nx"
         ]
       }
     },
@@ -94,6 +93,10 @@
     {
       "key": "symlink",
       "value": [
+        {
+          "file": "./common/nvim/",
+          "link": "~/.config/nvim/"
+        },
         {
           "file": "./common/sh/aliases.symlink.sh",
           "link": "~/.aliases-common.sh"
