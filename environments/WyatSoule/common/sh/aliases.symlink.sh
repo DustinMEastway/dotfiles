@@ -43,9 +43,11 @@ alias glola='git log --graph --oneline --decorate --all --abbrev-commit'
 alias repeatOn='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool false'
 alias repeatOff='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool true'
 
-#opens sublime text to edit
+# open in neovim
 function edit(){
-    open -a /Applications/Sublime\ Text.app "$1"
+  nvim "$1"
+    # opens sublime text to edit
+    # open -a /Applications/Sublime\ Text.app "$1"
 }
 
 function runCpp(){

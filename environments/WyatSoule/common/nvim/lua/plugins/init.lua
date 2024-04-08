@@ -21,7 +21,7 @@ return {
       ensure_installed = {
         'css-lsp',
         'lua-language-server',
-        'eslint_d',
+        'eslint-lsp',
         'html-lsp',
         'gopls',
         'prettier',
@@ -34,6 +34,7 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     opts = {
+      auto_install = true,
       ensure_installed = {
         'vim',
         'lua',
@@ -42,7 +43,19 @@ return {
         'css',
         'typescript',
         'go',
+        'jsdoc',
+        'json',
       },
+    },
+    {
+      'github/copilot.vim',
+      event = 'VimEnter',
+      orts = {
+        lazy = true,
+      },
+      config = function()
+        vim.g.copilot_node_command = 'node' -- Set the path to the node command if not in $PATH
+      end,
     },
   },
 }
