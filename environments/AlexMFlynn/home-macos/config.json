@@ -15,7 +15,9 @@
       "value": {
         "args": "--cask",
         "futureItems": [
-          "docker"
+          "deno",
+          "docker",
+          "postgresql@14"
         ],
         "items": [
           "altserver",
@@ -25,6 +27,7 @@
           "iina",
           "insomnia",
           "linearmouse",
+          "rider",
           "raycast",
           "slack",
           "steam",
