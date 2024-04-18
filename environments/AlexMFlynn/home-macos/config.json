@@ -5,8 +5,37 @@
       "key": "brew-install",
       "value": {
         "items": [
+          "autoconf",
+          "awscli",
+          "ca-certificates",
+          "cffi",
+          "deno",
+          "docutils",
+          "gcc",
+          "gmp",
+          "icu4c",
+          "isl",
+          "krb5",
+          "libmpc",
+          "lz4",
+          "m4",
           "mono",
-          "redis"
+          "mpdecimal",
+          "mpfr",
+          "nvm",
+          "openssl@3",
+          "pkg-config",
+          "postgresql@14",
+          "pycparser",
+          "pyenv",
+          "python-setuptools",
+          "python@3.11",
+          "readline",
+          "redis",
+          "six",
+          "sqlite",
+          "xz",
+          "zstd"
         ]
       }
     },
@@ -22,21 +51,34 @@
         "items": [
           "altserver",
           "brave-browser",
+          "clion",
           "discord",
+          "dotnet-sdk",
           "godot-mono",
+          "google-chrome",
           "iina",
           "insomnia",
+          "intellij-idea",
           "linearmouse",
-          "rider",
+          "microsoft-auto-update",
+          "microsoft-teams",
+          "obsidian",
+          "pgadmin4",
+          "postman",
           "raycast",
+          "rider",
           "slack",
           "steam",
           "sublime-merge",
           "sublime-text",
           "visual-studio-code",
+          "webstorm",
           "zoom"
         ]
       }
+    },
+    {
+      "key": "brew-sync"
     },
     {
       "key": "git-setup",
