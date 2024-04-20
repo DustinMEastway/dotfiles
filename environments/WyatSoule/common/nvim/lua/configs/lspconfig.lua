@@ -5,15 +5,26 @@ local capabilities = require('nvchad.configs.lspconfig').capabilities
 local lspconfig = require 'lspconfig'
 local servers = { 'html', 'cssls', 'gopls' }
 
--- Setup signature help to appear above the cursor
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  -- Customize the border or other options here
-  border = 'rounded',
-  focusable = false,
-  relative = 'cursor', -- This makes it appear above the cursor
-  anchor = 'S', -- This makes the float anchor to the south of the cursor position
-  position = 'above', -- Try to place it above the cursor
-})
+-- -- Setup signature help to appear above the cursor
+-- vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+--   -- Customize the border or other options here
+--   border = 'rounded',
+--   focusable = false,
+--   relative = 'cursor', -- This makes it appear above the cursor
+--   anchor = 'S', -- This makes the float anchor to the south of the cursor position
+--   position = 'above', -- Try to place it above the cursor
+-- })
+
+local function setup_hover(client, bufnr)
+  if client.server_capabilities.hoverProvider then
+    vim.api.nvim_create_autocmd('CursorHold', {
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.hover()
+      end,
+    })
+  end
+end
 
 local function setup_signature_help(client, bufnr)
   if client.server_capabilities.signatureHelpProvider then
@@ -39,7 +50,8 @@ end
 lspconfig.tsserver.setup {
   on_attach = function(client, bufnr)
     on_attach(client, bufnr) -- Call the default on_attach from NvChad
-    setup_signature_help(client, bufnr)
+    -- setup_signature_help(client, bufnr)
+    -- setup_hover(client, bufnr)
   end,
   on_init = on_init,
   capabilities = capabilities,

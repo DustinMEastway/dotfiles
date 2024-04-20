@@ -14,6 +14,14 @@ return {
       require 'configs.lspconfig'
     end,
   },
+  {
+
+    'L3MON4D3/LuaSnip',
+    -- follow latest release.
+    version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    build = 'make install_jsregexp',
+  },
 
   {
     'williamboman/mason.nvim',
@@ -36,25 +44,30 @@ return {
     opts = {
       auto_install = true,
       ensure_installed = {
-        'vim',
-        'lua',
-        'vimdoc',
-        'html',
         'css',
-        'typescript',
         'go',
+        'graphql',
+        'html',
+        'lua',
         'jsdoc',
         'json',
+        'typescript',
+        'vim',
+        'vimdoc',
       },
     },
     {
       'github/copilot.vim',
       event = 'VimEnter',
-      orts = {
-        lazy = true,
-      },
       config = function()
         vim.g.copilot_node_command = 'node' -- Set the path to the node command if not in $PATH
+      end,
+    },
+    {
+      'mg979/vim-visual-multi',
+      event = 'BufEnter',
+      setup = function()
+        vim.g.VM_maps = 0
       end,
     },
   },

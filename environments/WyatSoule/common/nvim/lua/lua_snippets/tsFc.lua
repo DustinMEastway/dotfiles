@@ -1,32 +1,32 @@
-local ls = require 'luasnip'
-local s = ls.snippet
-local sn = ls.snippet_node
-local t = ls.text_node
-local i = ls.insert_node
-local fmt = require('luasnip.extras.fmt').fmt
-
-ls.add_snippets('typescriptreact', {
-  s(
-    'tsFc',
-    fmt(
-      [[
- import {{ FC }} from 'react';
-
- export type {}Props = {{
- }};
-
- export const {}: FC<{}Props> = ({{
- }}) => {{
-  return <>{}</>;
- }};
- ]],
-      {
-        i(1, 'Component'),
-        i(0),
-        i(1, 'Component'),
-        i(1, 'Component'),
-        i(1, 'Component'),
-      }
-    )
-  ),
-})
+-- local ls = require 'luasnip'
+-- local s = ls.snippet
+-- local sn = ls.snippet_node
+-- local t = ls.text_node
+-- local i = ls.insert_node
+-- local fmt = require('luasnip.extras.fmt').fmt
+--
+-- ls.add_snippets('typescriptreact', {
+--   s(
+--     'tsFc',
+--     fmt(
+--       [[
+--  import {{ FC }} from 'react';
+--
+--  export type {}Props = {{
+--  }};
+--
+--  export const {}: FC<{}Props> = ({{
+--  }}) => {{
+--   return <>{}</>;
+--  }};
+--  ]],
+--       {
+--         i(1, 'Component'),
+--         i(0),
+--         i(1, 'Component'),
+--         i(1, 'Component'),
+--         i(1, 'Component'),
+--       }
+--     )
+--   ),
+-- })

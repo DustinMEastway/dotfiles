@@ -39,6 +39,9 @@ alias ls='ls -F'
 #show all branches in git
 alias glola='git log --graph --oneline --decorate --all --abbrev-commit'
 
+# edit nvim config
+alias editNvim='cd ~/.config/nvim/ && nvim'
+
 #turn on and off repeating keyboard presses
 alias repeatOn='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool false'
 alias repeatOff='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool true'

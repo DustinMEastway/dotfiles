@@ -5,6 +5,7 @@ local options = {
     html = { 'prettier' },
     javascript = { 'eslint' },
     typescript = { 'eslint' },
+    go = { 'gofmt', 'goimports', 'gofumpt' },
   },
 
   format_on_save = {

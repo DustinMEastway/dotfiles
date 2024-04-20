@@ -38,8 +38,10 @@ require('lazy').setup({
 
   { import = 'plugins' },
 }, lazy_config)
+-- load snippets
+require 'lua_snippets.init'
+-- show lsp hover information on hover
 
--- load theme
 dofile(vim.g.base46_cache .. 'defaults')
 dofile(vim.g.base46_cache .. 'statusline')
 
