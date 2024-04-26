@@ -48,9 +48,9 @@ alias repeatOff='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool
 
 # open in neovim
 function edit(){
-  nvim "$1"
+  # nvim "$1"
     # opens sublime text to edit
-    # open -a /Applications/Sublime\ Text.app "$1"
+    open -a /Applications/Sublime\ Text.app "$1"
 }
 
 function runCpp(){

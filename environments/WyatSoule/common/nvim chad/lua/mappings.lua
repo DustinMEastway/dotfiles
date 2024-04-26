@@ -9,6 +9,8 @@ map('i', 'jk', '<ESC>')
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 -- rename using lsp
 map('n', '<leader>rr', '<cmd>lua vim.lsp.buf.rename()<CR>', { desc = 'Rename using LSP' })
+-- start copilot
+map('n', '<leader>cps', '<cmd>CopilotEnable<CR>', { desc = 'Start Copilot' })
 -- disable copilot
 map('n', '<leader>cpd', '<cmd>Copilot disable<CR>', { desc = 'Disable Copilot' })
 -- enable copilot

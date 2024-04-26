@@ -12,6 +12,7 @@
     "LSP-clangd",
     "LSP-copilot",
     "LSP-css",
+    "LSP-Deno",
     "LSP-dockerfile",
     "LSP-eslint",
     "LSP-file-watcher-chokidar",

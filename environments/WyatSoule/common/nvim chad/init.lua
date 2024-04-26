@@ -1,0 +1,61 @@
+vim.g.base46_cache = vim.fn.stdpath 'data' .. '/nvchad/base46/'
+vim.g.mapleader = ' '
+vim.wo.relativenumber = true
+-- set wildmenu to true
+vim.o.wildmenu = true
+vim.o.wildmode = 'longest,list,full'
+-- load in snippet files
+-- -- vscode format i.e json files
+vim.g.vscode_snippets_path = vim.fn.stdpath 'config' .. '/lua/lua_snippets'
+
+-- snipmate format
+vim.g.snipmate_snippets_path = vim.fn.stdpath 'config' .. '/lua/lua_snippets'
+
+-- lua format
+vim.g.lua_snippets_path = vim.fn.stdpath 'config' .. '/lua/lua_snippets'
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+
+vim.g.markdown_fenced_languages = {
+  'ts=typescript',
+}
+-- set the visual multi maps
+vim.g.VM_maps = {
+  ['Find Under'] = '<C-d>',
+  ['Find Subword Under'] = '<C-d>',
+}
+
+if not vim.loop.fs_stat(lazypath) then
+  local repo = 'https://github.com/folke/lazy.nvim.git'
+  vim.fn.system { 'git', 'clone', '--filter=blob:none', repo, '--branch=stable', lazypath }
+end
+
+vim.opt.rtp:prepend(lazypath)
+
+local lazy_config = require 'configs.lazy'
+-- load plugins
+require('lazy').setup({
+  {
+    'NvChad/NvChad',
+    lazy = false,
+    branch = 'v2.5',
+    import = 'nvchad.plugins',
+    config = function()
+      require 'options'
+    end,
+  },
+
+  { import = 'plugins' },
+}, lazy_config)
+-- load snippets
+require 'lua_snippets.init'
+-- show lsp hover information on hover
+
+dofile(vim.g.base46_cache .. 'defaults')
+dofile(vim.g.base46_cache .. 'statusline')
+
+require 'nvchad.autocmds'
+
+vim.schedule(function()
+  require 'mappings'
+end)
