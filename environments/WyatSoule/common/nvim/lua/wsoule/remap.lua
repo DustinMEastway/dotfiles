@@ -156,22 +156,43 @@ vim.keymap.set(
   'n',
   '<C-w>th',
   ':split | term<CR>',
-  { desc = 'Horizontal create terminal.' }
+  { desc = '[T]erminal [h]orizontal.' }
 )
 
+-- Create a horizontal terminal.
 vim.keymap.set(
   'n',
   '<C-w>tv',
   ':vsplit | term<CR>',
-  { desc = 'Vertical create terminal.' }
+  { desc = '[T]erminal [v]ertical' }
 )
 
-vim.keymap.set(
+_G.split_twice = function()
+  -- Split the window vertically.
+  vim.cmd '10split'
+  -- Make the window a terminal.
+  vim.cmd 'terminal'
+  -- Move to the new split window.
+  vim.cmd 'wincmd l'
+  -- Disable line numbers in the new horizontal split.
+  vim.cmd 'setlocal nonumber norelativenumber'
+  -- Split the new window horizontally.
+  vim.cmd 'vsplit'
+  -- Make the second window a terminal.
+  vim.cmd 'terminal'
+  -- Disable line numbers in the new vertical split.
+  vim.cmd 'setlocal nonumber norelativenumber'
+end
+
+-- Split the window to have to terminals side by side on the bottom quarter.
+vim.api.nvim_set_keymap(
   'n',
-  '<C-w>tt',
-  '<cmd>write<cr>',
-  { desc = 'Make window a terminal.' }
+  '<C-w>ts',
+  ':lua split_twice()<CR>',
+  { noremap = true, silent = true }
 )
+
+vim.keymap.set('n', '<C-w>tt', '<cmd>terminal', { desc = 'New [t]erminal' })
 
 -- Go to next buffer.
 vim.keymap.set('n', '<C-}>', '10j')
