@@ -10,27 +10,21 @@ return {
     -- REQUIRED
     vim.keymap.set('n', '<leader>a', function()
       harpoon:list():add()
-    end)
+    end, { desc = 'Harpoon [a]dd.' })
     vim.keymap.set('n', '<C-h>', function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
-    end)
+    end, { desc = '[H]arpoon menu.' })
 
-    -- vim.keymap.set('n', '<leader>hpr', function()
-    --     harpoon:list():replace_at(harpoon.ui.toggle_quick_menu(harpoon.list()))
-    -- end)
+    vim.keymap.set('n', '<leader>hpr', function()
+      local fileIndex = vim.fn.input 'Harpoon Index: '
+      harpoon:list():replace_at(tonumber(fileIndex))
+    end, { noremap = true, desc = '[H]ar[p]oon [r]eplace.' })
 
-    vim.keymap.set('n', '<C-h>', function()
-      harpoon:list():select(1)
-    end)
-    vim.keymap.set('n', '<C-t>', function()
-      harpoon:list():select(2)
-    end)
-    vim.keymap.set('n', '<C-n>', function()
-      harpoon:list():select(3)
-    end)
-    -- vim.keymap.set('n', '<C-s>', function()
-    --   harpoon:list():select(4)
-    -- end)
+    for i = 1, 4 do
+      vim.keymap.set('n', '<leader>' .. i, function()
+        harpoon:list():select(i)
+      end, { desc = 'Harpoon get index ' .. i })
+    end
 
     -- Toggle previous & next buffers stored within Harpoon list
     vim.keymap.set('n', '<C-S-P>', function()

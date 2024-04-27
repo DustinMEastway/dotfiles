@@ -40,6 +40,8 @@ vim.keymap.set(
 )
 
 vim.keymap.set('i', '<C-c>', '<Esc>')
+-- Yank whole file to clipboard.
+vim.keymap.set('n', '<C-c>', ':%y+')
 
 vim.keymap.set('n', 'Q', '<nop>')
 -- vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
