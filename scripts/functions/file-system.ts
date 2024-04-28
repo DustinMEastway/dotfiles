@@ -386,20 +386,22 @@ export namespace symlink {
  * writes data to a file, replacing the file if it already exists
  * @param path to a file to write (if a URL is provided, it must use the `file:` protocol)
  */
-export const writeFile = (path: PathLike, data: string): Promise<void> => new Promise((resolve, reject) => {
-  fsWriteFile(path, data, (error) => {
-    if (error) {
-      reject(error);
-    } else {
-      resolve();
-    }
+export function writeFile(path: PathLike, data: string): Promise<void> {
+  return new Promise(async (resolve, reject) => {
+    fsWriteFile(path, data, error => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve();
+      }
+    });
   });
-});
+}
 
 /**
  * writes data to a file after being formatted using 'JSON.stringify', replacing the file if it already exists
  * @param path to a file to write (if a URL is provided, it must use the `file:` protocol)
  */
-export const writeJsonFile = async <T>(path: PathLike, data: T): Promise<void> => {
+export async function writeJsonFile(path: PathLike, data: string): Promise<void> {
   await writeFile(path, JSON.stringify(data, null, 2) + '\n');
 }
