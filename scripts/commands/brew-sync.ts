@@ -1,6 +1,18 @@
-import { exec, logFail, logInfo, logSuccess, readJsonFile, writeJsonFile } from '../functions/index';
+import {
+  exec,
+  logFail,
+  logInfo,
+  logSuccess,
+  readJsonFile,
+  writeJsonFile
+} from '../functions/index';
 import { Command, CommandConfig, EnvironmentConfig } from '../models';
 
+/**
+ * Synchronizes Brew items in `congig.json` with the items installed on your machine.
+ * 
+ * @param config - The configuration object containing the path to the config file.
+ */
 export const brewSync: Command = async (config) => {
   logInfo('BrewSync process initiated...');
   try {
@@ -35,7 +47,13 @@ export const brewSync: Command = async (config) => {
   }
 }
 
-
+/**
+ * Gets any new brew items that are not already in `config.json`.
+ * 
+ * @param data - The configuration object containing the path to the config file.
+ * @returns  The new Brew items to be added to the configuration.
+ * @throws An error if the Brew items cannot be found.
+ */
 const getUpdatedBrewItems = async (data: EnvironmentConfig) => {
   try {
     logInfo('Checking for new casks...');
@@ -67,6 +85,13 @@ const getUpdatedBrewItems = async (data: EnvironmentConfig) => {
   }
 }
 
+/**
+ * Filters the Brew items based on the provided configuration.
+ * 
+ * @param data - The configuration object containing the path to the config file.
+ * @param isCask - A boolean indicating whether the Brew item is a cask.
+ * @returns  A promise that resolves with the filtered Brew items.
+ */
 const filterBrew = async (data: EnvironmentConfig, isCask: boolean) => {
   return (await exec(isCask ? 'brew list --cask' : 'brew list --formula'))
     .split('\n')
