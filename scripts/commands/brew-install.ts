@@ -46,6 +46,7 @@ async function filterInstalledPackages(config: BrewInstallConfig): Promise<strin
   const itemsToInstall: string[] = [];
   const itemsToSkip: string[] = [];
   items.forEach((item) => {
+    item = item.replace(/.*\//, '');
     if (installedPackages.has(item)) {
       itemsToSkip.push(item);
     } else {
