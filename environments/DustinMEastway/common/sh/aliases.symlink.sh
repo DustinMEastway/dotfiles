@@ -8,6 +8,14 @@ alias createReactApp='npx create-next-app'
 # Display local branches and current status.
 alias gitS='cls && git branch && git status'
 
+# *** Notes aliases *** #
+# Change directories into the notes folder.
+alias cdNotes='cd "$NOTES_PATH"'
+# Copy notes to backup location.
+alias nCopy="rsync -r --exclude={'*.gitignore*','.git'} \"\$NOTES_PATH\" \"\$NOTES_BACKUP_PATH\""
+# Copy notes from backup location.
+alias nRestore="rsync -r --exclude={'*.gitignore*','.git'} \"\$NOTES_BACKUP_PATH\" \"\$NOTES_PATH\""
+
 # *** System aliases *** #
 # Edit common aliases.
 alias aEditCommon="edit $HOME/.aliases-common.sh"
