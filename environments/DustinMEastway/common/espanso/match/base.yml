@@ -14,6 +14,10 @@ global_vars:
     type: "echo"
 matches:
   -
+    label: "Lazy man's OmniChannel."
+    replace: "OmniChannel"
+    trigger: ":oc"
+  -
     label: "Public IP Address"
     replace: "{{ipAddress}}"
     trigger: ":ip"
@@ -22,6 +26,11 @@ matches:
         params:
           cmd: "curl ifconfig.me"
         type: "shell"
+  -
+    label: "Email signature."
+    replace: "Dustin M. Eastway\nSoftware Engineer\nInteractions LLC\ndeastway@interactions.com"
+    triggers:
+      - ":signature"
   -
     label: "Sandbox to mess around with."
     replace: "Hello World!"

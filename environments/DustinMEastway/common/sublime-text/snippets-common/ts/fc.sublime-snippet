@@ -7,7 +7,9 @@ export type $1Props = {$0
 
 export const $1: FC<${1:${TM_FILENAME/\.tsx$|(?:^|-)([a-z])/\u\1/g}}Props> = ({
 }) => {
-  return <>$1 Works!</>;
+  return (
+    <>$1 Works!</>
+  );
 };
 
 ]]></content>

@@ -1,10 +1,12 @@
 <snippet>
   <content><![CDATA[
-export type ${2:${1/^(\w)/\u\1/}Props} = {$0
-};
+${99:/*
+propsType: ${2:${1/^(\w)/\u\1/}Props}
+*/
+}${2/(.+)/export type $1 = \{\n\};
 
-export function ${1:${TM_FILENAME/(?:-)([a-z])|\.tsx?$/\u\1/g}}({
-}: $2) {
+/}export function ${1:${TM_FILENAME/(?:-)([a-z])|\.tsx?$/\u\1/g}}(${2/(.+)/\{
+\}: $1/}) {
 }
 ]]></content>
   <tabTrigger>tsFunction</tabTrigger>

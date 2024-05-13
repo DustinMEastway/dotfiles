@@ -24,7 +24,6 @@
   "ignored_packages":
   [
   ],
-  "index_files": true,
   "node_path": "/Users/deastway/.nvm/versions/node/v14.21.0/bin/node",
   "open_files_in_new_window": "never",
   "relative_line_numbers": true,
@@ -37,5 +36,7 @@
   "translate_tabs_to_spaces": true,
   "trim_trailing_white_space_on_save": "not_on_caret",
   "vintage_start_in_command_mode": true,
-  "wrap_width": 9999
+  "wrap_width": 9999,
+  "theme": "auto",
+  "index_files": true,
 }

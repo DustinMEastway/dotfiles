@@ -18,13 +18,9 @@ global_vars:
     type: "match"
 matches:
   -
-    label: "Access components."
-    replace: "{{serialized}}.components"
-    trigger: ":comps"
-  -
     label: "Find a module on serialized."
     form: |-
-      {{serialized}}.components.modules.find(({ name }) => {
+      {{serialized}}.modules.find(({ name }) => {
         return name === '[[moduleName]]';
       })
     form_fields:
@@ -48,10 +44,23 @@ matches:
           trigger: ":fMod"
         type: "match"
   -
+    label: "Loop through all nodes on all modules on serialized."
+    replace: |-
+      {{serialized}}.modules.forEach((appMod) => {
+        appMod{{nodesPath}}.forEach((node) => {
+          $|$
+        });
+      });
+    trigger: ":lNode"
+  -
     label: "Get nodes off from a serialized module."
     replace: ".versions[1].flow.nodes"
     trigger: ":nodes"
   -
+    label: "Access selected element."
+    replace: "window.apm.getCurrentDiagramWidget().state.selectedContext.props.config"
+    trigger: ":sel"
+  -
     label: "Access serialized."
-    replace: "window.apm.serialized"
+    replace: "window.apm.serialized.components"
     trigger: ":ser"
