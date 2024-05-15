@@ -180,8 +180,17 @@ return { -- LSP Configuration & Plugins
     --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+    local function organize_imports()
+      local params = {
+        command = '_typescript.organizeImports',
+        arguments = { vim.api.nvim_buf_get_name(0) },
+        title = '',
+      }
+      vim.lsp.buf.execute_command(params)
+    end
+
     local servers = {
-      -- clangd = {},
+      clangd = {},
       cssls = {},
       gopls = {},
       graphql = {},
@@ -190,6 +199,12 @@ return { -- LSP Configuration & Plugins
       tsserver = {
         root_dir = require('lspconfig.util').root_pattern 'package.json',
         single_file_support = false,
+        commands = {
+          OrganizeImports = {
+            organize_imports,
+            description = 'Organize Imports',
+          },
+        },
       },
       denols = {
         root_dir = require('lspconfig.util').root_pattern(

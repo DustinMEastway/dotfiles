@@ -46,6 +46,8 @@ alias editNvim='cd ~/.config/nvim/ && nvim'
 alias repeatOn='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool false'
 alias repeatOff='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool true'
 
+alias nvim='nvim --listen /tmp/nvim-server.pipe'
+
 # open in neovim
 function edit(){
   # nvim "$1"

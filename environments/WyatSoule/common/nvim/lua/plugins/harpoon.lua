@@ -14,7 +14,7 @@ return {
     -- Open Harpoon menu.
     vim.keymap.set('n', '<C-m>', function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
-    end, { desc = 'Harpoon [m]enu.' })
+    end, { desc = 'Harpoon [m]enu.', noremap = true })
 
     vim.keymap.set('n', '<leader>hpr', function()
       local fileIndex = vim.fn.input 'Harpoon Index: '
@@ -28,10 +28,10 @@ return {
     end
 
     -- Toggle previous & next buffers stored within Harpoon list
-    vim.keymap.set('n', '<C-S-P>', function()
+    vim.keymap.set('n', '<C-}>', function()
       harpoon:list():prev()
     end)
-    vim.keymap.set('n', '<C-S-N>', function()
+    vim.keymap.set('n', '<C-{>', function()
       harpoon:list():next()
     end)
   end,

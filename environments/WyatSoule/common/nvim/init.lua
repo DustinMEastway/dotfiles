@@ -57,7 +57,10 @@ require('lazy').setup({
   --    require('Comment').setup({})
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  {
+    'numtostr/comment.nvim',
+    opts = {},
+  },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -189,6 +192,7 @@ require('lazy').setup({
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      -- pcall(require('telescope').load_extension 'dotfiles')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -431,13 +435,15 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
+    -- 'folke/tokyonight.nvim',
+    'rebelot/kanagawa.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      -- vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'kanagawa'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
@@ -468,7 +474,7 @@ require('lazy').setup({
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+      -- require('mini.surround').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
@@ -578,6 +584,28 @@ require('lazy').setup({
     },
   },
 })
+
+-- local actions = require 'telescope.actions'
+--
+-- require('telescope').extensions.dotfiles = function(opts)
+--   opts = opts or {}
+--   require('telescope.builtin').find_files {
+--     prompt_title = 'Dotfiles',
+--     cwd = '$HOME/Sites/dotfiles/environments/WyatSoule/',
+--     hidden = true, -- To find files beginning with a dot
+--     follow = true, -- Follow symlinks
+--     attach_mappings = function(prompt_bufnr, map)
+--       actions.select_default:replace(actions.run_builtin)
+--       return true
+--     end,
+--   }
+-- end
+function search_dotfiles()
+  require('telescope.builtin').find_files {
+    prompt_title = '< Dotfiles >',
+    cwd = '$HOME/Sites/dotfiles/environments/WyatSoule/',
+  }
+end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

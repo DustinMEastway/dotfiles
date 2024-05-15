@@ -1,3 +1,4 @@
+local modes = { 'n', 'i', 'v' }
 -- Open file view (bigger neotree).
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 -- Move selected text - ThePrimeagen.
@@ -18,13 +19,19 @@ vim.keymap.set('x', '<leader>p', '"_dP')
 
 -- Yank things into clipboard - asbjornHaland.
 vim.keymap.set('n', '<leader>y', '"+y', { desc = 'Copy into clipboard.' })
+
 vim.keymap.set(
   'v',
   '<leader>y',
   '"+y',
-  { desc = 'Copy highlighted text into clipboard.' }
+  { desc = '[Y]ank highlighted text into clipboard.' }
 )
-vim.keymap.set('n', '<leader>Y', '"+Y')
+vim.keymap.set(
+  'n',
+  '<leader>Y',
+  '"+Y',
+  { desc = '[Y]ank line into clipboard.' }
+)
 
 vim.keymap.set(
   'n',
@@ -41,7 +48,7 @@ vim.keymap.set(
 
 vim.keymap.set('i', '<C-c>', '<Esc>')
 -- Yank whole file to clipboard.
-vim.keymap.set('n', '<C-c>', ':%y+')
+vim.keymap.set('n', '<C-c>', ':%y+<CR>', { silent = true })
 
 vim.keymap.set('n', 'Q', '<nop>')
 -- vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
@@ -60,7 +67,7 @@ vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
 vim.keymap.set(
   'n',
   '<leader>S',
-  ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>'
+  ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gIc<Left><Left><Left><Left>'
 )
 vim.keymap.set('n', '<leader>x', '<cmd>!chmod +c %<CR>', { silent = true })
 
@@ -148,8 +155,16 @@ vim.keymap.set(
 -- Open command with ;
 vim.keymap.set('n', ';', ':', { desc = 'Open command.' })
 
--- Save file
-vim.keymap.set('n', '<C-s>', ':write<CR>', { desc = 'Write buffer.' })
+-- For keymaps that affect every mode.
+for _, mode in ipairs(modes) do
+  -- Save file in all modes
+  vim.keymap.set(
+    mode,
+    '<C-s>',
+    '<cmd>write<CR>',
+    { desc = 'Write to buffer.', silent = true }
+  )
+end
 
 -- Create a vertical terminal.
 vim.keymap.set(
@@ -192,7 +207,7 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true }
 )
 
-vim.keymap.set('n', '<C-w>tt', '<cmd>terminal', { desc = 'New [t]erminal' })
+vim.keymap.set('n', '<C-w>tt', '<cmd>terminal<cr>', { desc = 'New [t]erminal' })
 
 -- Go to next buffer.
 vim.keymap.set('n', '<C-}>', '10j')
@@ -203,3 +218,5 @@ vim.keymap.set('i', '<C-}>', '<Esc>10j')
 vim.keymap.set('n', '<C-{>', '10j')
 vim.keymap.set('v', '<C-{>', '<Esc>10j')
 vim.keymap.set('i', '<C-{>', '<Esc>10j')
+
+vim.keymap.set('n', '<C-A>', 'ggVG')
