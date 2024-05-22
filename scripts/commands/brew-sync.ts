@@ -32,8 +32,7 @@ export const brewSync: Command = async (config) => {
     logInfo('New items detected, Syncronization in 3... 2... 1... 🚀');
     await writeJsonFile(config.configPath, data);
     logSuccess('Brew items syncronized!');
-  }
-  catch (error) {
+  } catch (error) {
     logFail(`Error syncing brew items: ${error}`);
   }
 }
@@ -53,7 +52,7 @@ async function updateBrewItems(data: EnvironmentConfig, isCask: boolean): Promis
     // Check to see if the brew-install commands exist.
     const commands = data.commands.filter((command) => {
       return (
-        command.key === 'brew-install'
+        command.key === CommandKey.brewInstall
         && command.value
         && isCask === /--casks?\b/.test(command.value.args ?? '')
       )
