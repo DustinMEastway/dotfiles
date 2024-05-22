@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Logs a message out for the user to see.
+# $1: Message to display.
+# $2: Message prefix (should be 4 characters).
+# $3: Color excape sequence to display prefix in a different color.
+#
+# Example: Log a hello message with a green prefix.
+# logMessage "Hello World\!" " OK " "\033[32m"
+
+message="$1"
+prefix="$2"
+prefixColor="$3"
+
+printf "\r  [$prefixColor$prefix\033[00m] $message\n"

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Logs a question message out for the user to see.
+# $1: Message to display.
+#
+# Example: Log a question.
+# logQuestion "Do you want to continue (y/n)?"
+
+message="$1"
+
+logMessage "$message" " ?? " "\033[33m"

@@ -49,6 +49,7 @@ async function getConfig() {
     }
   }
 
+  config.configPath = configPath;
   config.fileRoot = (typeof config.fileRoot === 'string') ? config.fileRoot : dirname(configPath);
 
   return config;

@@ -50,6 +50,14 @@ Note: The below information was pulled from the "source of truth" for what comma
       }
     }
     ```
+* `brew-sync` Automatically stores the installed brew items on your machine to its respective `config.json` file.
+  - Example: To keep your `confi.json` brew items synced with those installed on your machime, add the following to 
+  your `config.json` (after your `brew-tap` or `brew-install` if they are being utilized).
+  ```json
+    {
+      "key": "brew-sync",
+    }
+    ```
 * `git-setup` Creates a global [gitconfig](https://git-scm.com/docs/git-config) file.
   - Example: To create a private git config file, add the following to your `config.json`.
     ```json

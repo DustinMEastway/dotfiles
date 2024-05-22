@@ -1,6 +1,7 @@
 /** type used to determine which @see Command to run */
 export enum CommandKey {
   brewInstall = 'brew-install',
+  brewSync = 'brew-sync',
   brewTap = 'brew-tap',
   gitClone = 'git-clone',
   gitSetup = 'git-setup',

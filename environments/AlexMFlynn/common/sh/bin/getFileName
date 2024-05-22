@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Get the file name part of a path (remove directory path).
+# $1: Path to get the file name from.
+#
+# Example: Get a file's name.
+# getFileName ./path/to/file.md
+
+path="$1"
+
+if [[ -f $path ]]
+then
+  fileName="$(basename $path)"
+  if [[ "$fileName" != "." ]]
+  then
+    echo "$fileName"
+  fi
+fi

@@ -7,6 +7,7 @@ import {
   lstat as fsLstat,
   mkdir as mkDirectory,
   readFile as fsReadFile,
+  writeFile as fsWriteFile,
   realpath as fsRealpath,
   rename as fsRename,
   rmdir as rmDirectory,
@@ -20,7 +21,7 @@ import {
 import { homedir } from 'os';
 import { resolve } from 'path';
 
-import { asyncFilter, asyncForEach, asyncMap } from './array';
+import { asyncFilter, asyncMap } from './array';
 import { PromiseOrValue } from './types';
 
 /**
@@ -379,4 +380,28 @@ export function symlink(source: PathLike, destination: PathLike, type?: symlink.
 
 export namespace symlink {
   export type Type = fsSymlink.Type;
+}
+
+/**
+ * writes data to a file, replacing the file if it already exists
+ * @param path to a file to write (if a URL is provided, it must use the `file:` protocol)
+ */
+export function writeFile(path: PathLike, data: string): Promise<void> {
+  return new Promise(async (resolve, reject) => {
+    fsWriteFile(path, data, error => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve();
+      }
+    });
+  });
+}
+
+/**
+ * writes data to a file after being formatted using 'JSON.stringify', replacing the file if it already exists
+ * @param path to a file to write (if a URL is provided, it must use the `file:` protocol)
+ */
+export async function writeJsonFile(path: PathLike, data: object): Promise<void> {
+  await writeFile(path, JSON.stringify(data, null, 2) + '\n');
 }

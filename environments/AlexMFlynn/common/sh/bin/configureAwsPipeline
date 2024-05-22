@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Update AWS CodePipeline pipeline configuration.
+# --pipelineName: Name of the pipeline to configure.
+# --sourceBranch: Branch to use in the source stage of the pipeline.
+#
+# Example: Update the 'foo-pipeline' pipeline to use 'foo-branch' as its source branch.
+# configureAwsPipeline --pipelineName=foo-pipeline --sourceBranch=foo-branch
+
+toolsDir="$(dirname $BASH_SOURCE)/tools"
+jsonArguments="$(ts-node "$toolsDir/arguments-to-json" "$@")"
+ts-node "$toolsDir/configure-aws-pipeline.ts" "$jsonArguments"
