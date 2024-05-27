@@ -5,7 +5,6 @@
       "key": "brew-tap",
       "value": {
         "items": [
-          "homebrew/cask-versions",
           "mongodb/brew"
         ]
       }
@@ -33,6 +32,8 @@
       "value": {
         "args": "--cask",
         "items": [
+          "1password",
+          "1password-cli",
           "altserver",
           "android-studio",
           "brave-browser",
@@ -208,6 +209,9 @@
           }
         ]
       }
+    },
+    {
+      "key": "brew-sync"
     }
   ]
 }
