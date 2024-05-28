@@ -1,0 +1,54 @@
+# Match set for Interactions JS Path files.
+
+global_vars:
+  -
+    name: "findModule"
+    params:
+      trigger: ":fMod"
+    type: "match"
+  -
+    name: "nodesPath"
+    params:
+      trigger: ":nodes"
+    type: "match"
+  -
+    name: "serialized"
+    params:
+      trigger: ":ser"
+    type: "match"
+matches:
+  -
+    label: "Find a module on serialized."
+    form: |-
+      {{serialized}}.modules[?(@.name == '[[moduleName]]')]
+    form_fields:
+      moduleName:
+        default: 'moduleName'
+    trigger: ":fMod"
+  -
+    label: "Find a node on a module on serialized."
+    form: |-
+      {{findModule}}?{{nodesPath}}[?(@.name == '[[nodeName]]')]
+    form_fields:
+      nodeName:
+        default: 'nodeName'
+    trigger: ":fNode"
+    vars:
+      -
+        name: "findModule"
+        params:
+          trigger: ":fMod"
+        type: "match"
+  -
+    label: "Loop through all nodes on all modules on serialized."
+    replace: |-
+      {{serialized}}.modules[*]{{nodesPath}}[?(@.$|$)]
+    trigger: ":lNode"
+  -
+    label: "Get nodes off from a serialized module."
+    replace: ".versions.1.flow.nodes"
+    trigger: ":nodes"
+  -
+    label: "Access serialized."
+    replace: "$.components"
+    trigger: ":ser"

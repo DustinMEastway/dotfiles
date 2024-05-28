@@ -1,0 +1,5 @@
+# Used to prevent Safari from auto-indenting.
+backend: Inject
+extra_includes:
+  - "../match/_js-path-interactions-snippets.yml"
+filter_exec: "Insomnia"
