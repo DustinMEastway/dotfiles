@@ -17,6 +17,8 @@
       "value": {
         "args": "--cask",
         "items": [
+          "1password",
+          "1password-cli",
           "brave-browser",
           "espanso",
           "insomnia",
@@ -98,7 +100,7 @@
         },
         {
           "file": "./work-macos/sh/env.symlink.sh",
-          "link": "~/.env.sh"
+          "link": "~/.env.template.sh"
         },
         {
           "file": "./work-macos/sublime-text/Preferences.sublime-settings",
@@ -125,6 +127,9 @@
           "link": "~/.env-private.sh"
         }
       ]
+    },
+    {
+      "key": "brew-sync"
     }
   ]
 }
