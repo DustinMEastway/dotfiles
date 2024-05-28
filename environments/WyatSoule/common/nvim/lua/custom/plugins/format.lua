@@ -27,7 +27,7 @@ return { -- Autoformat
     formatters_by_ft = {
       lua = { 'stylua' },
       javascript = { { 'eslint', 'eslint_d' } },
-      typescript = { { 'eslint', 'prettierd', 'eslint_d', 'deno_fmt' } },
+      typescript = { { 'eslint', 'eslint_d', 'deno_fmt' } },
       typescriptreact = { { 'eslint', 'eslint_d', 'deno_fmt' } },
       css = { 'prettier' },
       html = { 'prettier' },
