@@ -191,12 +191,33 @@ return { -- LSP Configuration & Plugins
 
     local servers = {
       clangd = {},
-      cssls = {},
+      cssls = {
+        settings = {
+          css = {
+            validate = true,
+            lint = {
+              unknownAtRules = 'ignore',
+            },
+          },
+          scss = {
+            validate = true,
+            lint = {
+              unknownAtRules = 'ignore',
+            },
+          },
+          less = {
+            validate = true,
+            lint = {
+              unknownAtRules = 'ignore',
+            },
+          },
+        },
+      },
       gopls = {},
       graphql = {},
-      eslint = {},
       tsserver = {
         root_dir = require('lspconfig.util').root_pattern 'package.json',
+        capabilities = capabilities,
         -- single_file_support = false,
         -- commands = {
         --   OrganizeImports = {
@@ -205,6 +226,8 @@ return { -- LSP Configuration & Plugins
         --   },
         -- },
       },
+      html = {},
+      tailwindcss = {},
       denols = {
         root_dir = require('lspconfig.util').root_pattern(
           'deno.json',
@@ -212,6 +235,7 @@ return { -- LSP Configuration & Plugins
         ),
         unstable = true,
         lint = true,
+        capabilities = capabilities,
       },
       -- pyright = {},
       -- rust_analyzer = {},
@@ -238,6 +262,7 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
+      eslint = {},
     }
 
     -- Ensure the servers and tools above are installed
@@ -254,6 +279,11 @@ return { -- LSP Configuration & Plugins
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
       'denols',
+      'eslint_d',
+      'prettier',
+      'prettierd',
+      'jsonlint',
+      'vale',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

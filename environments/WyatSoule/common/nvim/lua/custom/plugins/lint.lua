@@ -6,8 +6,12 @@ return {
     config = function()
       local lint = require 'lint'
       lint.linters_by_ft = {
-        'deno',
-        'typescript',
+        javascript = { 'eslint_d', 'deno' },
+        typescript = { 'eslint_d', 'deno' },
+        javascriptreact = { 'eslint_d', 'deno' },
+        typescriptreact = { 'eslint_d', 'deno' },
+        json = { 'jsonlint' },
+        markdown = { 'vale' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
@@ -22,8 +26,6 @@ return {
       --   dockerfile = { "hadolint" },
       --   inko = { "inko" },
       --   janet = { "janet" },
-      --   json = { "jsonlint" },
-      --   markdown = { "vale" },
       --   rst = { "vale" },
       --   ruby = { "ruby" },
       --   terraform = { "tflint" },

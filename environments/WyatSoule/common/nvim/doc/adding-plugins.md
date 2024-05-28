@@ -1,4 +1,5 @@
 # Adding Plugins
+
 To add a plugin, simply add a new `.lua` to the `/plugins` directory.
 In the file, return a new lua table with the first key being the plugin's link
 (or for a github repo: 'owner/repo' link).
@@ -13,25 +14,25 @@ That's it! You can now use the plugin with the default settings, or you can add
 configuration options listed below.
 
 ## Configuration Settings
+
 Use `opts = {}` to force a plugin to be loaded.
 
 Plugins can also be configured to run Lua code when they are loaded.
 
-This is often very useful to both group configuration, as well as handle
+This is often useful to both group configuration, as well as handle
 lazy loading plugins that don't need to be loaded immediately at startup.
 
 For example, in the following configuration, we use:
-  `event = 'VimEnter'`
+`event = 'VimEnter'`
 
 which loads which-key before all the UI elements are loaded. Events can be
 normal autocommands events (`:help autocmd-events`).
 
 Then, because we use the `config` key, the configuration only runs
 after the plugin has been loaded:
- `config = function() ... end`
+`config = function() ... end`
 
-
-```lua 
+```lua
 { -- Useful plugin to show you pending keybinds.
    'folke/which-key.nvim',
    event = 'VimEnter', -- Sets the loading event to 'VimEnter'
@@ -58,11 +59,10 @@ after the plugin has been loaded:
 ```
 
 ## Plugin Dependencies
+
 Plugins can specify dependencies.
 
 The dependencies are proper plugin specifications as well - anything you do for
 a plugin at the top level, you can do for a dependency.
 
 Use the `dependencies` key to specify the dependencies of a particular plugin.
-
-

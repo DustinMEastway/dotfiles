@@ -3,8 +3,8 @@ local modes = { 'n', 'i', 'v' }
 -- Open file view (bigger neotree).
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 -- Move selected text - ThePrimeagen.
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+-- vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+-- vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 -- Keep curor where it was when doing J - ThePrimeagen.
 vim.keymap.set('n', 'J', 'mzJ`z')
 -- Move up or down 50 lines - ThePrimeagen.
@@ -55,8 +55,9 @@ vim.keymap.set('n', 'Q', '<nop>')
 -- vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
 
 -- go to errors
-vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
-vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
+-- these might not even work
+-- vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
+-- vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
 vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
 vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
 
@@ -144,7 +145,8 @@ vim.keymap.set(
 )
 
 -- Open command with ;
-vim.keymap.set('n', ';', ':', { desc = 'Open command.' })
+-- commenting this out becuase to repeat the 'f' you need to use ';'
+-- vim.keymap.set('n', ';', ':', { desc = 'Open command.' })
 
 -- For keymaps that affect every mode.
 for _, mode in ipairs(modes) do
@@ -157,50 +159,7 @@ for _, mode in ipairs(modes) do
   )
 end
 
--- Create a vertical terminal.
-vim.keymap.set(
-  'n',
-  '<C-w>th',
-  ':split | term<CR>',
-  { desc = '[T]erminal [h]orizontal.' }
-)
-
--- Create a horizontal terminal.
-vim.keymap.set(
-  'n',
-  '<C-w>tv',
-  ':vsplit | term<CR>',
-  { desc = '[T]erminal [v]ertical' }
-)
-
-_G.split_twice = function()
-  -- Split the window vertically.
-  vim.cmd '10split'
-  -- Make the window a terminal.
-  vim.cmd 'terminal'
-  -- Move to the new split window.
-  vim.cmd 'wincmd l'
-  -- Disable line numbers in the new horizontal split.
-  vim.cmd 'setlocal nonumber norelativenumber'
-  -- Split the new window horizontally.
-  vim.cmd 'vsplit'
-  -- Make the second window a terminal.
-  vim.cmd 'terminal'
-  -- Disable line numbers in the new vertical split.
-  vim.cmd 'setlocal nonumber norelativenumber'
-end
-
--- Split the window to have to terminals side by side on the bottom quarter.
-vim.api.nvim_set_keymap(
-  'n',
-  '<C-w>ts',
-  ':lua split_twice()<CR>',
-  { noremap = true, silent = true }
-)
-
-vim.keymap.set('n', '<C-w>tt', '<cmd>terminal<cr>', { desc = 'New [t]erminal' })
-
-vim.keymap.set('n', '<C-A>', 'ggVG')
+vim.keymap.set('n', '<C-S-A>', 'ggVG')
 
 -- These mappings control the size of splits (height/width)
 vim.keymap.set('n', '<M-,>', '<c-w>5<')

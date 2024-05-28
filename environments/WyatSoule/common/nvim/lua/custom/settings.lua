@@ -100,5 +100,14 @@ vim.opt.incsearch = true
 -- Set update time to be fast (look into this)
 vim.opt.updatetime = 50
 
--- Add a colored column on 80th column.
-vim.opt.colorcolumn = '80'
+-- Add a colored column on 100th column.
+vim.opt.colorcolumn = '100'
+
+vim.diagnostic.config {
+  virtual_text = {
+    source = true, -- Or "if_many"
+  },
+  float = {
+    source = true, -- Or "if_many"
+  },
+}

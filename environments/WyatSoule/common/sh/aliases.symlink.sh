@@ -40,19 +40,19 @@ alias ls='ls -F'
 alias glola='git log --graph --oneline --decorate --all --abbrev-commit'
 
 # edit nvim config
-alias editNvim='cd ~/.config/nvim/ && nvim'
+alias editNvim='cd ~/.config/nvim/ && vim'
 
 #turn on and off repeating keyboard presses
 alias repeatOn='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool false'
 alias repeatOff='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool true'
 
-alias nvim='nvim --listen /tmp/nvim-server.pipe'
+alias vim='nvim --listen /tmp/nvim-server.pipe'
 
 # open in neovim
 function edit(){
-  # nvim "$1"
+  vim "$1"
     # opens sublime text to edit
-    open -a /Applications/Sublime\ Text.app "$1"
+    # open -a /Applications/Sublime\ Text.app "$1"
 }
 
 function runCpp(){

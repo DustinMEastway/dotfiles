@@ -3,23 +3,36 @@ require 'custom.snippets'
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.shortmess:append 'c'
 
+local lspkind = require 'lspkind'
+lspkind.init {}
+
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 luasnip.config.setup {}
 
 cmp.setup {
-  completion = { completeopt = 'menu,menuone,noinsert' },
-
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lsp_signature_help' },
+    { name = 'luasnip' },
+    { name = 'cody' },
+    { name = 'path' },
+    { name = 'buffer' },
+  },
   -- For an understanding of why these mappings were
   -- chosen, you will need to read `:help ins-completion`
   --
   -- No, but seriously. Please read `:help ins-completion`, it is really good!
   mapping = cmp.mapping.preset.insert {
     -- Select the [n]ext item
-    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item {
+      behavior = cmp.SelectBehavior.Insert,
+    },
     -- Select the [p]revious item
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-p>'] = cmp.mapping.select_prev_item {
+      behavior = cmp.SelectBehavior.Insert,
+    },
 
     -- Scroll the documentation window [b]ack / [f]orward
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -63,18 +76,38 @@ cmp.setup {
     -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
     --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
   },
+
+  -- Enable luasnip to handle snippet expansion for nvim-cmp
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body)
+      vim.snippet.expand(args.body)
     end,
   },
 
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'cody' },
-    { name = 'luasnip' },
-    { name = 'path' },
-    { name = 'buffer' },
-    { name = 'nvim_lsp_signature_help' },
-  },
+  -- Setup up vim-dadbod
+  cmp.setup.filetype({ 'sql' }, {
+    sources = {
+      { name = 'vim-dadbod-completion' },
+      { name = 'buffer' },
+    },
+  }),
 }
+-- cmp.setup {
+--   completion = { completeopt = 'menu,menuone,noinsert' },
+--
+--   snippet = {
+--     expand = function(args)
+--       luasnip.lsp_expand(args.body)
+--     end,
+--   },
+--
+--   sources = {
+--     { name = 'nvim_lsp' },
+--     { name = 'cody' },
+--     { name = 'luasnip' },
+--     { name = 'path' },
+--     { name = 'buffer' },
+--     { name = 'nvim_lsp_signature_help' },
+--   },
+-- }
+--

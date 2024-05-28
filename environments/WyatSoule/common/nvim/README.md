@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is my current config for neovim that I actively use. 
+This is my current config for neovim that I actively use.
 This took lots of inspiration from [ThePrimeagen](https://youtube.com/@ThePrimeagen), [TJ Devries](https://youtube.com/@teej_dv) & [Kickstart](https://github.com/nvim-lua/kickstart.nvim).
 Some of the keymaps & plugins work with my brain but may not work with yours, feel free to fork and change at your will.
 Please read the rest of this README.md file to get started.
@@ -12,7 +12,7 @@ For a more detailed explaination, please look at the [docs page](https://github.
 
 ### Install Neovim
 
-This config targets *only* the latest
+This config targets _only_ the latest
 ['stable'](https://github.com/neovim/neovim/releases/tag/stable) and latest
 ['nightly'](https://github.com/neovim/neovim/releases/tag/nightly) of Neovim.
 If you are experiencing issues, please make sure you have the latest versions.
@@ -20,6 +20,7 @@ If you are experiencing issues, please make sure you have the latest versions.
 ### Install External Dependencies
 
 External Requirements:
+
 - Basic utils: `git`, `make`, `unzip`, C Compiler (`gcc`)
 - [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
 - A [Nerd Font](https://www.nerdfonts.com/): optional, provides various icons
@@ -35,16 +36,15 @@ External Requirements:
 
 ### Install config
 
-> [!NOTE]
-> [Backup](#FAQ) your previous configuration (if any exists)
+> [!NOTE] > [Backup](#FAQ) your previous configuration (if any exists)
 
 Neovim's configurations are located under the following paths, depending on your OS:
 
-| OS | PATH |
-| :- | :--- |
-| Linux, MacOS | `$XDG_CONFIG_HOME/nvim`, `~/.config/nvim` |
-| Windows (cmd)| `%userprofile%\AppData\Local\nvim\` |
-| Windows (powershell)| `$env:USERPROFILE\AppData\Local\nvim\` |
+| OS                   | PATH                                      |
+| :------------------- | :---------------------------------------- |
+| Linux, MacOS         | `$XDG_CONFIG_HOME/nvim`, `~/.config/nvim` |
+| Windows (cmd)        | `%userprofile%\AppData\Local\nvim\`       |
+| Windows (powershell) | `$env:USERPROFILE\AppData\Local\nvim\`    |
 
 #### Recommended Step
 
@@ -53,10 +53,11 @@ so that you have your own copy that you can modify, then install by cloning the
 fork to your machine using one of the commands below, depending on your OS.
 
 > [!NOTE]
-> Your fork's url will be something like this:
+> Your fork's URL will be something like this:
 > `https://github.com/<your_github_username>/config.nvim.git`
 
 #### Clone this config
+
 > [!NOTE]
 > If following the recommended step above (i.e., forking the repo), replace
 > `wsoule` with `<your_github_username>` in the commands below
@@ -93,7 +94,7 @@ Start Neovim
 nvim
 ```
 
-That's it! Lazy will install all the plugins you have. Use `:Lazy` to view
+That's it. Lazy will install all the plugins you have. Use `:Lazy` to view
 current plugin status. Hit `q` to close the window.
 
 Read the the `/doc` directory for a more detailed explaination of what everything does.
@@ -106,12 +107,12 @@ I will try to keep this updated as well as commenting the code within the `.lua`
 
 ### FAQ
 
-* What should I do if I already have a pre-existing neovim configuration?
-  * You should back it up and then delete all associated files.
-  * This includes your existing init.lua and the neovim files in `~/.local`
+- What should I do if I already have a pre-existing neovim configuration?
+  - You should back it up and then delete all associated files.
+  - This includes your existing init.lua and the neovim files in `~/.local`
     which can be deleted with `rm -rf ~/.local/share/nvim/`
-* Can I keep my existing configuration in parallel to this configuration?
-  * Yes! You can use [NVIM_APPNAME](https://neovim.io/doc/user/starting.html#%24NVIM_APPNAME)`=nvim-NAME`
+- Can I keep my existing configuration in parallel to this configuration?
+  - Yes! You can use [NVIM_APPNAME](https://neovim.io/doc/user/starting.html#%24NVIM_APPNAME)`=nvim-NAME`
     to maintain multiple configurations. For example, you can install the wsoule
     configuration in `~/.config/nvim-<username>` and create an alias:
     ```
@@ -121,8 +122,8 @@ I will try to keep this updated as well as commenting the code within the `.lua`
     config directory and the matching local directory
     `~/.local/share/nvim-<username>`. You can apply this approach to any Neovim
     distribution that you would like to try out.
-* What if I want to "uninstall" this configuration:
-  * See [lazy.nvim uninstall](https://github.com/folke/lazy.nvim#-uninstalling) information
+- What if I want to "uninstall" this configuration:
+  - See [lazy.nvim uninstall](https://github.com/folke/lazy.nvim#-uninstalling) information
 
 ### Install Recipes
 
@@ -144,23 +145,27 @@ This requires:
 ```lua
 {'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 ```
+
 </details>
 <details><summary>Windows with gcc/make using chocolatey</summary>
 Alternatively, one can install gcc and make which don't require changing the config,
 the easiest way is to use choco:
 
 1. install [chocolatey](https://chocolatey.org/install)
-either follow the instructions on the page or use winget,
-run in cmd as **admin**:
+   either follow the instructions on the page or use winget,
+   run in cmd as **admin**:
+
 ```
 winget install --accept-source-agreements chocolatey.chocolatey
 ```
 
 2. install all requirements using choco, exit previous cmd and
-open a new one so that choco path is set, and run in cmd as **admin**:
+   open a new one so that choco path is set, and run in cmd as **admin**:
+
 ```
 choco install -y neovim git ripgrep wget fd unzip gzip mingw make
 ```
+
 </details>
 <details><summary>WSL (Windows Subsystem for Linux)</summary>
 
@@ -171,9 +176,11 @@ sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt update
 sudo apt install make gcc ripgrep unzip neovim
 ```
+
 </details>
 
 #### Linux Install
+
 <details><summary>Ubuntu Install Steps</summary>
 
 ```
@@ -181,6 +188,7 @@ sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt update
 sudo apt install make gcc ripgrep unzip git neovim
 ```
+
 </details>
 <details><summary>Debian Install Steps</summary>
 
@@ -198,12 +206,14 @@ sudo tar -C /opt -xzf nvim-linux64.tar.gz
 # make it available in /usr/local/bin, distro installs to /usr/bin
 sudo ln -sf /opt/nvim-linux64/bin/nvim /usr/local/bin/
 ```
+
 </details>
 <details><summary>Fedora Install Steps</summary>
 
 ```
 sudo dnf install -y gcc make git ripgrep fd-find unzip neovim
 ```
+
 </details>
 
 <details><summary>Arch Install Steps</summary>
@@ -211,36 +221,36 @@ sudo dnf install -y gcc make git ripgrep fd-find unzip neovim
 ```
 sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim
 ```
+
 </details>
 
 ## Here are some plugins that I want to add, but have not yet:
 
-    ○ alpha-nvim 
-    ○ bufferline.nvim 
-    ○ catppuccin 
-    ○ centerpad.nvim 
-    ○ cmp-buffer 
-    ○ dressing.nvim 
-    ○ flash.nvim 
-    ○ indent-blankline.nvim 
-    ○ LazyVim 
-    ○ lualine.nvim 
-    ○ mini.ai 
-    ○ mini.bufremove 
-    ○ mini.comment 
-    ○ mini.indentscope 
-    ○ mini.pairs 
-    ○ mini.surround 
-    ○ noice.nvim 
-    ○ nvim-notify 
-    ○ nvim-spectre 
-    ○ nvim-treesitter-textobjects 
-    ○ nvim-ts-autotag 
-    ○ nvim-ts-context-commentstring 
-    ○ symbols-outline.nvim 
-    ○ tokyonight.nvim 
-    ○ trouble.nvim 
-    ○ vim-illuminate 
+    ○ alpha-nvim
+    ○ bufferline.nvim
+    ○ catppuccin
+    ○ centerpad.nvim
+    ○ cmp-buffer
+    ○ dressing.nvim
+    ○ flash.nvim
+    ○ indent-blankline.nvim
+    ○ lualine.nvim
+    ○ mini.ai
+    ○ mini.bufremove
+    ○ mini.comment
+    ○ mini.indentscope
+    ○ mini.pairs
+    ○ mini.surround
+    ○ noice.nvim
+    ○ nvim-notify
+    ○ nvim-spectre
+    ○ nvim-treesitter-textobjects
+    ○ nvim-ts-autotag
+    ○ nvim-ts-context-commentstring
+    ○ symbols-outline.nvim
+    ○ tokyonight.nvim
+    ○ trouble.nvim
+    ○ vim-illuminate
     ○ vim-startuptime
 
 ## Original guide by kickstart:
