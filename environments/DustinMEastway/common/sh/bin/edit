@@ -14,10 +14,10 @@ then
   exit -1
 fi
 
-# Use `EDITOR` environment variable when present.
-if [[ "$EDITOR" != "" ]]
+# Use `EDIT_EDITOR` environment variable when present.
+if [[ "$EDIT_EDITOR" != "" ]]
 then
-  editor="$EDITOR"
+  editor="$EDIT_EDITOR"
 fi
 
 if [[ "$ENV_TYPE" == "linux-subsystem" ]]

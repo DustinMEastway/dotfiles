@@ -14,8 +14,7 @@ then
 fi
 
 export DOTFILES_DIR="$HOME/Sites/dotfiles"
-# This breaks `git rebase -i`.
-# export EDITOR="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+export EDIT_EDITOR="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 # Fill template file in if it is present.
 if [[ -f "$HOME/.env.template.sh" ]]
