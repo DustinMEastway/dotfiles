@@ -19,7 +19,7 @@ export EDIT_EDITOR="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/s
 # Fill template file in if it is present.
 if [[ -f "$HOME/.env.template.sh" ]]
 then
-  eval "$(op inject --force --in-file "$HOME/.env.template.sh")"
+  eval "$(op inject --in-file "$HOME/.env.template.sh")"
 fi
 
 # Add config specific environment variables.
