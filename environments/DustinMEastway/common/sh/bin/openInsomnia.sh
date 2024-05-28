@@ -2,11 +2,11 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Open Insomnia API
+# @raycast.title Insomnia
 # @raycast.mode silent
 
 # Optional parameters:
-# @raycast.icon 🤖
+# @raycast.icon ./resources/insomnia.tiff
 
 # Documentation:
 # @raycast.description Open Insomnia with my environment variables present.
