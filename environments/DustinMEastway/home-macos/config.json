@@ -147,7 +147,7 @@
         },
         {
           "file": "./home-macos/sh/env.symlink.sh",
-          "link": "~/.env.sh"
+          "link": "~/.env.template.sh"
         },
         {
           "file": "./home-macos/sublime-text/Preferences.sublime-settings",

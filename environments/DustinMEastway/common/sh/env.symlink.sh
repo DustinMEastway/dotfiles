@@ -17,6 +17,12 @@ export DOTFILES_DIR="$HOME/Sites/dotfiles"
 # This breaks `git rebase -i`.
 # export EDITOR="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
+# Fill template file in if it is present.
+if [[ -f "$HOME/.env.template.sh" ]]
+then
+  eval "$(op inject --force --in-file "$HOME/.env.template.sh")"
+fi
+
 # Add config specific environment variables.
 if [[ -f "$HOME/.env.sh" ]]
 then
