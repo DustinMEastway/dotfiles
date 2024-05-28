@@ -5,7 +5,6 @@
       "key": "brew-tap",
       "value": {
         "items": [
-          "homebrew/cask-versions",
           "mongodb/brew"
         ]
       }
@@ -14,13 +13,34 @@
       "key": "brew-install",
       "value": {
         "items": [
+          "arduino-cli",
+          "cocoapods",
           "coreutils",
+          "deno",
           "dotnet",
+          "edencommon",
+          "fd",
           "ffmpeg",
+          "gnu-sed",
+          "gnupg",
+          "go",
+          "lazygit",
+          "mongodb/brew/mongodb-community",
           "mono",
+          "neo4j",
+          "neovim",
+          "node@16",
+          "nvm",
+          "openssl@1.1",
+          "oven-sh/bun/bun",
+          "postgresql@14",
           "postgresql@16",
+          "putty",
+          "python@3.11",
           "redis",
-          "ruby"
+          "ripgrep",
+          "ruby",
+          "watchman"
         ]
       }
     },
@@ -29,25 +49,48 @@
       "value": {
         "args": "--cask",
         "items": [
-          "arduino",
+          "anaconda",
+          "android-file-transfer",
           "android-studio",
+          "arc",
+          "arduino",
           "brave-browser",
+          "clion",
           "curseforge",
+          "dbeaver-community",
           "discord",
           "docker",
+          "dotnet-sdk",
+          "firefox@developer-edition",
+          "font-ubuntu-mono-nerd-font",
           "gimp",
           "godot-mono",
+          "google-chrome",
           "iina",
           "insomnia",
+          "iterm2",
           "linearmouse",
+          "logi-options-plus",
           "multipatch",
+          "neo4j",
+          "notion",
+          "obsidian",
           "pgadmin4",
+          "postman",
           "private-internet-access",
+          "pycharm",
+          "qbittorrent",
           "raycast",
           "slack",
+          "spotify",
           "steam",
           "sublime-merge",
           "sublime-text",
+          "thinkorswim",
+          "visual-studio-code",
+          "warp",
+          "webstorm",
+          "webull",
           "zoom",
           "zulu11"
         ]
@@ -164,15 +207,14 @@
       "value": {
         "items": [
           {
-            "path": "~/Sites/finance",
-            "url": "git@github.com:wsoule/finance.git"
-          },
-          {
             "path": "~/Sites/brass-raven",
             "url": "git@github.com:brass-raven/brass-raven.git"
           }
         ]
       }
+    },
+    {
+      "key": "brew-sync"
     }
   ]
 }
