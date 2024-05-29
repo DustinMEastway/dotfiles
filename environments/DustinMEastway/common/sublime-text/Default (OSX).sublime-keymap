@@ -22,6 +22,19 @@
     "keys": ["super+shift+o"]
   },
   {
+    "args": {"overlay": "goto", "text": "@"},
+    "command": "show_overlay",
+    "keys": ["ctrl+r"]
+  },
+  {
+    "command": "select",
+    "context": [
+      { "key": "overlay_has_focus", "operator": "equal", "operand": true },
+      { "key": "overlay_name", "operator": "equal", "operand" : "goto" }
+    ],
+    "keys": ["super+enter"]
+  },
+  {
     "command": "sublime_merge_file_history",
     "keys": ["super+shift+h"]
   },
