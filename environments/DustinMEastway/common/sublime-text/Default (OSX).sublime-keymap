@@ -1,11 +1,87 @@
 [
   {
+    "args": {
+      "commands": [
+        { "args": { "forward": false }, "command": "vi_scroll_lines" },
+        { "command" : "center_on_cursor" }
+      ]
+    },
+    "command": "chain",
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["ctrl+u"]
+  },
+  {
+    "args": {
+      "commands": [
+        { "args": { "forward": true }, "command": "vi_scroll_lines" },
+        { "command" : "center_on_cursor" }
+      ]
+    },
+    "command": "chain",
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["ctrl+d"]
+  },
+  {
+    "command": "context_menu",
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["\\", "\\"]
+  },
+  {
+    "command": "copy",
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["\\", "y"]
+  },
+  {
+    "command": "lsp_code_actions",
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["\\", "c", "a"]
+  },
+  {
+    "command": "lsp_hover",
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["\\", "d"]
+  },
+  {
     "command": "lsp_symbol_definition",
-    "keys": ["f12"]
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["\\", "g", "d"]
+  },
+  {
+    "command": "lsp_symbol_references",
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["\\", "f"]
   },
   {
     "command": "lsp_symbol_rename",
-    "keys": ["super+r"]
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["\\", "r"]
   },
   {
     "args": { "position": "-1" },
@@ -22,9 +98,9 @@
     "keys": ["super+shift+o"]
   },
   {
-    "args": {"overlay": "goto", "text": "@"},
+    "args": { "overlay": "goto", "text": "@" },
     "command": "show_overlay",
-    "keys": ["ctrl+r"]
+    "keys": ["\\", "g", "g"]
   },
   {
     "command": "select",
