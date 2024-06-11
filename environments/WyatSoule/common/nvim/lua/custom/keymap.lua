@@ -11,6 +11,13 @@ vim.keymap.set('n', 'J', 'mzJ`z')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
+-- Search work under cursor.
+vim.keymap.set(
+  'n',
+  '<leader>S',
+  ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gIc<Left><Left><Left><Left>'
+)
+
 -- Keep search terms in the middle of the screen - ThePrimeagen.
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')

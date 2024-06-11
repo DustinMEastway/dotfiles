@@ -6,6 +6,7 @@
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.opt.termguicolors = true
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode

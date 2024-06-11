@@ -26,9 +26,9 @@ return { -- Autoformat
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      javascript = { { 'eslint', 'eslint_d' } },
-      typescript = { { 'eslint', 'eslint_d', 'deno_fmt' } },
-      typescriptreact = { { 'eslint', 'eslint_d', 'deno_fmt' } },
+      javascript = { { 'eslint_d' } },
+      typescript = { 'prettierd', { 'eslint_d', 'deno_fmt' } },
+      typescriptreact = { 'prettierd', { 'eslint_d', 'deno_fmt' } },
       css = { 'prettier' },
       html = { 'prettier' },
       json = { 'prettier' },
