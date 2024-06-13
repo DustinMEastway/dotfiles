@@ -5,7 +5,6 @@
       "key": "brew-tap",
       "value": {
         "items": [
-          "homebrew/cask-versions",
           "mongodb/brew"
         ]
       }
@@ -17,8 +16,10 @@
           "coreutils",
           "deno",
           "ffmpeg",
-          "mongodb-community",
+          "mongodb/brew/mongodb-community",
           "mono",
+          "neovim",
+          "nvm",
           "postgresql@14",
           "redis",
           "ruby@2.7",
@@ -31,31 +32,27 @@
       "value": {
         "args": "--cask",
         "items": [
-          "altserver",
-          "android-studio",
+          "1password",
+          "1password-cli",
           "brave-browser",
-          "calibre",
           "curseforge",
           "discord",
           "docker",
           "gimp",
-          "godot-mono",
           "iina",
           "insomnia",
           "linearmouse",
+          "microsoft-auto-update",
+          "microsoft-office",
           "moonlight",
-          "multimc",
           "multipatch",
-          "notion",
           "obsidian",
           "pgadmin4",
           "private-internet-access",
           "raycast",
-          "rider",
           "slack",
           "steam",
-          "sublime-merge",
-          "sublime-text",
+          "visual-studio-code",
           "zoom",
           "zulu11"
         ]
@@ -63,7 +60,9 @@
     },
     {
       "key": "git-setup",
-      "value": { "configPath": "./private/git/symlink.gitconfig" }
+      "value": {
+        "configPath": "./private/git/symlink.gitconfig"
+      }
     },
     {
       "key": "mkdir",
@@ -136,8 +135,12 @@
           "link": "~/.aliases.sh"
         },
         {
+          "file": "./home-macos/sh/bin/",
+          "link": "~/.bin/"
+        },
+        {
           "file": "./home-macos/sh/env.symlink.sh",
-          "link": "~/.env.sh"
+          "link": "~/.env.template.sh"
         },
         {
           "file": "./home-macos/sublime-text/Preferences.sublime-settings",
@@ -164,6 +167,9 @@
           "link": "~/.env-private.sh"
         }
       ]
+    },
+    {
+      "key": "brew-sync"
     },
     {
       "key": "git-clone",
