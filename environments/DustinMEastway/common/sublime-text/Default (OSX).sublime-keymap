@@ -94,8 +94,18 @@
     "keys": ["super+shift+alt+]"]
   },
   {
+    "command": "noop",
+    "keys": ["f12"]
+  },
+  {
     "command": "reveal_in_side_bar",
     "keys": ["super+shift+o"]
+  },
+  {
+    "command": "rename_path",
+    "keys": [
+      "super+shift+r"
+    ]
   },
   {
     "args": { "overlay": "goto", "text": "@" },

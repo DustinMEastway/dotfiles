@@ -35,6 +35,7 @@
   "tab_size": 2,
   "translate_tabs_to_spaces": true,
   "trim_trailing_white_space_on_save": "none",
+  "use_find_clipboard": false,
   "vintage_start_in_command_mode": true,
   "wrap_width": 9999,
   "theme": "auto",

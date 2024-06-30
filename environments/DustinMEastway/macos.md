@@ -14,10 +14,11 @@
 
 ## Brave
 
-### Flags
+### Extensions
 
-- Go to `brave://flags/`.
-- **Auto Dark Mode for Web Contents**: `Enabled`.
+- 1Password
+- Dark Reader
+- Honey
 
 ### Settings
 
