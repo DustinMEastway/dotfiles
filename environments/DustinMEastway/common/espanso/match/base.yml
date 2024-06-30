@@ -3,9 +3,15 @@
 
 global_vars:
   -
-    name: "nowDate"
+    name: "dateToday"
     params:
       format: "%Y-%m-%d"
+    type: "date"
+  -
+    name: "dateYesterday"
+    params:
+      format: "%Y-%m-%d"
+      offset: -86400
     type: "date"
   -
     name: "myName"

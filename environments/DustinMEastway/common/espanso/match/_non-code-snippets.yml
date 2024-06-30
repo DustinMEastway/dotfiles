@@ -4,5 +4,9 @@ global_vars:
 matches:
   -
     label: "Print today's date."
-    replace: "{{nowDate}}"
+    replace: "{{dateToday}}"
     trigger: ":today"
+  -
+    label: "Print yesterday's date."
+    replace: "{{dateYesterday}}"
+    trigger: ":yesterday"

@@ -8,5 +8,9 @@ global_vars:
 matches:
   -
     label: "Print today's date."
-    replace: "[[Database/DailyNote/{{nowDate}}|{{nowDate}}]]"
+    replace: "[[Database/DailyNote/{{dateToday}}|{{dateToday}}]]"
     trigger: ":today"
+  -
+    label: "Print yesterday's date."
+    replace: "[[Database/DailyNote/{{dateYesterday}}|{{dateYesterday}}]]"
+    trigger: ":yesterday"
