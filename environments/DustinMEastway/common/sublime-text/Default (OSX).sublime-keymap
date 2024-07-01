@@ -98,6 +98,10 @@
     "keys": ["f12"]
   },
   {
+    "command": "noop",
+    "keys": ["super+r"]
+  },
+  {
     "command": "reveal_in_side_bar",
     "keys": ["super+shift+o"]
   },

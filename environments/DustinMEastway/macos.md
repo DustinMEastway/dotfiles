@@ -98,6 +98,14 @@ This is not in the Finder settings, just drag and drop the items in the sidebar 
 
 - **{Name of Mac}**: `true`
 
+## Keyboard Maestro
+
+- Click "File".
+- Click "Start Syncing Macros...".
+- Click "Open Existing...".
+- Click "Replace All Macros".
+- Select "./common/keyboard-maestro/Keyboard Maestro Macros.kmsync".
+
 ## pgAdmin 4
 
 - Add New Server
