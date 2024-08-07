@@ -4,10 +4,6 @@
 # Create a new react application.
 alias createReactApp='npx create-next-app'
 
-# *** Git aliases *** #
-# Display local branches and current status.
-alias gitS='cls && git branch && git status'
-
 # *** System aliases *** #
 # Edit common aliases.
 alias aEditCommon="edit $HOME/.aliases-common.sh"

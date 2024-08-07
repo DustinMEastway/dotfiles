@@ -1,7 +1,0 @@
-<snippet>
-  <content><![CDATA[
-// Intentionally left blank.
-]]></content>
-  <tabTrigger>tsBlankBlock</tabTrigger>
-  <scope>source.js, source.jsx, source.ts, source.tsx</scope>
-</snippet>

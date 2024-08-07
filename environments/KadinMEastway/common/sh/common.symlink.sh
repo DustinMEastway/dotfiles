@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+# Brew setup.
+# 1Password is used for env variables so brew has to be set up first.
+if [[ -d "/opt/homebrew/bin/" ]]
+then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -d "/usr/local/bin/" ]]
+then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
 # *** Environment variables *** #
 if [[ -f "$HOME/.env-common.sh" ]]
 then
@@ -29,15 +39,6 @@ then
 fi
 
 # *** Tools setup *** #
-# Brew setup.
-if [[ -d "/opt/homebrew/bin/" ]]
-then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -d "/usr/local/bin/" ]]
-then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
-
 # Pyenv setup.
 if [[ "$(command -v pyenv)" != "" ]]
 then
