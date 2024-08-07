@@ -4,47 +4,6 @@
 # Create a new react application.
 alias createReactApp='npx create-next-app'
 
-# *** Git aliases *** #
-# An attempt do the better git commands
-function got() {
-  case "$1" in
-    add)
-      git add $@
-      ;;
-    remove)
-      git restore --staged $@
-      ;;
-    restore)
-      git restore $@
-      ;;
-    commit)
-      git commit -m$@
-      ;;
-    push)
-      git push
-      ;;
-    pull)
-      git pull --rebase
-      ;;
-    status)
-      git branch && git status
-      ;;
-    new)
-      git switch -c feature/$2 && git branch -u origin $2
-      ;;
-    update)
-      git switch $3 && git pull && git switch $2 && git rebase $3
-      ;;
-    rush)
-      echo "Rushing changes... Warning, this is not recommended"
-      git commit -a -m"rushed changes..." && git push
-      ;;
-    *)
-      echo "Command not found. Try: {add|remove|restore|commit|push|pull|status|update|new}"
-      ;;
-  esac
-}
-
 # *** System aliases *** #
 # Edit common aliases.
 alias aEditCommon="edit $HOME/.aliases-common.sh"
