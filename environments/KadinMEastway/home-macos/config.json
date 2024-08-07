@@ -15,15 +15,12 @@
         "items": [
           "coreutils",
           "deno",
-          "ffmpeg",
           "mongodb/brew/mongodb-community",
-          "mono",
           "neovim",
+          "node",
           "nvm",
-          "postgresql@14",
-          "redis",
-          "ruby@2.7",
-          "youtube-dl"
+          "openssl",
+          "postgresql"
         ]
       }
     },
@@ -51,6 +48,7 @@
           "raycast",
           "slack",
           "steam",
+          "visual-studio-code",
           "zed",
           "zoom"
         ]
@@ -61,14 +59,6 @@
       "value": {
         "configPath": "./private/git/symlink.gitconfig"
       }
-    },
-    {
-      "key": "mkdir",
-      "value": [
-        "./private/.ssh/",
-        "~/Library/Application Support/Sublime Merge/Packages/",
-        "~/Library/Application Support/Sublime Text/Packages/"
-      ]
     },
     {
       "key": "npm-install",
@@ -121,14 +111,6 @@
           "link": "~/.zshrc"
         },
         {
-          "file": "./common/sublime-merge/",
-          "link": "~/Library/Application Support/Sublime Merge/Packages/User/"
-        },
-        {
-          "file": "./common/sublime-text/",
-          "link": "~/Library/Application Support/Sublime Text/Packages/User/"
-        },
-        {
           "file": "./home-macos/sh/aliases.symlink.sh",
           "link": "~/.aliases.sh"
         },
@@ -139,18 +121,6 @@
         {
           "file": "./home-macos/sh/env.symlink.sh",
           "link": "~/.env.template.sh"
-        },
-        {
-          "file": "./home-macos/sublime-text/Preferences.sublime-settings",
-          "link": "./common/sublime-text/Preferences.sublime-settings"
-        },
-        {
-          "file": "./home-macos/sublime-text/projects/",
-          "link": "./common/sublime-text/projects/"
-        },
-        {
-          "file": "./home-macos/sublime-text/snippets/",
-          "link": "./common/sublime-text/snippets/"
         },
         {
           "file": "./private/.ssh/",
@@ -165,9 +135,6 @@
           "link": "~/.env-private.sh"
         }
       ]
-    },
-    {
-      "key": "brew-sync"
     },
     {
       "key": "git-clone",

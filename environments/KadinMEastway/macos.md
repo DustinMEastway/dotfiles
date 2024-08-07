@@ -100,14 +100,8 @@ Lets you keep your mac from sleeping.
 
 #### Quicklinks
 
-* `edit-aaron`: `~/Sites/dotfiles/environments/DustinMEastway/common/sublime-text/projects/aaron.sublime-project`
-* `edit-brass-raven`: `~/Sites/dotfiles/environments/DustinMEastway/common/sublime-text/projects/brass-raven.sublime-project`
-* `edit-dotfiles`: `~/Sites/dotfiles/environments/DustinMEastway/common/sublime-text/projects/dotfiles.sublime-project`
-* `edit-game`: `~/Sites/dotfiles/environments/DustinMEastway/common/sublime-text/projects/game.sublime-project`
-* `edit-lireddit`: `~/Sites/dotfiles/environments/DustinMEastway/common/sublime-text/projects/lireddit.sublime-project`
-* `edit-notes`: `~/Sites/dotfiles/environments/DustinMEastway/common/sublime-text/projects/notes.sublime-project`
 * `link-brass-raven-project`: `https://github.com/orgs/brass-raven/projects/{Project:1}/views/1`
-* `link-github`: `https://github.com/DustinMEastway?tab=repositories`
+* `link-github`: `https://github.com/KadinMEastway?tab=repositories`
 
 #### Snippets
 
