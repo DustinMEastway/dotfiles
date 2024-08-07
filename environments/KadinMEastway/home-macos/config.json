@@ -45,16 +45,14 @@
           "microsoft-auto-update",
           "microsoft-office",
           "moonlight",
-          "multipatch",
           "obsidian",
           "pgadmin4",
           "private-internet-access",
           "raycast",
           "slack",
           "steam",
-          "visual-studio-code",
-          "zoom",
-          "zulu11"
+          "zed",
+          "zoom"
         ]
       }
     },
