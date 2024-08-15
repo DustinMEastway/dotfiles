@@ -2,10 +2,13 @@
 	"folders":
 	[
 		{
-			"path": "/Users/deastway/Sites/hxp"
+			"path": "/Users/deastway/Sites/hxp",
 		},
 		{
-			"path": "/Users/deastway/Sites/hxp-no-code-config"
-		}
-	]
+			"path": "/Users/deastway/Sites/hxp-application-configuration",
+		},
+		{
+			"path": "/Users/deastway/Sites/hxp-no-code-config",
+		},
+	],
 }

@@ -46,12 +46,12 @@ matches:
   -
     label: "Loop through all nodes on all modules on serialized."
     replace: |-
-      {{serialized}}.modules.forEach((mod) => {
-        mod{{nodesPath}}.forEach((node) => {
-          if (true$|$) {
-            console.log(`${mod.name} ${node.name}`);
-          }
+      {{serialized}}.modules.flatMap((mod) => {
+        return mod{{nodesPath}}.map((node) => {
+          return { mod, node };
         });
+      }).forEach(({ mod, node }) => {
+        console.log(`${mod.name} ${node.name}`);
       });
     trigger: ":lNode"
   -

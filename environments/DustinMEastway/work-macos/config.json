@@ -6,6 +6,8 @@
       "value": {
         "items": [
           "deno",
+          "docker",
+          "kind",
           "mvnvm",
           "nvm",
           "pyenv"
@@ -22,11 +24,13 @@
           "brave-browser",
           "espanso",
           "insomnia",
+          "linearmouse",
           "obsidian",
           "raycast",
           "rider",
           "sublime-merge",
-          "sublime-text"
+          "sublime-text",
+          "zed"
         ]
       }
     },
