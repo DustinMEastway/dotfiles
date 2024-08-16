@@ -125,7 +125,7 @@
     "keys": ["super+enter"]
   },
   {
-    "command": "sublime_merge_file_history",
+    "command": "show_file_history",
     "keys": ["super+shift+h"]
   },
   {

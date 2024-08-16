@@ -26,11 +26,11 @@
   "index_files": true,
   "node_path": "~/.nvm/versions/node/v14.8.0/bin/node",
   "open_files_in_new_window": "never",
+  "relative_line_numbers": true,
   "rulers":
   [
     100
   ],
-  "relative_line_numbers": true,
   "scroll_past_end": true,
   "tab_size": 2,
   "theme": "auto",

@@ -1,8 +1,9 @@
+import functools
+import os
 import sublime
 import sublime_plugin
-import os
-import functools
 
+# Adds a command to rename a file.
 class RenamePathCommand(sublime_plugin.WindowCommand):
     def run(self, paths = []):
         directory, oldFilename = os.path.split(

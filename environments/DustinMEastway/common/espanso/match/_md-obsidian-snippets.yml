@@ -7,10 +7,25 @@ imports:
 global_vars:
 matches:
   -
+    label: "Add a subview section to a View note."
+    replace: |-
+      # Subviews
+
+      ```dataviewjs
+      await dv.view('subview-table');
+      ```
+    triggers:
+      - ":subview"
+      - ":sv"
+  -
     label: "Print today's date."
     replace: "[[Database/DailyNote/{{dateToday}}|{{dateToday}}]]"
-    trigger: ":today"
+    triggers:
+      - ":td"
+      - ":today"
   -
     label: "Print yesterday's date."
     replace: "[[Database/DailyNote/{{dateYesterday}}|{{dateYesterday}}]]"
-    trigger: ":yesterday"
+    triggers:
+      - ":yd"
+      - ":yesterday"

@@ -5,6 +5,8 @@ alias calibredb='/Applications/calibre.app/Contents/MacOS/calibredb'
 alias cdCalibre='cd ~/Documents/Books/Calibre\ Library/'
 alias cdIBooks='cd ~/Library/Containers/com.apple.BKAgentService/Data/Documents/iBooks'
 alias cdKindle='cd ~/Library/Application\ Support/Kindle/My\ Kindle\ Content'
+alias cdMc='cd ~/Documents/curseforge/minecraft/Instances/'
+alias cdMcServer='cd ~/Media/games/minecraft/dme-pixelmod-1.1-server/'
 alias openICloud='open ~/Library/Mobile\ Documents/com~apple~CloudDocs/'
 
 # *** Mongodb aliases *** #

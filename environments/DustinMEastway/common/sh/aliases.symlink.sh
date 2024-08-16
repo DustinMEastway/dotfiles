@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# *** Node.js aliases *** #
-# Create a new react application.
-alias createReactApp='npx create-next-app'
-
-# *** Git aliases *** #
+# *** Code aliases *** #
 # Display local branches and current status.
 alias gitS='cls && git branch && git status'
+# Build code.
+alias cBuild='cls && npm run build'
+# Install dependencies & build code.
+alias cAll='cls && nvm use && npm install && cBuild'
 
 # *** Notes aliases *** #
 # Change directories into the notes folder.
@@ -27,6 +27,8 @@ alias aReload="unalias -a && source $HOME/.aliases-common.sh"
 alias bootAudioOn='sudo nvram BootAudio=%01'
 # Turn MacOS boot noise off.
 alias bootAudioOff='sudo nvram BootAudio=%00'
+# Update all packages.
+alias brewUp='brew update && brew upgrade'
 # Change directories into the iCloud folder.
 alias cdICloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 # Clear shorthand for consistency accross systems.
@@ -49,8 +51,6 @@ alias rmdir='rm -rf'
 alias reinstallXCode='sudo rm -rf $(xcode-select -print-path) && xcode-select --install'
 # Show hidden files in Finder.
 alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES && killall Finder'
-# Update all packages.
-alias updateAll='brew update && brew upgrade'
 
 # TODO: Make an alias to move an item to the trash.
 # * https://github.com/morgant/tools-osx/blob/master/src/trash

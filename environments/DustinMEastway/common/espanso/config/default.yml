@@ -21,7 +21,7 @@ extra_includes:
   - "../match/_non-code-snippets.yml"
 
 # Hotkey to display search bar.
-search_shortcut: ALT+SPACE
+search_shortcut: off
 
 # Match to display search bar (e.g. .search).
 search_trigger: off
