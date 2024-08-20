@@ -7,6 +7,12 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.opt.termguicolors = true
+vim.api.nvim_set_keymap(
+  'n',
+  '<Esc><Esc>',
+  '<NOP>',
+  { noremap = true, silent = true }
+)
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode

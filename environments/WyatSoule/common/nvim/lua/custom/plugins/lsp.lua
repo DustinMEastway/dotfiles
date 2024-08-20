@@ -215,6 +215,7 @@ return { -- LSP Configuration & Plugins
       },
       gopls = {},
       graphql = {},
+      svelte = {},
       tsserver = {
         root_dir = require('lspconfig.util').root_pattern 'package.json',
         capabilities = capabilities,
@@ -262,7 +263,6 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
-      eslint = {},
     }
 
     -- Ensure the servers and tools above are installed
@@ -283,6 +283,7 @@ return { -- LSP Configuration & Plugins
       'prettier',
       'prettierd',
       'jsonlint',
+      'svelte-language-server',
       'vale',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }

@@ -10,6 +10,8 @@ return { -- Autocompletion
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-nvim-lsp-signature-help',
     'hrsh7th/cmp-cmdline',
+    { 'zbirenbaum/copilot-cmp', dependencies = 'zbirenbaum/copilot.lua' }, -- Add Copilot source
+
     -- Snippet Engine & its associated nvim-cmp source
     {
       'L3MON4D3/LuaSnip',
@@ -42,5 +44,17 @@ return { -- Autocompletion
   },
   config = function()
     require 'custom.completion'
+    local cmp = require 'cmp'
+    cmp.setup {
+      -- Your existing setup
+      sources = {
+        -- Copilot Source
+        { name = 'copilot', group_index = 2 },
+        -- Other Sources
+        { name = 'nvim_lsp', group_index = 2 },
+        { name = 'path', group_index = 2 },
+        { name = 'luasnip', group_index = 2 },
+      },
+    }
   end,
 }

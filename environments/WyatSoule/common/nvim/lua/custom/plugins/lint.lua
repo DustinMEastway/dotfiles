@@ -8,6 +8,7 @@ return {
       lint.linters_by_ft = {
         javascript = { 'eslint_d', 'deno' },
         typescript = { 'eslint_d', 'deno' },
+        svelte = { 'eslint_d' },
         javascriptreact = { 'eslint_d', 'deno' },
         typescriptreact = { 'eslint_d', 'deno' },
         json = { 'jsonlint' },

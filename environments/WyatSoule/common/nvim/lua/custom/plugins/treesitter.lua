@@ -10,6 +10,7 @@ return {
       'lua',
       'luadoc',
       'markdown',
+      'svelte',
       'typescript',
       'vim',
       'vimdoc',
