@@ -219,13 +219,13 @@ return { -- LSP Configuration & Plugins
       tsserver = {
         root_dir = require('lspconfig.util').root_pattern 'package.json',
         capabilities = capabilities,
-        -- single_file_support = false,
-        -- commands = {
-        --   OrganizeImports = {
-        --     organize_imports,
-        --     description = 'Organize Imports',
-        --   },
-        -- },
+        single_file_support = false,
+      --   -- commands = {
+      --   --   OrganizeImports = {
+      --   --     organize_imports,
+      --   --     description = 'Organize Imports',
+      --   --   },
+      --   -- },
       },
       html = {},
       tailwindcss = {},
@@ -238,8 +238,8 @@ return { -- LSP Configuration & Plugins
         lint = true,
         capabilities = capabilities,
       },
-      -- pyright = {},
-      -- rust_analyzer = {},
+      pyright = {},
+      rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --
       -- Some languages (like typescript) have entire language plugins that can be useful:

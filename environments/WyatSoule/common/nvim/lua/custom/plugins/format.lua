@@ -30,16 +30,17 @@ return { -- Autoformat
     -- end,
     formatters_by_ft = {
       lua = { 'stylua' },
+      astro = { 'prettierd'},
       javascript = { 'eslint_d', 'eslint', 'prettierd' },
       svelte = { 'eslint_d', 'eslint', 'prettierd', 'prettier' },
       typescript = {
-        'prettierd',
-        'prettier',
+        -- 'prettierd',
+        -- 'prettier',
         'eslint',
         'eslint_d',
         'deno_fmt',
       },
-      typescriptreact = { { 'eslint_d', 'deno_fmt' } },
+      typescriptreact = {  'deno_fmt','prettierd', 'eslint_d', },
       css = { 'prettierd' },
       html = { 'prettierd' },
       json = { 'prettierd' },
@@ -47,7 +48,7 @@ return { -- Autoformat
       markdown = { 'prettierd' },
       graphql = { 'prettierd' },
       -- Conform can also run multiple formatters sequentially
-      -- python = { "isort", "black" },
+      python = { "isort", "black" },
       --
       -- You can use a sub-list to tell conform to run *until* a formatter
       -- is found.

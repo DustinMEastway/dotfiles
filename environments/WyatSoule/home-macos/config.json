@@ -23,12 +23,13 @@
           "neo4j",
           "neovim",
           "nvm",
-          "openssl@1.1",
           "openssl@3",
+          "postgresql@14",
           "postgresql@16",
           "redis",
           "ripgrep",
-          "ruby"
+          "ruby",
+          "supabase/tap/supabase"
         ]
       }
     },
@@ -37,10 +38,14 @@
       "value": {
         "args": "--cask",
         "items": [
+          "1password",
+          "1password-cli",
           "anaconda",
           "android-file-transfer",
           "android-studio",
+          "bambu-studio",
           "brave-browser",
+          "copilot",
           "curseforge",
           "discord",
           "docker",
@@ -68,8 +73,8 @@
           "sublime-merge",
           "sublime-text",
           "thinkorswim",
-          "webstorm",
-          "webull",
+          "visual-studio-code",
+          "zed",
           "zoom"
         ]
       }
@@ -94,13 +99,6 @@
         "packages": [
           "nx"
         ]
-      }
-    },
-    {
-      "key": "ssh-keygen",
-      "value": {
-        "file": "./private/.ssh/id_rsa",
-        "type": "rsa"
       }
     },
     {

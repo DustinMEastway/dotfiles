@@ -15,3 +15,4 @@ fi
 #     export VISUAL="nvim"
 #     export EDITOR="nvim"
 # fi
+. "$HOME/.cargo/env"

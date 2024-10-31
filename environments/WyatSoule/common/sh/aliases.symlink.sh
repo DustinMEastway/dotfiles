@@ -64,6 +64,12 @@ function runCpp(){
       clear && gcc -Wall -o $outName $1 && ./$outName
 }
 
+function runPy() {
+  file=$1
+  nodemon --exec "clear && python3 $1" --ext py
+}
+
+
 # TODO: Make an alias to move an item to the trash.
 # * https://github.com/morgant/tools-osx/blob/master/src/trash
 # * https://apple.stackexchange.com/questions/50844/how-to-move-files-to-trash-from-command-line

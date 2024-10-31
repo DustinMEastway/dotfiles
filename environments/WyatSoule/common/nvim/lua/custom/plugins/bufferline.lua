@@ -12,5 +12,7 @@ return {
     vim.keymap.set('n', '<C-S-[>', ':bprevious<CR>', { silent = true })
     vim.keymap.set('n', '<C-S-]>', ':bNext<CR>', { silent = true })
     vim.keymap.set('n', '<C-S-T>', ':e #<CR>', { silent = true })
+    vim.keymap.set('n', '<leader>bp', ':BufferLinePick<CR>', { silent = true})
+    vim.keymap.set('n', '<leader>bc', ':BufferLinePickClose<CR>', { silent = true})
   end,
 }
