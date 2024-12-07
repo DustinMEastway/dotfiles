@@ -11,8 +11,23 @@ return {
 
     vim.keymap.set('n', '<C-S-[>', ':bprevious<CR>', { silent = true })
     vim.keymap.set('n', '<C-S-]>', ':bNext<CR>', { silent = true })
-    vim.keymap.set('n', '<C-S-T>', ':e #<CR>', { silent = true })
-    vim.keymap.set('n', '<leader>bp', ':BufferLinePick<CR>', { silent = true})
-    vim.keymap.set('n', '<leader>bc', ':BufferLinePickClose<CR>', { silent = true})
+    vim.keymap.set(
+      'n',
+      '<C-S-T>',
+      ':e #<CR>',
+      { silent = true, desc = 'Reopen last buffer.' }
+    )
+    vim.keymap.set(
+      'n',
+      '<leader>gb',
+      ':BufferLinePick<CR>',
+      { silent = true, desc = 'Switch buffer.' }
+    )
+    vim.keymap.set(
+      'n',
+      '<leader>db',
+      ':BufferLinePickClose<CR>',
+      { silent = true, desc = 'Delete buffer.' }
+    )
   end,
 }
