@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # Connects through SSH to USER@scully.egr.msu.edu
 # Enters password through 1Password
-# Connects to stormcloud from USER@scully.egr.msu.edu
 
-ssh -t eastway3@scully.egr.msu.edu "ssh stormcloud"
+ssh eastway3@scully.egr.msu.edu
