@@ -1,0 +1,12 @@
+<snippet>
+  <content><![CDATA[
+<details>
+<summary>${1:Title}</summary>
+
+${2:Content}
+
+</details>
+]]></content>
+  <tabTrigger>mdCollapse</tabTrigger>
+  <scope>text.html.markdown</scope>
+</snippet>

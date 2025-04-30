@@ -1,88 +1,110 @@
 [
-  {
-    "args": {
-      "commands": [
-        { "args": { "forward": false }, "command": "vi_scroll_lines" },
-        { "command" : "center_on_cursor" }
-      ]
-    },
-    "command": "chain",
-    "context": [
-      { "key": "setting.command_mode" },
-      { "key": "setting.vintage_ctrl_keys" }
-    ],
-    "keys": ["ctrl+u"]
-  },
-  {
-    "args": {
-      "commands": [
-        { "args": { "forward": true }, "command": "vi_scroll_lines" },
-        { "command" : "center_on_cursor" }
-      ]
-    },
-    "command": "chain",
-    "context": [
-      { "key": "setting.command_mode" },
-      { "key": "setting.vintage_ctrl_keys" }
-    ],
-    "keys": ["ctrl+d"]
-  },
+  // Display context menu.
   {
     "command": "context_menu",
     "context": [
       { "key": "setting.command_mode" },
       { "key": "setting.vintage_ctrl_keys" }
     ],
-    "keys": ["\\", "\\"]
+    "keys": [" ", " "]
   },
+  // Copy to clipboard instead of VIM register.
   {
     "command": "copy",
     "context": [
       { "key": "setting.command_mode" },
       { "key": "setting.vintage_ctrl_keys" }
     ],
-    "keys": ["\\", "y"]
+    "keys": [" ", "y"]
   },
+  // Jump to next & prior instances.
+  {
+    "command": "find_under",
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["super+j"]
+  },
+  {
+    "command": "find_under_prev",
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["super+k"]
+  },
+  // Display code actions (e.g. moving a definition to another file).
   {
     "command": "lsp_code_actions",
     "context": [
       { "key": "setting.command_mode" },
       { "key": "setting.vintage_ctrl_keys" }
     ],
-    "keys": ["\\", "c", "a"]
+    "keys": [" ", "c", "a"]
   },
+  // Display definitions.
   {
     "command": "lsp_hover",
     "context": [
       { "key": "setting.command_mode" },
       { "key": "setting.vintage_ctrl_keys" }
     ],
-    "keys": ["\\", "d"]
+    "keys": [" ", "d"]
   },
+  // Go to definition.
   {
     "command": "lsp_symbol_definition",
     "context": [
       { "key": "setting.command_mode" },
       { "key": "setting.vintage_ctrl_keys" }
     ],
-    "keys": ["\\", "g", "d"]
+    "keys": [" ", "g", "d"]
   },
+  // Go to usage.
   {
     "command": "lsp_symbol_references",
     "context": [
       { "key": "setting.command_mode" },
       { "key": "setting.vintage_ctrl_keys" }
     ],
-    "keys": ["\\", "f"]
+    "keys": [" ", "g", "u"]
   },
+  // Rename symbol.
   {
     "command": "lsp_symbol_rename",
     "context": [
       { "key": "setting.command_mode" },
       { "key": "setting.vintage_ctrl_keys" }
     ],
-    "keys": ["\\", "r"]
+    "keys": [" ", "r"]
   },
+  // Move down & up in autocompletes.
+  {
+    "args": { "by": "lines", "forward": true },
+    "command": "move",
+    "context": [
+      {
+        "key": "auto_complete_primed",
+        "operator": "equal",
+        "operand": true
+      }
+    ],
+    "keys": ["ctrl+j"]
+  },
+  {
+    "args": { "by": "lines", "forward": false },
+    "command": "move",
+    "context": [
+      {
+        "key": "auto_complete_primed",
+        "operator": "equal",
+        "operand": true
+      }
+    ],
+    "keys": ["ctrl+k"]
+  },
+  // Move tabs left & right.
   {
     "args": { "position": "-1" },
     "command": "move_tab",
@@ -93,6 +115,23 @@
     "command": "move_tab",
     "keys": ["super+shift+alt+]"]
   },
+  // Disable commands to keep me from using stuff I do not want to use.
+  {
+    "command": "noop",
+    "keys": ["ctrl+shift+down"]
+  },
+  {
+    "command": "noop",
+    "keys": ["ctrl+shift+up"]
+  },
+  {
+    "command": "noop",
+    "keys": ["ctrl+super+down"]
+  },
+  {
+    "command": "noop",
+    "keys": ["ctrl+super+up"]
+  },
   {
     "command": "noop",
     "keys": ["f12"]
@@ -101,35 +140,122 @@
     "command": "noop",
     "keys": ["super+r"]
   },
-  {
-    "command": "reveal_in_side_bar",
-    "keys": ["super+shift+o"]
-  },
+  // Custom Command: Rename file.
   {
     "command": "rename_path",
-    "keys": [
-      "super+shift+r"
-    ]
+    "keys": ["super+shift+r"]
   },
+  // Display file in sidebar.
   {
-    "args": { "overlay": "goto", "text": "@" },
-    "command": "show_overlay",
-    "keys": ["\\", "g", "g"]
+    "command": "reveal_in_side_bar",
+    "context": [
+      { "key": "sidebar_visible", "operand": false }
+    ],
+    "keys": ["super+shift+o"]
   },
+  // Finding a file & hitting enter should replace.
+  {
+    "args": {
+      // Replace is not working.
+      // "replace": true
+    },
+    "command": "select",
+    "context": [
+      {
+        "key": "overlay_has_focus",
+        "operator": "equal",
+        "operand": true
+      },
+      {
+        "key": "overlay_name",
+        "operator": "equal",
+        "operand": "goto"
+      }
+    ],
+    "keys": ["enter"]
+  },
+  // Finding a file & hitting enter should replace.
   {
     "command": "select",
     "context": [
-      { "key": "overlay_has_focus", "operator": "equal", "operand": true },
-      { "key": "overlay_name", "operator": "equal", "operand" : "goto" }
+      {
+        "key": "overlay_has_focus",
+        "operator": "equal",
+        "operand": true
+      },
+      {
+        "key": "overlay_name",
+        "operator": "equal",
+        "operand": "goto"
+      }
     ],
     "keys": ["super+enter"]
   },
+  // Multiline edit down & up.
+  {
+    "args": { "forward": false },
+    "command": "select_lines",
+    "keys": ["ctrl+shift+k"]
+  },
+  {
+    "args": { "forward": true },
+    "command": "select_lines",
+    "keys": ["ctrl+shift+j"]
+  },
+  // Custom Command: Show Git file history.
   {
     "command": "show_file_history",
     "keys": ["super+shift+h"]
   },
+  // Go to symbol in current file.
+  {
+    "args": { "overlay": "goto", "text": "@" },
+    "command": "show_overlay",
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": [" ", "g", "g"]
+  },
+  // Show Git repository.
   {
     "command": "sublime_merge_open_repo",
     "keys": ["super+shift+enter"]
+  },
+  // Move line down & up.
+  {
+    "command": "swap_line_down",
+    "keys": ["ctrl+super+j"]
+  },
+  {
+    "command": "swap_line_up",
+    "keys": ["ctrl+super+k"]
+  },
+  // Hide side bar.
+  {
+    "command": "toggle_side_bar",
+    "context": [
+      { "key": "sidebar_visible" }
+    ],
+    "keys": ["super+shift+o"]
+  },
+  // Scroll down & up by half pages.
+  {
+    "args": { "forward": false },
+    "command": "vi_scroll_lines",
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["ctrl+k"]
+  },
+  {
+    "args": { "forward": true },
+    "command": "vi_scroll_lines",
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["ctrl+j"]
   }
 ]

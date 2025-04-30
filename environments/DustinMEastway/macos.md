@@ -36,6 +36,13 @@
 
 - **Always Show Bookmarks**: `true`.
 
+## Brew
+
+Here is an explaination of some of the homebrew formulas I have installed.
+- `deno`: TypeScript runner similar to what node is to JavaScript.
+- `nvm`: Manages node versions.
+- `postgresql@14`: Open source SQL server.
+
 ## CurseForge
 
 ### Minecraft

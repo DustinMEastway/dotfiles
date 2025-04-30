@@ -19,7 +19,7 @@ class ShowFileHistoryCommand(sublime_plugin.WindowCommand):
             filePath = path[len(repoDirectory) + 1:]
             print('repoDirectory', repoDirectory, filePath)
             self.window.run_command('exec', {
-                'shell_cmd': f'/opt/homebrew/bin/smerge search "file:{filePath} min-parents:0"',
+                'shell_cmd': f'/opt/homebrew/bin/smerge search "file:\\"{filePath}\\" min-parents:0"',
                 'working_dir': repoDirectory
             })
         else:

@@ -2,7 +2,10 @@
 	"folders":
 	[
 		{
-			"path": "~/Sites/brass-raven",
+			"path": "~/Sites/brass-raven/audio-parrot-reader"
 		},
-	],
+		{
+			"path": "~/Sites/brass-raven/brass-raven"
+		}
+	]
 }

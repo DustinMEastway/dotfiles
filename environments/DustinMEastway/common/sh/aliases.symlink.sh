@@ -2,11 +2,9 @@
 
 # *** Code aliases *** #
 # Display local branches and current status.
-alias gitS='cls && git branch && git status'
-# Build code.
-alias cBuild='cls && npm run build'
-# Install dependencies & build code.
-alias cAll='cls && nvm use && npm install && cBuild'
+alias gitS='git branch && git status'
+# Make sure node version & dependencies are up to date.
+alias npmI='nvm use && npm install'
 
 # *** Notes aliases *** #
 # Change directories into the notes folder.
@@ -28,13 +26,13 @@ alias bootAudioOn='sudo nvram BootAudio=%01'
 # Turn MacOS boot noise off.
 alias bootAudioOff='sudo nvram BootAudio=%00'
 # Update all packages.
-alias brewUp='brew update && brew upgrade'
+alias brewUpdate='brew update && brew upgrade'
 # Change directories into the iCloud folder.
 alias cdICloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 # Clear shorthand for consistency accross systems.
 alias cls='clear && clear'
 # Run the dotfiles to setup the environment.
-alias dotfiles="cls && $DOTFILES_DIR/scripts/bootstrap.sh --config $DOTFILES_CONFIG"
+alias dotfiles="$DOTFILES_DIR/scripts/bootstrap.sh --config $DOTFILES_CONFIG"
 # Reload environment variables.
 alias eReload="source $HOME/.env-common.sh"
 # Hide hidden files in Finder.

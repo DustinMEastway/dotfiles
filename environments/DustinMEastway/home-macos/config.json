@@ -13,8 +13,10 @@
       "key": "brew-install",
       "value": {
         "items": [
+          "cocoapods",
           "coreutils",
           "deno",
+          "docker",
           "ffmpeg",
           "mongodb/brew/mongodb-community",
           "mono",
@@ -23,7 +25,7 @@
           "postgresql@14",
           "redis",
           "ruby@2.7",
-          "youtube-dl"
+          "yt-dlp"
         ]
       }
     },
@@ -36,30 +38,42 @@
           "1password-cli",
           "altserver",
           "android-studio",
+          "bambu-studio",
           "brave-browser",
           "calibre",
           "curseforge",
           "discord",
           "docker",
           "dotnet-sdk",
+          "dropbox",
           "espanso",
           "gimp",
           "godot-mono",
+          "handbrake",
           "iina",
+          "imageoptim",
           "insomnia",
+          "keyboard-maestro",
+          "legcord",
           "linearmouse",
           "multimc",
           "multipatch",
           "obsidian",
+          "ollama",
           "parallels",
           "pgadmin4",
+          "plex",
+          "plex-media-server",
           "private-internet-access",
+          "qbittorrent",
           "raycast",
           "rider",
           "slack",
           "steam",
           "sublime-merge",
           "sublime-text",
+          "whisky",
+          "zed",
           "zoom",
           "zulu11"
         ]
@@ -85,13 +99,6 @@
         "packages": [
           "yarn"
         ]
-      }
-    },
-    {
-      "key": "ssh-keygen",
-      "value": {
-        "file": "./private/.ssh/id_rsa",
-        "type": "rsa"
       }
     },
     {
@@ -172,6 +179,14 @@
         {
           "file": "./private/sh/env.symlink.sh",
           "link": "~/.env-private.sh"
+        },
+        {
+          "file": "~/Dropbox/Terraria/Players",
+          "link": "~/Library/Application Support/Terraria/Players"
+        },
+        {
+          "file": "~/Dropbox/Terraria/Worlds",
+          "link": "~/Library/Application Support/Terraria/Worlds"
         }
       ]
     },
