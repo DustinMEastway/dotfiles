@@ -48,6 +48,7 @@ alias repeatOff='defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool
 
 alias vim='nvim --listen /tmp/nvim-server.pipe'
 
+alias buildDotfiles='darwin-rebuild switch --flake ~/.dotfiles/.config/nix'
 # open in neovim
 function edit(){
   vim "$1"
@@ -74,6 +75,7 @@ function runPy() {
 # * https://github.com/morgant/tools-osx/blob/master/src/trash
 # * https://apple.stackexchange.com/questions/50844/how-to-move-files-to-trash-from-command-line
 
+
 # Add config specific aliases.
 if [[ -f "$HOME/.aliases.sh" ]]
 then
@@ -85,3 +87,4 @@ if [[ -f "$HOME/.aliases-private.sh" ]]
 then
   source "$HOME/.aliases-private.sh"
 fi
+

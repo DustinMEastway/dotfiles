@@ -34,11 +34,11 @@ return { -- Autoformat
       javascript = { 'eslint_d', 'eslint', 'prettierd' },
       svelte = { 'eslint_d', 'eslint', 'prettierd', 'prettier' },
       typescript = {
-        -- 'prettierd',
+        'prettierd',
         -- 'prettier',
         'eslint',
         'eslint_d',
-        'deno_fmt',
+        -- 'deno_fmt',
       },
       typescriptreact = {  'deno_fmt','prettierd', 'eslint_d', },
       css = { 'prettierd' },
@@ -49,6 +49,8 @@ return { -- Autoformat
       graphql = { 'prettierd' },
       -- Conform can also run multiple formatters sequentially
       python = { "isort", "black" },
+      go = { "goimports", "gofmt" }, -- Added Go formatters
+
       --
       -- You can use a sub-list to tell conform to run *until* a formatter
       -- is found.

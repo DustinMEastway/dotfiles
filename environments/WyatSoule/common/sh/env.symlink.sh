@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PATH=$PATH:/usr/sbin
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export ENV_TYPE="macos"
   export ROOT_DIRECTORY="/"

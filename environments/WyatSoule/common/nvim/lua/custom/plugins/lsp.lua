@@ -216,30 +216,34 @@ return { -- LSP Configuration & Plugins
       gopls = {},
       graphql = {},
       svelte = {},
-      tsserver = {
+      ts_ls = {
         root_dir = require('lspconfig.util').root_pattern 'package.json',
         capabilities = capabilities,
         single_file_support = false,
-      --   -- commands = {
-      --   --   OrganizeImports = {
-      --   --     organize_imports,
-      --   --     description = 'Organize Imports',
-      --   --   },
-      --   -- },
+        -- commands = {
+        --   OrganizeImports = {
+        --     organize_imports,
+        --     description = 'Organize Imports',
+        --   },
+        -- },
       },
       html = {},
       tailwindcss = {},
-      denols = {
-        root_dir = require('lspconfig.util').root_pattern(
-          'deno.json',
-          'deno.jsonc'
-        ),
-        unstable = true,
-        lint = true,
-        capabilities = capabilities,
-      },
+      -- denols = {
+      --   root_dir = require('lspconfig.util').root_pattern(
+      --     'deno.json',
+      --     'deno.jsonc'
+      --   ),
+      --   unstable = true,
+      --   lint = true,
+      --   capabilities = capabilities,
+      -- },
       pyright = {},
       rust_analyzer = {},
+      ruby_lsp = {
+          cmd = { "bundle", "exec", "ruby-lsp" },
+        -- cmd = { os.getenv('HOME') .. "/.rbenv/shims/ruby-lsp"}
+      },
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --
       -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -263,6 +267,7 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
+      eslint = {},
     }
 
     -- Ensure the servers and tools above are installed
@@ -278,12 +283,11 @@ return { -- LSP Configuration & Plugins
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
-      'denols',
+      -- 'denols',
       'eslint_d',
       'prettier',
       'prettierd',
       'jsonlint',
-      'svelte-language-server',
       'vale',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }

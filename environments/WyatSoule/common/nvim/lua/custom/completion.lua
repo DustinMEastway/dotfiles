@@ -83,7 +83,6 @@ cmp.setup {
       vim.snippet.expand(args.body)
     end,
   },
-
   -- Setup up vim-dadbod
   cmp.setup.filetype({ 'sql' }, {
     sources = {
