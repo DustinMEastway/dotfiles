@@ -1,28 +1,29 @@
 local modes = { 'n', 'i', 'v' }
 
 -- Open file view (bigger neotree)
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open file explorer' })
 
 -- Keep cursor where it was when doing J
-vim.keymap.set('n', 'J', 'mzJ`z')
+vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Join lines without moving cursor' })
 
 -- Move up or down 50 lines
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half page and center' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half page and center' })
 
 -- Search word under cursor
 vim.keymap.set(
   'n',
   '<leader>S',
-  ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gIc<Left><Left><Left><Left>'
+  ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gIc<Left><Left><Left><Left>',
+  { desc = '[S]ubstitute word under cursor' }
 )
 
 -- Keep search terms in the middle of the screen
-vim.keymap.set('n', 'n', 'nzzzv')
-vim.keymap.set('n', 'N', 'Nzzzv')
+vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Next search result and center' })
+vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Previous search result and center' })
 
 -- Keep p reserved when pasting over something
-vim.keymap.set('x', '<leader>p', '"_dP')
+vim.keymap.set('x', '<leader>p', '"_dP', { desc = '[P]aste without yanking replaced text' })
 
 -- Yank to clipboard
 vim.keymap.set('n', '<leader>y', '"+y', { desc = 'Copy into clipboard.' })
@@ -54,24 +55,24 @@ vim.keymap.set(
 )
 
 -- Exit insert mode with Ctrl-C
-vim.keymap.set('i', '<C-c>', '<Esc>')
+vim.keymap.set('i', '<C-c>', '<Esc>', { desc = 'Exit insert mode' })
 
 -- Yank whole file to clipboard
-vim.keymap.set('n', '<C-c>', ':%y+<CR>', { silent = true })
+vim.keymap.set('n', '<C-c>', ':%y+<CR>', { desc = 'Copy entire file to clipboard', silent = true })
 
 -- Disable Q
-vim.keymap.set('n', 'Q', '<nop>')
+vim.keymap.set('n', 'Q', '<nop>', { desc = 'Disable Ex mode' })
 
 -- Go to errors
-vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
-vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
+vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz', { desc = 'Next location list item' })
+vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz', { desc = 'Previous location list item' })
 
 -- Change file permissions
-vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
+vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { desc = 'Make current file executable', silent = true })
 
 -- Set highlight on search, clear on <Esc>
 vim.opt.hlsearch = true
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlights' })
 
 -- Diagnostic keymaps
 vim.keymap.set(
@@ -108,10 +109,10 @@ vim.keymap.set(
 )
 
 -- Disable arrow keys in normal mode
-vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>', { desc = 'Disabled: use h' })
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>', { desc = 'Disabled: use l' })
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>', { desc = 'Disabled: use k' })
+vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>', { desc = 'Disabled: use j' })
 
 -- Split navigation
 vim.keymap.set(
@@ -150,13 +151,13 @@ for _, mode in ipairs(modes) do
 end
 
 -- Yank entire buffer
-vim.keymap.set('n', '<C-S-A>', 'ggVG')
+vim.keymap.set('n', '<C-S-A>', 'ggVG', { desc = 'Select entire buffer' })
 
 -- Control split size
-vim.keymap.set('n', '<M-,>', '<c-w>5<')
-vim.keymap.set('n', '<M-.>', '<c-w>5>')
-vim.keymap.set('n', '<M-t>', '<C-W>+')
-vim.keymap.set('n', '<M-s>', '<C-W>-')
+vim.keymap.set('n', '<M-,>', '<c-w>5<', { desc = 'Decrease window width' })
+vim.keymap.set('n', '<M-.>', '<c-w>5>', { desc = 'Increase window width' })
+vim.keymap.set('n', '<M-t>', '<C-W>+', { desc = 'Increase window height' })
+vim.keymap.set('n', '<M-s>', '<C-W>-', { desc = 'Decrease window height' })
 
 -- Close buffer without closing the split
 vim.keymap.set(
