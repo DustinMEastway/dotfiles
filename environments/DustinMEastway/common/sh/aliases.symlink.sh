@@ -3,8 +3,12 @@
 # *** Code aliases *** #
 # Display local branches and current status.
 alias gitS='git branch && git status'
+# Build after checking node & dependency versions.
+alias npmB='npmI && npm run build'
 # Make sure node version & dependencies are up to date.
 alias npmI='nvm use && npm install'
+# Start after checking node & dependency versions.
+alias npmS='npmI && npm run start'
 
 # *** Notes aliases *** #
 # Change directories into the notes folder.

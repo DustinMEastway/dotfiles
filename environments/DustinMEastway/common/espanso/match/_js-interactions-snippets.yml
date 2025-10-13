@@ -18,6 +18,24 @@ global_vars:
     type: "match"
 matches:
   -
+    label: "Log the DB records out."
+    replace: |-
+      window.indexedDB.open('LokiCatalog', 2).onsuccess = (dbEvent) => {
+        const objectStore = dbEvent.target.result.transaction('LokiAKV', 'readwrite').objectStore('LokiAKV');
+        objectStore.getAll().onsuccess = (recordsEvent) => {
+          console.log(
+            recordsEvent.target.result.flatMap(({ val }) => {
+              return JSON.parse(val).collections.filter(({ objType }) => {
+                return objType === 'trees';
+              }).flatMap(({ data }) => {
+                return data;
+              });
+            })
+          );
+        }
+      };
+    trigger: ":dbDesigns"
+  -
     label: "Find a module on serialized."
     form: |-
       {{serialized}}.modules.find(({ name }) => {
@@ -46,14 +64,34 @@ matches:
   -
     label: "Loop through all nodes on all modules on serialized."
     replace: |-
-      {{serialized}}.modules.flatMap((mod) => {
+      console.log({{serialized}}.modules.flatMap((mod) => {
         return mod{{nodesPath}}.map((node) => {
-          return { mod, node };
+          return { mod, item: node };
         });
-      }).forEach(({ mod, node }) => {
-        console.log(`${mod.name} ${node.name}`);
-      });
+      }).filter(() => {
+        return true;
+      }).map(({ mod, item }) => {
+        return `${mod.name} ${item.name}`;
+      }).join('\n'));
     trigger: ":lNode"
+  -
+    label: "Loop through all nodes on all modules & objects on serialized."
+    replace: |-
+      console.log([
+        ...{{serialized}}.modules.flatMap((mod) => {
+          return mod{{nodesPath}}.map((node) => {
+            return { mod, item: node };
+          });
+        }),
+        ...{{serialized}}.objects.map((obj) => {
+          return { item: obj };
+        })
+      ].filter(() => {
+        return true;
+      }).map(({ item }) => {
+        return `${item.name}`;
+      }).join('\n'));
+    trigger: ":lObjNode"
   -
     label: "Get nodes off from a serialized module."
     replace: ".versions[1].flow.nodes"

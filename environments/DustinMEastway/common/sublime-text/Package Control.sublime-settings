@@ -13,10 +13,12 @@
     "LSP-Deno",
     "LSP-eslint",
     "LSP-file-watcher-chokidar",
+    "LSP-pylsp",
     "LSP-typescript",
     "MoveTab",
     "OpenAI completion",
     "Package Control",
     "Sass",
+    "Text Pastry",
   ],
 }

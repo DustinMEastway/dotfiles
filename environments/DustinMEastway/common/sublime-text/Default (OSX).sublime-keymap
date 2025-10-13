@@ -174,7 +174,7 @@
     ],
     "keys": ["enter"]
   },
-  // Finding a file & hitting enter should replace.
+  // Finding a file & hitting shift+enter should add a new tab.
   {
     "command": "select",
     "context": [
@@ -215,7 +215,7 @@
       { "key": "setting.command_mode" },
       { "key": "setting.vintage_ctrl_keys" }
     ],
-    "keys": [" ", "g", "g"]
+    "keys": [" ", "g", "s"]
   },
   // Show Git repository.
   {

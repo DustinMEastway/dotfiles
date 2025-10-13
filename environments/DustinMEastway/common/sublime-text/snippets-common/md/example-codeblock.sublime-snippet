@@ -2,15 +2,15 @@
   <content><![CDATA[
 ${99:<!--
 Code:
-${3:Code}
+${2:Code}
 -->
 }> [!example]-
 > ##### Syntax
-> ```md
-> ${3/\n/\n> /g}
+> ```${1:md}
+> ${2/\n/\n> /g}
 > ```
 > > [!info] Output
-> > ${3/\n/\n> > /g}$0
+> > ${2/\n/\n> > /g}$0
 ]]></content>
   <tabTrigger>mdExampleCodeblock</tabTrigger>
   <scope>text.html.markdown</scope>

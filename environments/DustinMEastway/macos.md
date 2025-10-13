@@ -60,39 +60,7 @@ Here is an explaination of some of the homebrew formulas I have installed.
 
 ## Finder
 
-### Advanced
-
-- **Show all filename extensions**: `true`.
-- **Show warning before changing an extension**: `false`.
-
-### General
-
-- **New Finder windows show**: `{username}`.
-
-### Sidebar
-
-#### Favorites
-
-- **Applications**: `true`.
-- **Downloads**: `true`.
-- **{username}**: `true`.
-
-#### iCloud
-
-- **iCloud Drive**: `false`.
-- **Shared**: `false`.
-
-#### Locations
-
-- **Hard disks**: `true`.
-- **External disks**: `true`.
-- **CDs, DVDs, and iOS Devices**: `true`.
-- **Cloud Storage**: `true`.
-- **Bonjour computers**: `true`.
-- **Connected servers**: `true`.
-- **Recent Tags**: `true`.
-
-#### Sidebar Items
+### Sidebar Items
 
 This is not in the Finder settings, just drag and drop the items in the sidebar until it matches this list. Some directories may not exist and will need to be created prior to adding them to the sidebar.
 
@@ -103,6 +71,51 @@ This is not in the Finder settings, just drag and drop the items in the sidebar 
 - `Media`: `~/Media`.
 - `Sites`: `~/Sites`.
 - `Tags`: N/A.
+
+### View
+
+- **Show Path Bar**: `true`.
+
+### Settings
+
+#### Advanced
+
+- **Show all filename extensions**: `true`.
+- **Show warning before changing an extension**: `false`.
+
+#### General
+
+- **New Finder windows show**: `{username}`.
+
+#### Sidebar
+
+##### Favorites
+
+- **Applications**: `true`.
+- **Downloads**: `true`.
+- **{username}**: `true`.
+
+##### iCloud
+
+- **iCloud Drive**: `false`.
+- **Shared**: `false`.
+
+##### Locations
+
+- **Hard disks**: `true`.
+- **External disks**: `true`.
+- **CDs, DVDs, and iOS Devices**: `true`.
+- **Cloud Storage**: `true`.
+- **Bonjour computers**: `true`.
+- **Connected servers**: `true`.
+- **Recent Tags**: `true`.
+
+## Insomnia
+
+### General
+
+- **What folders can Insomnia access?**:
+  - `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/notes/Database/Assets`
 
 ## iPhone
 

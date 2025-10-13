@@ -4,16 +4,17 @@ global_vars:
 matches:
   -
     label: "Creates a lambda function."
-    form: "($|$[[params]]) => {\n\treturn [[result]];\n}"
+    form: "($|$) => "
     trigger: ":fn"
   -
     label: "Logs a message to the console."
     replace: "console.log($|$);"
     trigger: ":log"
   -
+    backend: keys
     label: "Calls an array function."
-    replace: ".{{functionName}}({{lambda}});"
-    regex: ":(?P<functionName>(filter|find|map|sort))"
+    replace: ".{{functionName}}({{lambda}})"
+    regex: ":(?P<functionName>(filter|find|map|some|sort))"
     vars:
       -
         name: "lambda"

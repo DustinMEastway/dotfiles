@@ -1,9 +1,11 @@
 <snippet>
   <content><![CDATA[
-($0) => {
-  return;
-}
+/**
+ * JSDoc imports.
+ *
+ * @import { $0 } from '$1';
+ */
 ]]></content>
-  <tabTrigger>tsLambda</tabTrigger>
+  <tabTrigger>tsDocImport</tabTrigger>
   <scope>source.js, source.jsx, source.ts, source.tsx</scope>
 </snippet>

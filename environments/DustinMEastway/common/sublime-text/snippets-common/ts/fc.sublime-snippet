@@ -1,12 +1,14 @@
 <snippet>
   <content><![CDATA[
-import { FC } from 'react';
+${99:/*
+name: ${1:${TM_FILENAME/\.tsx$|(?:^|-)([a-z])/\u\1/g}}
+propsType: ${2:$1Props}
+*/
+}import { FC } from 'react';
 
-export type $1Props = {$0
-};
+${2/(.+)/export type $1 = \{\n\};
 
-export const $1: FC<${1:${TM_FILENAME/\.tsx$|(?:^|-)([a-z])/\u\1/g}}Props> = ({
-}) => {
+/}export const $1: FC${2/(.+)/<$1>/} = (${2/(.+)/\{\n\}/}) => {$0
   return (
     <>$1 Works!</>
   );

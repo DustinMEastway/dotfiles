@@ -38,11 +38,29 @@ then
   source "$HOME/.aliases-common.sh"
 fi
 
+# Java setup.
+if [[ -d "$(brew --prefix)/opt/openjdk/bin" ]]
+then
+  export PATH="$(brew --prefix)/opt/openjdk/bin:$PATH"
+fi
+
 # *** Tools setup *** #
+# pipx setup.
+if [[ -d "/Users/deastway/.local/bin" ]]
+then
+  export PATH="$PATH:/Users/deastway/.local/bin"
+fi
+
 # Pyenv setup.
 if [[ "$(command -v pyenv)" != "" ]]
 then
-  PATH="$(pyenv root)/shims:$PATH"
+  export PATH="$(pyenv root)/shims:$PATH"
+fi
+
+# Rancher setup.
+if [[ -d "/Users/deastway/.rd/bin" ]]
+then
+  export PATH="/Users/deastway/.rd/bin:$PATH"
 fi
 
 # Ruby setup.

@@ -8,6 +8,19 @@ global_vars:
 matches:
   -
     label: "Add a subview section to a View note."
+    replace: |+
+
+      ## Action Items
+
+      [[Database/Character/Nonfiction/Dustin Eastway|Dustin]]
+      - [ ] .$|$
+
+
+      ^myActionItems
+    triggers:
+      - ":action"
+  -
+    label: "Add a subview section to a View note."
     replace: |-
       # Subviews
 

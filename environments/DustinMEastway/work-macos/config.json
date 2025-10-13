@@ -10,6 +10,7 @@
           "kind",
           "mvnvm",
           "nvm",
+          "openjdk@11",
           "pyenv"
         ]
       }
@@ -26,10 +27,12 @@
           "insomnia",
           "linearmouse",
           "obsidian",
+          "rancher",
           "raycast",
           "rider",
           "sublime-merge",
           "sublime-text",
+          "visual-studio-code",
           "zed"
         ]
       }
@@ -62,6 +65,10 @@
     {
       "key": "symlink",
       "value": [
+        {
+          "file": "./common/jetbrains/ideavimrc.symlink.sh",
+          "link": "~/.ideavimrc"
+        },
         {
           "file": "./common/sh/aliases.symlink.sh",
           "link": "~/.aliases-common.sh"
@@ -99,6 +106,10 @@
           "link": "~/Library/Application Support/Sublime Text/Packages/User/"
         },
         {
+          "file": "./common/vim/vimrc.symlink.sh",
+          "link": "~/.vimrc"
+        },
+        {
           "file": "./work-macos/sh/aliases.symlink.sh",
           "link": "~/.aliases.sh"
         },
@@ -131,9 +142,6 @@
           "link": "~/.env-private.sh"
         }
       ]
-    },
-    {
-      "key": "brew-sync"
     }
   ]
 }
