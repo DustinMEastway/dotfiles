@@ -155,10 +155,10 @@ return { -- LSP Configuration & Plugins
       ),
       callback = function(event)
         vim.lsp.buf.clear_references()
-        vim.api.nvim_clear_autocmds {
+        pcall(vim.api.nvim_clear_autocmds, {
           group = 'kickstart-lsp-highlight',
           buffer = event.buf,
-        }
+        })
       end,
     })
     -- LSP servers and clients are able to communicate to each other what features they support.
@@ -276,7 +276,12 @@ return { -- LSP Configuration & Plugins
     --    :Mason
     --
     --  You can press `g?` for help in this menu.
-    require('mason').setup()
+    require('mason').setup({
+      registries = {
+        'github:mason-org/mason-registry',
+        'github:Crashdummyy/mason-registry',
+      },
+    })
 
     -- You can add other tools here that you want Mason to install
     -- for you, so that they are available from within Neovim.

@@ -12,49 +12,28 @@ return { -- Autoformat
   },
   opts = {
     notify_on_error = false,
-    format_on_save = {
-      -- I recommend these options. See :help conform.format for details.
-      lsp_format = 'fallback',
-      timeout_ms = 500,
-    },
-    -- format_on_save = function(bufnr)
-    --   -- Disable "format_on_save lsp_fallback" for languages that don't
-    --   -- have a well standardized coding style. You can add additional
-    --   -- languages here or re-enable it for the disabled ones.
-    --   -- local disable_filetypes = { c = true, cpp = true }
-    --   -- local disable_filetypes = {}
-    --   return {
-    --     timeout_ms = 500,
-    --     -- lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-    --   }
-    -- end,
+    -- Disable format on save globally - use <leader>f to format manually
+    -- To enable per-project, create a .nvim.lua file with:
+    -- vim.api.nvim_create_autocmd("BufWritePre", {
+    --   callback = function() require("conform").format({ lsp_fallback = true }) end
+    -- })
     formatters_by_ft = {
       lua = { 'stylua' },
-      astro = { 'prettierd'},
-      javascript = { 'eslint_d', 'eslint', 'prettierd' },
-      svelte = { 'eslint_d', 'eslint', 'prettierd', 'prettier' },
-      typescript = {
-        'prettierd',
-        -- 'prettier',
-        'eslint',
-        'eslint_d',
-        -- 'deno_fmt',
-      },
-      typescriptreact = {  'deno_fmt','prettierd', 'eslint_d', },
+      astro = { 'prettierd' },
+      javascript = { 'prettierd' },
+      javascriptreact = { 'prettierd' },
+      typescript = { 'prettierd' },
+      typescriptreact = { 'prettierd' },
+      svelte = { 'prettierd' },
       css = { 'prettierd' },
       html = { 'prettierd' },
       json = { 'prettierd' },
       yaml = { 'prettierd' },
       markdown = { 'prettierd' },
       graphql = { 'prettierd' },
-      -- Conform can also run multiple formatters sequentially
-      python = { "isort", "black" },
-      go = { "goimports", "gofmt" }, -- Added Go formatters
-
-      --
-      -- You can use a sub-list to tell conform to run *until* a formatter
-      -- is found.
-      -- javascript = { { "prettierd", "prettier" } },
+      python = { 'isort', 'black' },
+      go = { 'goimports', 'gofmt' },
+      ruby = { 'rubocop' },
     },
   },
 }

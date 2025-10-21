@@ -1,17 +1,24 @@
 return {
   {
     'CopilotC-Nvim/CopilotChat.nvim',
+    cmd = {
+      'CopilotChat',
+      'CopilotChatOpen',
+      'CopilotChatClose',
+      'CopilotChatToggle',
+      'CopilotChatExplain',
+      'CopilotChatReview',
+      'CopilotChatFix',
+      'CopilotChatOptimize',
+      'CopilotChatDocs',
+      'CopilotChatTests',
+    },
     dependencies = {
-      { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
-      { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
+      { 'zbirenbaum/copilot.lua' },
+      { 'nvim-lua/plenary.nvim' },
     },
-    build = 'make tiktoken', -- Only on MacOS or Linux
-
-    opts = {
-      -- debug = true, -- Enable debugging
-      -- See Configuration section for rest
-    },
-    -- See Commands section for default commands if you want to lazy load on them
+    build = 'make tiktoken',
+    opts = {},
   },
 }
 

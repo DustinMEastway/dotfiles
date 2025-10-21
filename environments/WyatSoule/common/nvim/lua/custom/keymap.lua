@@ -1,7 +1,7 @@
 local modes = { 'n', 'i', 'v' }
 
--- Open file view (bigger neotree)
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open file explorer' })
+-- Open file explorer (netrw)
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open file explorer (netrw)' })
 
 -- Keep cursor where it was when doing J
 vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Join lines without moving cursor' })
@@ -70,8 +70,7 @@ vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz', { desc = 'Previous location
 -- Change file permissions
 vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { desc = 'Make current file executable', silent = true })
 
--- Set highlight on search, clear on <Esc>
-vim.opt.hlsearch = true
+-- Clear search highlights on pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlights' })
 
 -- Diagnostic keymaps
