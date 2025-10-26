@@ -4,4 +4,5 @@
 	"theme": "Merge Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"tab_size": 8,
+	"update_check": true,
 }

@@ -1,18 +1,22 @@
 import { exec, logFail, logInfo, logSuccess } from '../functions/index';
 import { Command } from '../models/index';
 
-export interface BrewInstallConfig {
+export type BrewInstallItemConfig = {
+  description?: string;
+};
+
+export type BrewInstallConfig = {
   args?: string;
-  items: string[];
+  items: (
+    // List of dependencies.
+    string[]
+    // Keys are dependencies & values are configurations.
+    | Record<string, BrewInstallItemConfig | null>
+  );
 }
 
 export const brewInstall: Command<BrewInstallConfig> = async (_, config) => {
-  const { args, items } = config || {};
-  if (!(items instanceof Array) || !items.length) {
-    logFail('No items were supplied to the brew-install command.');
-  } else if (items.some((item) => !item || typeof item !== 'string')) {
-    logFail('Invalid item(s) were supplied to the brew-install command.');
-  }
+  const { args } = config || {};
 
   try {
     const itemsToInstall = await filterInstalledPackages(config);
@@ -36,8 +40,21 @@ export const brewInstall: Command<BrewInstallConfig> = async (_, config) => {
   }
 }
 
-async function filterInstalledPackages(config: BrewInstallConfig): Promise<string[]> {
-  const { args, items } = config;
+export function getBrewInstallPackages(items: BrewInstallConfig['items']): string[] {
+  items = (items instanceof Array) ? items : (
+    (items instanceof Object) ? Object.keys(items) : []
+  );
+
+  if (!items.length) {
+    logFail('No items were supplied to the brew-install command.');
+  } else if (items.some((item) => !item || typeof item !== 'string')) {
+    logFail('Invalid item(s) were supplied to the brew-install command.');
+  }
+
+  return items;
+}
+
+async function filterInstalledPackages({ args, items }: BrewInstallConfig): Promise<string[]> {
   const isCask = /--casks?\b/.test(args ?? '');
   const installedPackages = new Set(
     (await exec(`brew list ${(isCask) ? '--cask' : '--formula'}`)).split(/\s*\n\s*/)
@@ -45,7 +62,7 @@ async function filterInstalledPackages(config: BrewInstallConfig): Promise<strin
 
   const itemsToInstall: string[] = [];
   const itemsToSkip: string[] = [];
-  items.forEach((item) => {
+  getBrewInstallPackages(items).forEach((item) => {
     item = item.replace(/.*\//, '');
     if (installedPackages.has(item)) {
       itemsToSkip.push(item);

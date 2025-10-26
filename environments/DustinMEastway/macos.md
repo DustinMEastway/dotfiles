@@ -39,9 +39,22 @@
 ## Brew
 
 Here is an explaination of some of the homebrew formulas I have installed.
+- `alacritty`: Fast terminal emulator.
 - `deno`: TypeScript runner similar to what node is to JavaScript.
-- `nvm`: Manages node versions.
+- `fd`: Simplified `find` command.
+  - Required by: [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim).
+- `findutils`: Adds `gfind` command that supports `-printf` unlike the built-in `find` command.
+- `font-hack-nerd-font`: Installs the [Nerd font](https://www.nerdfonts.com) version of [Hack font](https://github.com/source-foundry/Hack).
+  - Used by: [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim).
+- `handbrake-app`: Converts video from one format to another.
+- `mgba-app`: Plays GBA ROMs.
+- `multipatch`: Patches GBA ROM files to play hacked versions of games.
+- `nvm`: Node version manager.
+- `nvim`: NeoVIM text editor/IDE.
 - `postgresql@14`: Open source SQL server.
+- `ripgrep`: Regex searches in files in a directory.
+  - Required by: [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim).
+- `zulu11`: Open source Java developer kit (OpenJDK).
 
 ## CurseForge
 
@@ -202,9 +215,6 @@ Lets you keep your mac from sleeping.
     * Hotkey: `Control + Option + J`.
   * Top Right Quarter.
     * Hotkey: `Control + Option + K`.
-
-## Software Installs
-- [Download Wacom Cintiq Driver](https://www.wacom.com/download).
 
 ## Sublime Text
 

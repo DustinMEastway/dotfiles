@@ -7,6 +7,12 @@ imports:
 global_vars:
 matches:
   -
+    label: "Cover."
+    replace: |
+      `= "![Cover|200](" + this.cover + ")"`
+    triggers:
+      - ":cover"
+  -
     label: "Add a subview section to a View note."
     replace: |+
 

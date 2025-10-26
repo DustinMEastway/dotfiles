@@ -17,13 +17,18 @@
           "coreutils",
           "deno",
           "docker",
+          "dotnet",
+          "fd",
           "ffmpeg",
+          "findutils",
           "mongodb/brew/mongodb-community",
           "mono",
           "nvm",
+          "neovim",
           "openssl@1.1",
           "postgresql@14",
           "redis",
+          "ripgrep",
           "ruby@2.7",
           "yt-dlp"
         ]
@@ -36,31 +41,30 @@
         "items": [
           "1password",
           "1password-cli",
+          "alacritty",
           "altserver",
           "android-studio",
           "bambu-studio",
           "brave-browser",
           "calibre",
           "curseforge",
-          "discord",
           "docker",
-          "dotnet-sdk",
           "dropbox",
           "espanso",
+          "font-hack-nerd-font",
           "gimp",
           "godot-mono",
-          "handbrake",
+          "handbrake-app",
           "iina",
           "imageoptim",
           "insomnia",
           "keyboard-maestro",
           "legcord",
           "linearmouse",
-          "multimc",
+          "mgba-app",
           "multipatch",
           "obsidian",
-          "ollama",
-          "parallels",
+          "omnidisksweeper",
           "pgadmin4",
           "plex",
           "plex-media-server",
@@ -72,7 +76,7 @@
           "steam",
           "sublime-merge",
           "sublime-text",
-          "whisky",
+          "vivaldi",
           "zed",
           "zoom",
           "zulu11"
@@ -141,6 +145,10 @@
           "link": "~/Library/Application Support/espanso/"
         },
         {
+          "file": "./common/nvim/",
+          "link": "~/.config/nvim"
+        },
+        {
           "file": "./common/sublime-merge/",
           "link": "~/Library/Application Support/Sublime Merge/Packages/User/"
         },
@@ -181,11 +189,11 @@
           "link": "~/.env-private.sh"
         },
         {
-          "file": "~/Dropbox/Terraria/Players",
+          "file": "~/Library/CloudStorage/Dropbox/Terraria/Players",
           "link": "~/Library/Application Support/Terraria/Players"
         },
         {
-          "file": "~/Dropbox/Terraria/Worlds",
+          "file": "~/Library/CloudStorage/Dropbox/Terraria/Worlds",
           "link": "~/Library/Application Support/Terraria/Worlds"
         }
       ]
@@ -226,7 +234,8 @@
       }
     },
     {
-      "key": "brew-sync"
+      "key": "brew-sync",
+      "value": { "action": "throw" }
     }
   ]
 }
