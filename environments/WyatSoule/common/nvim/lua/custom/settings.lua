@@ -90,8 +90,8 @@ vim.opt.undofile = true
 -- Enable incremental search
 vim.opt.incsearch = true
 
--- Set update time to be fast (look into this)
-vim.opt.updatetime = 50
+-- Set update time for better performance and responsiveness
+vim.opt.updatetime = 250
 
 -- Add a colored column on 100th column.
 vim.opt.colorcolumn = '100'

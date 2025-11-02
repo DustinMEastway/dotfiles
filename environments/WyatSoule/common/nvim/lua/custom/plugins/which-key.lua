@@ -14,6 +14,8 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>w', group = '[W]orkspace' },
       { '<leader>t', group = '[T]oggle' },
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+      { '<leader>F', group = '[F]ind/Replace (Spectre)' },
+      { '<leader>H', group = '[H]arpoon' },
       { '<C-w>t', group = '[T]erminal' },
     }
   end,

@@ -1,7 +1,7 @@
 return {
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
-    event = 'VimEnter',
+    cmd = 'Telescope',
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -49,18 +49,12 @@ return {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
+        defaults = {
+          file_ignore_patterns = { '.git/' },
+        },
         pickers = {
           find_files = {
-            'rg',
-            '--files',
-            '--hidden',
-            '-g',
-            '!.git',
+            hidden = true,
           },
         },
         extensions = {

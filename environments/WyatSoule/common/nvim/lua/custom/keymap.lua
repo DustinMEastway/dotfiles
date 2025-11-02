@@ -1,8 +1,5 @@
 local modes = { 'n', 'i', 'v' }
 
--- Open file explorer (netrw)
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open file explorer (netrw)' })
-
 -- Keep cursor where it was when doing J
 vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Join lines without moving cursor' })
 

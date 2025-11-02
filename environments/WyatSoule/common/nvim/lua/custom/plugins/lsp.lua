@@ -5,7 +5,7 @@ return { -- LSP Configuration & Plugins
     {
       'folke/neoconf.nvim',
       cmd = 'Neoconf',
-      config = false,
+      config = true,
       dependencies = {
         'nvim-lspconfig',
       },
@@ -180,15 +180,6 @@ return { -- LSP Configuration & Plugins
     --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-    local function organize_imports()
-      local params = {
-        command = '_typescript.organizeImports',
-        arguments = { vim.api.nvim_buf_get_name(0) },
-        title = '',
-      }
-      vim.lsp.buf.execute_command(params)
-    end
-
     local servers = {
       clangd = {},
       cssls = {
@@ -220,38 +211,14 @@ return { -- LSP Configuration & Plugins
         root_dir = require('lspconfig.util').root_pattern 'package.json',
         capabilities = capabilities,
         single_file_support = false,
-        -- commands = {
-        --   OrganizeImports = {
-        --     organize_imports,
-        --     description = 'Organize Imports',
-        --   },
-        -- },
       },
       html = {},
       tailwindcss = {},
-      -- denols = {
-      --   root_dir = require('lspconfig.util').root_pattern(
-      --     'deno.json',
-      --     'deno.jsonc'
-      --   ),
-      --   unstable = true,
-      --   lint = true,
-      --   capabilities = capabilities,
-      -- },
       pyright = {},
       rust_analyzer = {},
       ruby_lsp = {
-          cmd = { "bundle", "exec", "ruby-lsp" },
-        -- cmd = { os.getenv('HOME') .. "/.rbenv/shims/ruby-lsp"}
+        cmd = { "bundle", "exec", "ruby-lsp" },
       },
-      -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-      --
-      -- Some languages (like typescript) have entire language plugins that can be useful:
-      --    https://github.com/pmizio/typescript-tools.nvim
-      --
-      -- But for many setups, the LSP (`tsserver`) will work just fine
-      -- tsserver = {},
-      --
 
       lua_ls = {
         -- cmd = {...},
@@ -267,7 +234,6 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
-      eslint = {},
     }
 
     -- Ensure the servers and tools above are installed
@@ -276,19 +242,13 @@ return { -- LSP Configuration & Plugins
     --    :Mason
     --
     --  You can press `g?` for help in this menu.
-    require('mason').setup({
-      registries = {
-        'github:mason-org/mason-registry',
-        'github:Crashdummyy/mason-registry',
-      },
-    })
+    require('mason').setup()
 
     -- You can add other tools here that you want Mason to install
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
-      'stylua', -- Used to format Lua code
-      -- 'denols',
+      'stylua',
       'eslint_d',
       'prettier',
       'prettierd',

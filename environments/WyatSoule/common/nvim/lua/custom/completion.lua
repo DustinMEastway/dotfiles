@@ -41,7 +41,7 @@ cmp.setup {
     -- Accept ([y]es) the completion.
     --  This will auto-import if your LSP supports it.
     --  This will expand snippets if the LSP sent a snippet.
-    ['<C-;>'] = cmp.mapping(
+    ['<C-y>'] = cmp.mapping(
       cmp.mapping.confirm {
         behavior = cmp.ConfirmBehavior.Insert,
         select = true,
@@ -65,11 +65,15 @@ cmp.setup {
     ['<C-l>'] = cmp.mapping(function()
       if luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
+      else
+        fallback()
       end
     end, { 'i', 's' }),
     ['<C-h>'] = cmp.mapping(function()
       if luasnip.locally_jumpable(-1) then
         luasnip.jump(-1)
+      else
+        fallback()
       end
     end, { 'i', 's' }),
 
