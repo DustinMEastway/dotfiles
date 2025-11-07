@@ -5,7 +5,8 @@
       "key": "brew-tap",
       "value": {
         "items": [
-          "mongodb/brew"
+          "mongodb/brew",
+          "nikitabobko/tap"
         ]
       }
     },
@@ -63,6 +64,7 @@
           "linearmouse",
           "mgba-app",
           "multipatch",
+          "nikitabobko/tap/aerospace",
           "obsidian",
           "omnidisksweeper",
           "pgadmin4",
@@ -116,6 +118,10 @@
     {
       "key": "symlink",
       "value": [
+        {
+          "file": "./common/aerospace/aerospace-config.toml",
+          "link": "~/.aerospace.toml"
+        },
         {
           "file": "./common/sh/aliases.symlink.sh",
           "link": "~/.aliases-common.sh"
