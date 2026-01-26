@@ -8,6 +8,15 @@
     ],
     "keys": [" ", " "]
   },
+  // Accept context menu option.
+  {
+    "keys": ["ctrl+y"],
+    "command": "commit_completion",
+    "context": [
+      { "key": "auto_complete_visible" },
+      { "key": "setting.auto_complete_commit_on_tab", "operand": false }
+    ]
+  },
   // Copy to clipboard instead of VIM register.
   {
     "command": "copy",
@@ -59,7 +68,7 @@
       { "key": "setting.command_mode" },
       { "key": "setting.vintage_ctrl_keys" }
     ],
-    "keys": [" ", "g", "d"]
+    "keys": ["g", "d"]
   },
   // Go to usage.
   {
@@ -68,7 +77,24 @@
       { "key": "setting.command_mode" },
       { "key": "setting.vintage_ctrl_keys" }
     ],
-    "keys": [" ", "g", "u"]
+    "keys": ["g", "u"]
+  },
+  // Go to usage.
+  {
+    "command": "next_result",
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["g", "j"]
+  },
+  {
+    "command": "prev_result",
+    "context": [
+      { "key": "setting.command_mode" },
+      { "key": "setting.vintage_ctrl_keys" }
+    ],
+    "keys": ["g", "k"]
   },
   // Rename symbol.
   {
@@ -131,6 +157,18 @@
   {
     "command": "noop",
     "keys": ["ctrl+super+up"]
+  },
+  {
+    "command": "noop",
+    "keys": ["super+alt+forward_slash"]
+  },
+  {
+    "keys": ["shift+f4"],
+    "command": "noop"
+  },
+  {
+    "keys": ["f4"],
+    "command": "noop"
   },
   {
     "command": "noop",
@@ -230,6 +268,12 @@
   {
     "command": "swap_line_up",
     "keys": ["ctrl+super+k"]
+  },
+  // Toggle a block of comments.
+  {
+    "args": { "block": true },
+    "command": "toggle_comment",
+    "keys": ["super+shift+/"]
   },
   // Hide side bar.
   {

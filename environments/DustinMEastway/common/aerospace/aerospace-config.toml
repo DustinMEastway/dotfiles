@@ -18,12 +18,12 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 accordion-padding = 30
 
 # Possible values: tiles|accordion
-default-root-container-layout = 'tiles'
+default-root-container-layout = 'accordion'
 
 # Possible values: horizontal|vertical|auto
 # 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
 #               tall monitor (anything higher than wide) gets vertical orientation
-default-root-container-orientation = 'auto'
+default-root-container-orientation = 'vertical'
 
 # Mouse follows focus when focused monitor changes
 # Drop it from your config, if you don't like this behavior
@@ -117,12 +117,14 @@ automatically-unhide-macos-hidden-apps = true
     alt-s = 'workspace S'
     alt-d = 'workspace D'
     alt-f = 'workspace F'
+    alt-g = 'workspace G'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-a = 'move-node-to-workspace A'
     alt-shift-d = 'move-node-to-workspace D'
     alt-shift-f = 'move-node-to-workspace F'
     alt-shift-s = 'move-node-to-workspace S'
+    alt-shift-g = 'move-node-to-workspace G'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'

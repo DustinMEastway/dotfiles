@@ -9,6 +9,6 @@ propsType: ${2:${1/^(\w)/\u\1/}Props}
 \}: $1/}) {
 }
 ]]></content>
-  <tabTrigger>tsFunction</tabTrigger>
+  <tabTrigger>:function</tabTrigger>
   <scope>source.ts, source.tsx</scope>
 </snippet>

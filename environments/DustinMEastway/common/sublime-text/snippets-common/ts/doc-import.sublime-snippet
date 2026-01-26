@@ -6,6 +6,6 @@
  * @import { $0 } from '$1';
  */
 ]]></content>
-  <tabTrigger>tsDocImport</tabTrigger>
+  <tabTrigger>:docImport</tabTrigger>
   <scope>source.js, source.jsx, source.ts, source.tsx</scope>
 </snippet>

@@ -2,6 +2,14 @@
   "fileRoot": "./environments/DustinMEastway/",
   "commands": [
     {
+      "key": "brew-tap",
+      "value": {
+        "items": [
+          "nikitabobko/tap"
+        ]
+      }
+    },
+    {
       "key": "brew-install",
       "value": {
         "items": [
@@ -22,6 +30,7 @@
         "items": [
           "1password",
           "1password-cli",
+          "nikitabobko/tap/aerospace",
           "brave-browser",
           "espanso",
           "insomnia",
@@ -65,6 +74,10 @@
     {
       "key": "symlink",
       "value": [
+        {
+          "file": "./common/aerospace/aerospace-config.toml",
+          "link": "~/.aerospace.toml"
+        },
         {
           "file": "./common/jetbrains/ideavimrc.symlink.sh",
           "link": "~/.ideavimrc"

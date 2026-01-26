@@ -6,6 +6,6 @@ test('${1:Functionality}.', () => {
   // Assert
 });
 ]]></content>
-  <tabTrigger>tsTest</tabTrigger>
+  <tabTrigger>:test</tabTrigger>
   <scope>source.js, source.jsx, source.ts, source.tsx</scope>
 </snippet>

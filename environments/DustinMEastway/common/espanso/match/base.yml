@@ -20,9 +20,9 @@ global_vars:
     type: "echo"
 matches:
   -
-    label: "Lazy man's OmniChannel."
-    replace: "OmniChannel"
-    trigger: ":oc"
+    label: "RegEx find quotes"
+    replace: "['\"]"
+    trigger: ":'"
   -
     label: "Public IP Address"
     replace: "{{ipAddress}}"

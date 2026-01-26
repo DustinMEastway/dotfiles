@@ -1,7 +1,7 @@
 <snippet>
   <content><![CDATA[
-console.log($0);
+const { $0 } = $1;
 ]]></content>
-  <tabTrigger>cons</tabTrigger>
+  <tabTrigger>:destructure</tabTrigger>
   <scope>source.js, source.jsx, source.ts, source.tsx</scope>
 </snippet>
